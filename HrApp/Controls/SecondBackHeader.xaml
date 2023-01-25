@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HrApp.Controls.SecondBackHeader">
+
+        <StackLayout Margin="3">
+                   <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                         <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                         </Label.GestureRecognizers>
+                    </Label>
+                      <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                         </StackLayout.GestureRecognizers>
+                     
+                </StackLayout>
+ 
+</ContentView>

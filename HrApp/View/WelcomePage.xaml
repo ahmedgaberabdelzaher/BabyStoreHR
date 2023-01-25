@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="HrApp.View.WelcomePage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,*">
+<Image Source="welcomewithLogo" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="2"></Image>
+         <!--  <Label HorizontalTextAlignment="Center" Text="YOU ARE OUR PRIDE AND SUCCESS " HorizontalOptions="CenterAndExpand" Margin="0,40,0,10"  FontSize="20" TextColor="#00A7A3" FontFamily="Poppins-Regular.ttf"></Label>
+
+            <Image Source="yearsbadge.png"  Aspect="AspectFit" Margin="78,45,78,20"></Image>
+            <Label HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Margin="0,0,0,60" Text="Thank You for Your trust on us" FontSize="16" TextColor="#214455" FontFamily="Poppins-Regular.ttf"></Label>
+
+            <ScrollView VerticalScrollBarVisibility="Never" Grid.Row="1">
+                <StackLayout>
+
+                    <Label HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand"  Margin="30,165,30,0" Text="You are our pride and success. Your trust, commitment, and dedicated efforts undoubltedly contributing towards our vision" FontSize="16" TextColor="#CEBFB3" FontFamily="Poppins-Regular.ttf"></Label>
+                <Button VerticalOptions="EndAndExpand" Command="{Binding GetStartedCommand}" BackgroundColor="#00A7A3" CornerRadius="35" Margin="30" Text="Get Started"></Button>
+            </StackLayout>
+                    </ScrollView>
+             -->
+            <Button Grid.Row="1" VerticalOptions="EndAndExpand" Command="{Binding GetStartedCommand}" BackgroundColor="#00A7A3" CornerRadius="35" Margin="30" Text="Get Started"></Button>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

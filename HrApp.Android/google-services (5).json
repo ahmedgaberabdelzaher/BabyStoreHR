@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "219498996736",
+    "project_id": "alseef-hr-app",
+    "storage_bucket": "alseef-hr-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219498996736:android:20aaed4e8cc9e141af64e5",
+        "android_client_info": {
+          "package_name": "com.kapps.Test.hrapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219498996736-uut68q6rdutl5sbf7vjq10far2s289ni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApRWGWxl0f1zh3DMiMf5aw6Co7CCk2ewI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219498996736-uut68q6rdutl5sbf7vjq10far2s289ni.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "219498996736-oqglptl88936026at8hn2o5qvd1p2vsl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alseef.hr"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219498996736:android:153a54a39af7eb51af64e5",
+        "android_client_info": {
+          "package_name": "com.kapps.hrapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219498996736-uut68q6rdutl5sbf7vjq10far2s289ni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApRWGWxl0f1zh3DMiMf5aw6Co7CCk2ewI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219498996736-uut68q6rdutl5sbf7vjq10far2s289ni.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "219498996736-oqglptl88936026at8hn2o5qvd1p2vsl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alseef.hr"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

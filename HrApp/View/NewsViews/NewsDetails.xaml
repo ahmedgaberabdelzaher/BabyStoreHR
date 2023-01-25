@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:local="clr-namespace:HrApp.Converters"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#fff"
+             
+             x:Class="HrApp.View.NewsViews.NewsDetails">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ConverterBase64ImageSource x:Key="Base64Image" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid BackgroundColor="#FFFFFF">
+        <Grid RowDefinitions="auto,*">
+            <StackLayout Grid.Row="0" Orientation="Horizontal" BackgroundColor="#FFFFFF" HeightRequest="100">
+                <StackLayout Margin="5">
+                    <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label FontSize="25"  VerticalOptions="CenterAndExpand" TextColor="#214455" FontFamily="Poppins-Bold.ttf"  Text="News &amp; Events"/>
+            </StackLayout>
+           
+                <Grid RowDefinitions="150,auto,auto,*" Grid.Row="1"  Margin="30,0" >
+                <pancakeview:PancakeView
+                                Padding="0"
+                                BackgroundColor="#C2E3D3"
+                              HeightRequest="180"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"         
+                               
+                                CornerRadius="15,0,0,15">
+                    
+                    <Image                                                                                 
+                                       VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand"
+                                                                           
+                                        Aspect="Fill"                                        
+                                        Source="{Binding SelectedNews.fileContentString,Converter={StaticResource Base64Image}}">
+
+                    </Image>
+                  
+                                     
+
+
+
+                </pancakeview:PancakeView>
+               
+                <Label
+                Grid.Row="1"
+                                           Margin="5"
+                                            Text="{Binding SelectedNews.titleArabic }"
+                                           FontSize="16"
+                                            TextColor="#214455"
+                                              FontFamily="Poppins-Bold.ttf"
+                                           
+                                            VerticalOptions="StartAndExpand"
+                                            HorizontalOptions="StartAndExpand"
+                                            VerticalTextAlignment="Start"/>
+            <Label
+                                       
+                          Grid.Row="2"         
+                Text="{Binding SelectedNews.pageDate ,StringFormat='{0:d MMM , yyyy}'}"
+                                           FontSize="13"
+                                            TextColor="#658291"
+                                              FontFamily="Poppins-Bold.ttf"
+                Margin="5"
+                                            MaxLines="2"
+                                            VerticalOptions="StartAndExpand"
+                                            HorizontalOptions="StartAndExpand"
+                                            VerticalTextAlignment="Start"/>
+                <Grid  Grid.Row="3">
+                
+                <WebView   >
+                        <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding SelectedNews.contentArabic}"/>
+                        </WebView.Source>
+                    </WebView>
+</Grid>
+</Grid>
+
+        
+        </Grid>
+        <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+    </Grid>
+
+</ContentPage>

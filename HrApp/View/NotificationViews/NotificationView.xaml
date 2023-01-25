@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:VM="clr-namespace:HrApp.ViewModel" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:local="clr-namespace:HrApp.Converters"
+             x:Class="HrApp.View.NotificationViews.NotificationView">
+ 
+        <ContentView.Resources>
+            <ResourceDictionary>
+                <local:StateConverter x:Key="StateConverter" />
+            </ResourceDictionary>
+        </ContentView.Resources>
+        <Grid >
+            <StackLayout>
+              
+
+                <Grid Margin="10">
+                    <CollectionView  Margin="5"    ItemsSource="{Binding NotificationList}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ItemSizingStrategy="MeasureFirstItem"   >
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"
+                        Span="1"  />
+                        </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="21" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="No notifications found"/>
+                   </StackLayout>
+                    </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame CornerRadius="5" Padding="15">
+
+                                    <Grid RowDefinitions="auto,auto,auto,auto,auto,auto"  BackgroundColor="White"  >
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type VM:NotificationViewModel}}, Path=NotifiTabbed}"		 CommandParameter="{Binding .} " />
+                                        </Grid.GestureRecognizers>
+                                        <Label FontSize="18" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="{Binding requestRef}" Grid.Row="0" ></Label>
+                                 
+                                        <StackLayout Spacing="3" Grid.Row="1" Orientation="Horizontal">
+                                            <Ellipse    HeightRequest="10" WidthRequest="10" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Fill="#08b4fc">
+                                                <Ellipse.Triggers>
+                                                    <DataTrigger TargetType="Ellipse" Binding="{Binding requestStatus}" Value="1">
+                                                        <Setter Property="Fill" Value="#55CE63"></Setter>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Ellipse" Binding="{Binding requestStatus}" Value="0">
+                                                        <Setter Property="Fill" Value="#08b4fc"></Setter>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Ellipse" Binding="{Binding requestStatus}" Value="2">
+                                                        <Setter Property="Fill" Value="#F64E60"></Setter>
+                                                    </DataTrigger>
+                                                </Ellipse.Triggers>
+                                            </Ellipse>
+
+                                            <Label    Text="Pending" x:Name="Pendinglist"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" TextColor="#08b4fc" FontFamily="Poppins-Medium.ttf"  >
+
+                                                <Label.Triggers>
+
+                                                    <DataTrigger TargetType="Label"   Binding="{Binding requestStatus}" Value="0">
+                                                        <Setter Property="TextColor" Value="#08b4fc"></Setter>
+
+                                                        <Setter Property="Text" Value="Pending"></Setter>
+                                                    </DataTrigger>
+
+                                                    <DataTrigger TargetType="Label"  Binding="{Binding requestStatus}" Value="1">
+                                                        <Setter Property="TextColor" Value="#55CE63"></Setter>
+                                                        <Setter Property="Text" Value="Approved"></Setter>
+
+
+
+
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding requestStatus}" Value="2">
+                                                        <Setter Property="TextColor" Value="#F64E60"></Setter>
+                                                        <Setter Property="Text" Value="Rejected"></Setter>
+
+
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding employeeType}" Value="3">
+                                                        <Setter Property="Text" Value="Processed"></Setter>
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                            <Label Text=""  FontSize="18"  HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand"  FontFamily="Poppins-Medium.ttf"  >
+
+                                                <Label.Triggers>
+
+                                                    <DataTrigger TargetType="Label"  Binding="{Binding employeeType}" Value="1">
+
+
+                                                        <Setter Property="Text" Value="By Dept. Manager"></Setter>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label"  Binding="{Binding employeeType}" Value="2">
+
+                                                        <Setter Property="Text" Value="By HR Manager"></Setter>
+
+
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding employeeType}" Value="3">
+
+                                                        <Setter Property="Text" Value="By HR Officer"></Setter>
+
+
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label"   Binding="{Binding requestStatus}" Value="0">
+                                                        <Setter Property="TextColor" Value="#08b4fc"></Setter>
+
+
+                                                    </DataTrigger>
+
+                                                    <DataTrigger TargetType="Label"  Binding="{Binding requestStatus}" Value="1">
+                                                        <Setter Property="TextColor" Value="#55CE63"></Setter>
+
+
+
+
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding requestStatus}" Value="2">
+                                                        <Setter Property="TextColor" Value="#F64E60"></Setter>
+
+
+
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+
+                                        </StackLayout>
+
+
+                                    
+
+                                    <Label Text="{Binding requestTypeName}"  TextColor="#63788A" FontSize="18" Grid.Row="2"  ></Label>
+                                    <Label Text="{Binding StuffFirstNameLastName }" Grid.Row="3" ></Label>
+                                    <Label Text="{Binding department }" Grid.Row="4" ></Label>
+
+                                    <Grid ColumnDefinitions="auto,auto" Grid.Row="5" >
+                                            <Label Text="Request Date:" TextColor="#63788A" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                            <Label Text="{Binding notificationDate,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"></Label>
+                                        </Grid>
+
+                                    </Grid>
+
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+    
+</ContentView>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:HrApp.ViewModel"
+     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:views="http://xamarin.com/schemas/2020/toolkit" xmlns:controls="clr-namespace:HrApp.Controls"
+   NavigationPage.HasNavigationBar="False"
+    x:Class="HrApp.View.DigitalValetPage">
+    <ContentPage.Content>
+        
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout>
+             <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="100" Spacing="10" BackgroundColor="#214455">
+
+                    <StackLayout Margin="5">
+                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <Label Text="Digital Wallet" HorizontalOptions="StartAndExpand" FontSize="20" FontFamily="Poppins-Bold.ttf"
+                          VerticalTextAlignment="Center" TextColor="#CEBFB3"/>
+
+                <controls:ProfileandNotificationHeader></controls:ProfileandNotificationHeader>
+                </StackLayout>
+            <!-- end of header -->
+
+         <controls:Loader  HorizontalOptions="Center" VerticalOptions="Center"
+                               IsVisible="{Binding IsLoading}"/>
+            <CollectionView ItemsSource="{Binding Links}"  Margin="20"   VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ItemSizingStrategy="MeasureFirstItem"      >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"
+                        Span="1"  />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="20" BackgroundColor="#658291" CornerRadius="7" HasShadow="True" >
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DigitalValetPageViewModel}}, Path=SelectLinkCommand}" CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Label Text="&#xf15c;" TextColor="White" FontFamily="FontAwesome" Grid.Column="0"  FontSize="15" VerticalOptions="CenterAndExpand"></Label>
+                                <Label TextColor="White" Text="{Binding title}"/>
+                        </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+           <!--    <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout BindableLayout.ItemsSource="{Binding Links}" Margin="20" Spacing="20">
+                    <BindableLayout.ItemTemplate>
+                     <DataTemplate>
+                         <views:Expander>
+                <views:Expander.Header>
+                          <yummy:PancakeView CornerRadius="15" 
+                                 BackgroundColor="#C2E3D3"
+                                  HorizontalOptions="Fill">
+                               <StackLayout Orientation="Horizontal" HeightRequest="60" Spacing="10" Margin="10,0,10,0">
+                                     <Label Text="&#xf0da;" FontSize="25" VerticalOptions="Center"
+                                        VerticalTextAlignment="Center"
+                                        HorizontalTextAlignment="Center"
+                                        TextColor="#143753" 
+                                        FontFamily="FontAwesome">
+                                         <Label.Triggers>
+                                             <DataTrigger
+                                                Binding="{Binding Source={RelativeSource AncestorType={x:Type views:Expander}}, Path=IsExpanded}"
+                                                TargetType="Label"
+                                                Value="True">
+                                                <Setter Property="Text" Value="&#xf0dd;" />
+                                            </DataTrigger>
+                                         </Label.Triggers>
+                                     </Label>
+                                    <Label Text="{Binding CategoryName}"
+                                       TextColor="#143753"
+                                            VerticalOptions="Center"
+                                       FontFamily="Poppins-SemiBold.ttf" FontSize="16" />
+                               </StackLayout>
+                              <yummy:PancakeView.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding Source={RelativeSource AncestorType={x:Type views:Expander}}, Path=IsExpanded}"
+                                                TargetType="yummy:PancakeView"
+                                                Value="True">
+                                                <Setter Property="CornerRadius" Value="15,15,0,0" />
+                                            </DataTrigger>
+                                        </yummy:PancakeView.Triggers>
+                          </yummy:PancakeView>
+                      
+                    </views:Expander.Header>
+                             
+                                <views:Expander.ContentTemplate>
+                        <DataTemplate>
+                            <yummy:PancakeView CornerRadius="0,0,15,15" 
+                                 BackgroundColor="#C2E3D3"
+                                  HorizontalOptions="Fill">
+                                <StackLayout Orientation="Vertical" Margin="30,0,30,20" BindableLayout.ItemsSource="{Binding UrLs}" Spacing="10">
+                                     <BindableLayout.ItemTemplate>
+                     <DataTemplate>
+                         <StackLayout Orientation="Horizontal">
+                              <Label Text="&#xf0c1;" FontSize="15" VerticalOptions="Center"
+                                        VerticalTextAlignment="Center"
+                                        HorizontalTextAlignment="Center"
+                                        TextColor="#63788A" 
+                                        FontFamily="FontAwesome"/>
+                                    <Label Text="{Binding .}"
+                                       TextColor="#63788A"
+                                       FontFamily="Poppins-Regular.ttf" FontSize="16" />
+                             <StackLayout.GestureRecognizers>
+                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DigitalValetPageViewModel}}, Path=SelectLinkCommand}" CommandParameter="{Binding .}" />
+                             </StackLayout.GestureRecognizers>
+                         </StackLayout>
+                          </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                                    
+                                </StackLayout>
+                          </yummy:PancakeView>
+                        </DataTemplate>
+                      </views:Expander.ContentTemplate>
+                       </views:Expander>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>-->
+            </StackLayout>
+            
+        </Grid>
+            
+    </ContentPage.Content>
+</ContentPage>

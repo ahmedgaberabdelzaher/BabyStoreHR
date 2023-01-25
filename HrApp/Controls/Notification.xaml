@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:notification="clr-namespace:HrApp.View.NotificationViews" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="HrApp.Controls.Notification">
+    <ContentView.Content>
+         <Grid IsVisible="{Binding NotiISopend}" VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"         
+                               >
+                <BoxView x:Name="NotiGrid" BackgroundColor="White" Opacity="0.1">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <pancakeview:PancakeView  
+                  x:Name="Pancake"
+                TranslationY="800"
+                                     
+                                  
+                                Padding="0"
+                                BackgroundColor="#F7F6F3"
+                          
+                                  CornerRadius="15,15,0,0" >
+                      <pancakeview:PancakeView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="5,150,5,0"></On>
+                        <On Platform="Android" Value="5,100,5,0"/>
+
+                    </OnPlatform>
+                </pancakeview:PancakeView.Margin>
+                    <StackLayout>
+                        <StackLayout  BackgroundColor="#214455" HeightRequest="40" >
+                            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="20" Text=">" FontAttributes="Bold" Rotation="90" >
+                                <Label.GestureRecognizers>
+                                    <SwipeGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}" Direction="Down" />
+                                    <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}" />
+                                     
+                                </Label.GestureRecognizers>
+                            </Label>
+
+
+                        </StackLayout>
+
+                        <notification:NotificationView />
+                    </StackLayout>
+
+                </pancakeview:PancakeView>
+            </Grid>
+    </ContentView.Content>
+</ContentView>

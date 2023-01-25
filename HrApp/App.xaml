@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:ef="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
+                             
+                 xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HrApp.App"  xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             iOS:Page.UseSafeArea="true">
+    <Application.Resources>
+                <Color x:Key="BackgroundColor">#eceef9</Color>
+                <Color x:Key="greenColor">#9ca226</Color>
+        <Color x:Key="PrimaryColor">#214455</Color>
+
+        
+        <Color x:Key="TitleColor">#002350</Color>
+        <Color x:Key="BodyColor">#536d96</Color>
+                <Color x:Key="placHolderColor">#90a1bb</Color>
+                <x:Double x:Key="profileHeight">50</x:Double>
+                <x:Double x:Key="profileWidth">50</x:Double>
+             <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Roboto-Regular" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#9ca226" />
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="BorderColor" Value="Transparent" />
+            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="WhiteButton">
+            <Setter Property="FontFamily" Value="Roboto-Regular" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="DarkRed" />
+            <Setter Property="BorderColor" Value="DarkRed" />
+            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="CornerRadius" Value="20"/>
+        </Style>
+
+        <Style x:Key="ActivityIndicator" TargetType="ActivityIndicator">
+            <Setter Property="VerticalOptions"  Value="Center"/>
+            <Setter     Property= "HorizontalOptions"  Value="Center" />
+            <Setter     Property="Color"   Value="#9ca226"/>
+        </Style>
+        <Style TargetType="NavigationPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"></Setter>
+            <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="BarTextColor" Value="{StaticResource TitleColor}"/>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="ef:Border.On" Value="True"/>
+             <Setter Property="ef:Border.Color" Value="Transparent"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+             <Setter Property="ef:Border.Width" Value="0"/>
+            
+        </Style>
+               <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-Regular.ttf"></Setter>
+                               <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            <Setter Property="TextColor" Value="#1f1f1f"></Setter>
+
+
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="ef:Border.Color" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+             <Setter Property="BackgroundColor" Value="Transparent"/>
+             <Setter Property="ef:Border.Width" Value="0"/>
+            
+           
+        </Style>
+         <Style TargetType="TimePicker">
+            <Setter Property="ef:Border.Color" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+             <Setter Property="BackgroundColor" Value="Transparent"/>
+             <Setter Property="ef:Border.Width" Value="0"/>
+           
+        </Style>
+         <Style TargetType="Picker">
+            <Setter Property="ef:Border.Color" Value="Transparent"/>
+            <Setter Property="ef:Border.On" Value="True"/>
+            <Setter Property="TextColor" Value="Black"/>
+             <Setter Property="BackgroundColor" Value="Transparent"/>
+             <Setter Property="ef:Border.Width" Value="0"/>
+           
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFit"></Setter>
+
+        </Style>
+            <Style TargetType="Editor">
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+             <Setter Property="ef:Border.Width" Value="0"/>
+            
+                  <Setter Property="ef:Border.Color" Value="Transparent"/>
+            <Setter Property="ef:Border.On" Value="True"/>
+
+        </Style>
+          
+        
+        
+        <Style x:Key="RectangleTitle" TargetType="Label" >
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontFamily" Value="Poppins-Bold.ttf"/>
+            <Setter Property="TextTransform" Value="Uppercase"/>
+            <Setter Property="TextTransform" Value="Uppercase"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+
+
+        </Style>
+        <Style TargetType="Frame" >
+            <Setter Property="HasShadow" Value="False"/>
+            <Setter Property="BorderColor" Value="#C2E3D3"/>
+        </Style>
+    </Application.Resources>
+</prism:PrismApplication>

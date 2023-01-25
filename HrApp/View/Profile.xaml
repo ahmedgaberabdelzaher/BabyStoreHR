@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:HrApp.Converters" xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" NavigationPage.HasNavigationBar="False"
+    x:Class="HrApp.View.Profile" >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ConverterBase64ImageSource x:Key="Base64Image" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="profilebg.png" Aspect="Fill"></Image>
+            <StackLayout>
+                  <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,30,0,0"></On>
+            <On Platform="Android" Value="0,0,0,0"/>
+
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <StackLayout x:Name="Header" Orientation="Horizontal" Margin="25,20,25,50">
+                    <StackLayout Margin="5">
+                <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3"  FontFamily="FontAwesome">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                    <Label Text="&#xf0f3;" IsVisible="false" FontSize="25" FontFamily="FontAwesome" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" TextColor="White"/>
+
+                </StackLayout>
+
+
+                <Grid Margin="19,-35,0,0" ColumnDefinitions="100,auto">
+                  
+            <custom:CircleImage  HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0" BackgroundColor="Transparent"   VerticalOptions="CenterAndExpand"   Source="{Binding UserImage,Converter={StaticResource Base64Image}}"   Aspect="AspectFill"  >
+
+               
+                            <custom:CircleImage.Triggers >
+                                <DataTrigger TargetType="custom:CircleImage" Binding="{Binding UserImage}" Value="">
+                                    <Setter Property="Source" Value="ProfileImgDefault.png"/>
+                                </DataTrigger>
+                            </custom:CircleImage.Triggers>
+                                                
+                                           
+            </custom:CircleImage>
+
+
+                       
+                
+                    <Frame Background="#CEBFB3" Grid.Column="0" VerticalOptions="EndAndExpand" Padding="0"  CornerRadius="15" HeightRequest="29" WidthRequest="50">
+                        <Label Text="{Binding User.stafF_ID,StringFormat='ID: {0}'}" FontAttributes="Bold" Margin="0,3,0,0" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="16"></Label>
+                        <Frame.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,0,0,-23"></On>
+            <On Platform="Android" Value="0,0,0,-13"/>
+
+                    </OnPlatform>
+                </Frame.Margin>
+                    </Frame>
+                    <StackLayout Grid.Column="1" HorizontalOptions="CenterAndExpand" Margin="5,-20,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Margin="5,0,0,0" Text="Hello" TextColor="#CEBFB3" FontSize="17" FontFamily="GreatVibes-Regular.ttf"/>
+
+                            <Label Text="{Binding User.name}" TextColor="#CEBFB3" FontSize="16"></Label>
+                            
+                        </StackLayout>
+                        <StackLayout Margin="55,0,0,0" HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding User.designation}" FontSize="12" TextColor="#CEBFB3"></Label>
+                        <Label Text="{Binding User.department}" FontSize="12" TextColor="#CEBFB3"></Label>
+                        <StackLayout Orientation="Horizontal">
+                       <Label Text="&#xf2b5;" HorizontalOptions="Start" FontSize="14" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="#CEBFB399" />
+                            <Label HorizontalOptions="Start" Text="{Binding User.joininG_DATE,StringFormat='{0:d MMM , yyyy}'}" TextColor="#CEBFB399" FontSize="14" ></Label>
+                        </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                   
+                </Grid>
+                <Grid ColumnDefinitions="auto,21,auto,21,50" >
+                    <StackLayout Grid.Column="0">
+                        <Label Text="{Binding Years}"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Poppins-SemiBold.ttf" FontAttributes="Bold" TextColor="#214455" FontSize="25"></Label>
+                        <Label Text="Year" FontSize="12" TextColor="#B5B5C3"></Label>
+                    </StackLayout>
+                <BoxView Color="#B5B5C3" Margin="10" IsVisible="true" Grid.Column="1"></BoxView>
+                   <StackLayout Grid.Column="2">
+                         <Label Text="{Binding Month}"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Poppins-SemiBold.ttf" FontAttributes="Bold" TextColor="#214455" FontSize="25"></Label>
+                        <Label Text="Month" FontSize="12" TextColor="#B5B5C3"></Label>
+                   </StackLayout>
+                                    <BoxView Color="#B5B5C3" IsVisible="{Binding IsMoretenYears}" Margin="10" Grid.Column="1"></BoxView>
+                     <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="29,15,10,10"></On>
+            <On Platform="Android" Value="29,10,10,10"/>
+
+                    </OnPlatform>
+                         </Grid.Margin>
+                </Grid>
+                <ScrollView VerticalScrollBarVisibility="Never" Margin="29,0,0,0">
+<StackLayout Spacing="-2" >
+ <StackLayout.Resources>
+     <ResourceDictionary>
+         <Style TargetType="Grid"> 
+             <Setter Property="Margin" Value="0,5,0,10"></Setter>
+         </Style>
+             <Style TargetType="pancake:PancakeView"> 
+             <Setter Property="CornerRadius" Value="0,15,15,0"></Setter>
+                              <Setter Property="HeightRequest" Value="20"></Setter>
+                              <Setter Property="WidthRequest" Value="45"></Setter>
+
+
+         </Style>
+     </ResourceDictionary>
+ </StackLayout.Resources>
+                    <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
+<pancake:PancakeView BackgroundGradientEndPoint="0,1" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+        <pancake:PancakeView.BackgroundGradientStops>
+            <pancake:GradientStopCollection>
+                <pancake:GradientStop Color="#214455" Offset="0.1"/>
+                <pancake:GradientStop Color="#00A7A3" Offset="1"/>
+            </pancake:GradientStopCollection>
+        </pancake:PancakeView.BackgroundGradientStops>
+                       <Label Text="&#xf2c2;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+</pancake:PancakeView>
+                    <Label Text="Civil ID No." Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
+                 <Label Text="{Binding User.civiL_ID}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                </Grid>
+
+                <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
+<pancake:PancakeView BackgroundGradientEndPoint="0,1" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+        <pancake:PancakeView.BackgroundGradientStops>
+            <pancake:GradientStopCollection>
+                <pancake:GradientStop Color="#214455" Offset="0.1"/>
+                <pancake:GradientStop Color="#00A7A3" Offset="1"/>
+            </pancake:GradientStopCollection>
+        </pancake:PancakeView.BackgroundGradientStops>
+                       <Label Text="&#xf1fd;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+</pancake:PancakeView>
+                    <Label Text="Birth Date" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
+                 <Label Text="{Binding User.birtH_DATE,StringFormat='{0:d MMM , yyyy}'}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                </Grid>
+                <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
+<pancake:PancakeView BackgroundGradientEndPoint="0,1" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+        <pancake:PancakeView.BackgroundGradientStops>
+            <pancake:GradientStopCollection>
+                <pancake:GradientStop Color="#214455" Offset="0.1"/>
+                <pancake:GradientStop Color="#00A7A3" Offset="1"/>
+            </pancake:GradientStopCollection>
+        </pancake:PancakeView.BackgroundGradientStops>
+                       <Label Text="&#xf0e0;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+</pancake:PancakeView>
+                    <Label Text="Email Address" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
+                 <Label Text="{Binding User.email}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                </Grid>
+                <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
+<pancake:PancakeView BackgroundGradientEndPoint="0,1" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+        <pancake:PancakeView.BackgroundGradientStops>
+            <pancake:GradientStopCollection>
+                <pancake:GradientStop Color="#214455" Offset="0.1"/>
+                <pancake:GradientStop Color="#00A7A3" Offset="1"/>
+            </pancake:GradientStopCollection>
+        </pancake:PancakeView.BackgroundGradientStops>
+                       <Label Text="&#xf879;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+</pancake:PancakeView>
+                    <Label Text="Contact No" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
+                            <Label Text="{Binding User.mobilE_NO}"  Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                </Grid>
+                <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
+<pancake:PancakeView BackgroundGradientEndPoint="0,1"  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+        <pancake:PancakeView.BackgroundGradientStops>
+            <pancake:GradientStopCollection>
+                <pancake:GradientStop Color="#214455" Offset="0.1"/>
+                <pancake:GradientStop Color="#00A7A3" Offset="1"/>
+            </pancake:GradientStopCollection>
+        </pancake:PancakeView.BackgroundGradientStops>
+                       <Label Text="&#xf19c;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+</pancake:PancakeView>
+                    <Label Text="Bank Name" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
+                 <Label Text="{Binding User.banK_NAME}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                </Grid>
+                <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
+<pancake:PancakeView BackgroundGradientEndPoint="0,1"  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+        <pancake:PancakeView.BackgroundGradientStops>
+            <pancake:GradientStopCollection>
+                <pancake:GradientStop Color="#214455" Offset="0.1"/>
+                <pancake:GradientStop Color="#00A7A3" Offset="1"/>
+            </pancake:GradientStopCollection>
+        </pancake:PancakeView.BackgroundGradientStops>
+                       <Label Text="&#xf09d;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+</pancake:PancakeView>
+                    <Label Text="IBAN No." Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
+                 <Label Text="{Binding User.ibaN_NO}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                </Grid>
+    </StackLayout></ScrollView>
+            </StackLayout>
+                 <Frame BackgroundColor="#00A7A3" IsVisible="false" CornerRadius="30" Margin="53,10,52,10" VerticalOptions="EndAndExpand">
+     <Grid ColumnDefinitions="*,*,*,*" >
+         <Image Source="bottomnavhomeicon.png" Grid.Column="0"></Image>
+                  <Image Source="bottomnavmailicon.png" Grid.Column="1"></Image>
+                           <Image Source="bottomnavnotificationsicon.png" Grid.Column="2"></Image>
+         <Image Source="bottomnavhelpicon.png" Grid.Column="3"></Image>
+
+     </Grid></Frame>
+            <StackLayout Margin="0,160,30,0"  HorizontalOptions="End" VerticalOptions="Start" >
+                <Image HeightRequest="100"  WidthRequest="100" Source="yearsbadge" IsVisible="{Binding IsMoretenYears}" ></Image>
+            </StackLayout>
+        
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

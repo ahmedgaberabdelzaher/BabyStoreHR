@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+     xmlns:ef="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
+    xmlns:vm="clr-namespace:HrApp.ViewModel"
+    xmlns:b="clr-namespace:HrApp.Behaviours" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.LiveChat">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" RowDefinitions="80,*, auto,5" >
+            <StackLayout Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="80">
+                <StackLayout Margin="5">
+                    <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,25,11,30" FontFamily="FontAwesome">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label FontSize="20" Margin="0,5,0,0" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="Live Chat"></Label>
+            </StackLayout>
+            <controls:ExtendedListView Rotation="180" ItemAppearing="Listview_ItemAppearing" Scrolled="Listview_Scrolled"  x:Name="Listview" Margin="10,0" Grid.Row="1"    ef:AddCommand.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ChatViewModel}}, Path=ListChat}" ef:AddCommand.CommandParameter="{Binding .}" SelectionMode="None" ItemsSource="{Binding MessagesList}"
+                  SeparatorVisibility="None"
+                             FlowDirection="RightToLeft"
+                                     ItemAppearingCommand="{Binding MessageAppearingCommand}"
+                 ItemDisappearingCommand="{Binding MessageDisappearingCommand}"     
+                  HasUnevenRows="True">
+             
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="0,5" RowDefinitions="auto, auto">
+
+                                <Grid  HorizontalOptions="End" ColumnDefinitions="40,*" IsVisible="{Binding notowner}">
+                                  
+                                    <!--<Label Text="{Binding UserName}"/>-->
+                                    <Frame  CornerRadius="10"
+                                       Grid.Column="1"
+                                            Grid.Row="1"
+                                       HorizontalOptions="End"
+                                       HasShadow="False"
+                                       Margin="0"
+                                            Rotation="180" 
+                                              FlowDirection="LeftToRight"
+                                       BackgroundColor="#C2E3D3"
+                                       Padding="5">
+
+                                        <StackLayout>
+                                            <!--      <StackLayout HeightRequest="70" WidthRequest="70" >
+                                                <Image Source="{Binding FilePicker}" Aspect="AspectFill"/>
+                                                <StackLayout.Triggers>
+                                                    <DataTrigger TargetType="StackLayout" Binding="{Binding FilePicker}" Value="">
+                                                        <Setter Property="IsVisible"  Value="False"/>
+                                                        <Setter Property="HeightRequest"  Value="0"/>
+
+                                                    </DataTrigger>
+                                                </StackLayout.Triggers>
+                                            </StackLayout>-->
+                                            <Label Text="{Binding Content}"
+                                           Margin="10"
+                                           TextColor="Black"
+                                           LineBreakMode="WordWrap"/>
+
+
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <Label  Grid.Column="1"  Text="{Binding SenderDisplayName }"
+                                           Margin="0"
+                                           TextColor="Gray"
+HorizontalOptions="End"
+                                             Rotation="180" 
+                                              FlowDirection="LeftToRight"
+                                                   FontSize="10"
+                                           LineBreakMode="WordWrap"/>
+                                </Grid>
+                                <Grid RowSpacing="0" ColumnDefinitions="*, 40"
+                                  Grid.Row="1"
+                                  IsVisible="{Binding IsOwnerMessage}">
+                                    <!--<Label Text="{Binding UserName}"/>-->
+                                    <Frame CornerRadius="10"
+                                       HasShadow="False"
+                                       Margin="0"
+                                              FlowDirection="LeftToRight"
+                                            Grid.Row="1"
+                                           Rotation="180" 
+                                         HorizontalOptions="Start"
+                                       BackgroundColor="#536d96"
+                                       Padding="5"><StackLayout>
+                                        <!--   <StackLayout HeightRequest="70" WidthRequest="70" >
+                                                <Image Source="{Binding FilePicker}" Aspect="AspectFill"/>
+                                                <StackLayout.Triggers>
+                                                    <DataTrigger TargetType="StackLayout" Binding="{Binding FilePicker}" Value="">
+                                                        <Setter Property="IsVisible"  Value="False"/>
+                                                        <Setter Property="HeightRequest"  Value="0"/>
+                                                    </DataTrigger>
+                                                </StackLayout.Triggers>
+                                            </StackLayout> -->
+                                        <Label Text="{Binding Content}"
+                                           Margin="10"
+                                           TextColor="White"
+                                           LineBreakMode="WordWrap"/>
+                                           
+                                        </StackLayout>
+                                    </Frame>
+                                    <Label Grid.Row="0" Text="{Binding SenderDisplayName }"
+                                           Margin="0"
+                                            
+                                           HorizontalOptions="StartAndExpand"
+                                           TextColor="Gray"
+                                           
+                                             Rotation="180" 
+                                              FlowDirection="LeftToRight"
+                                                   FontSize="10"
+                                           LineBreakMode="WordWrap"/>
+                                   
+                                </Grid>
+                           <!--     <Grid RowDefinitions="auto, auto"  >
+                                <Label Text="{Binding UserName}"/>
+                                <Label Text="{Binding Message}"/>
+                            </Grid>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </controls:ExtendedListView>
+            <StackLayout  HorizontalOptions="Fill" Spacing="2" Grid.Row="2"
+                     Orientation="Horizontal">
+            <Frame Margin="10,0,10,10" HorizontalOptions="FillAndExpand"  Padding="1" CornerRadius="10" >
+           
+                <Editor WidthRequest="100"  AutoSize="TextChanges"  Text="{Binding Message}"
+                   
+                   HorizontalOptions="FillAndExpand"></Editor>
+            
+            </Frame>
+                <StackLayout Margin="0,5,15,0" HorizontalOptions="End" VerticalOptions="StartAndExpand" >
+                <!--    <Label  Text="&#xf093;"  FontFamily="FontAwesome"  FontSize="23"  Padding="0"  ef:AddCommand.Command="{Binding UploadAttatchementCommand}">
+                 
+                </Label>-->
+                    <Label Text="&#xf1d8;"  HorizontalOptions="CenterAndExpand" TextColor="#214455" FontFamily="FontAwesome"  FontSize="23"  Padding="0"  ef:AddCommand.Command="{Binding SendMsgCommand}">
+                 
+                </Label>
+                    
+</StackLayout>
+                    
+            </StackLayout>
+        <!--   <Frame HasShadow="True" IsVisible="{Binding Scrollpaging}"  Grid.RowSpan="3" HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,50,0,0"
+                                 VerticalOptions="Start"
+                               
+                                 Grid.Row="0"  
+                    Rotation="180"
+                                 HeightRequest="30" WidthRequest="30"
+                                 CornerRadius="25"
+                                 Padding="1"
+                                 BackgroundColor="White"     >
+               
+                    <Label Text="&#xf063;"
+                          HorizontalOptions="Center" VerticalOptions="Center"
+                          HorizontalTextAlignment="Center"
+                           FontFamily="FontAwesome"
+                             />
+
+
+               
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame  IsVisible="{Binding ScrollDown}"  Grid.RowSpan="3" HorizontalOptions="EndAndExpand" 
+                                 Margin="0,0,5,50"
+                                 VerticalOptions="End"
+                                 HasShadow="false" 
+                                 Grid.Row="0"  
+                                 HeightRequest="30" WidthRequest="30"
+                                 CornerRadius="25"
+                                 Padding="1"
+                                 BackgroundColor="White"     >
+              
+                    <Label Text="&#xf063;"
+                          HorizontalOptions="Center" VerticalOptions="Center"
+                           FontFamily="FontAwesome"
+                             />
+                  
+
+            
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScrollTap" />
+                </Frame.GestureRecognizers>
+            </Frame>-->
+            <StackLayout   IsVisible="{Binding IsLoading}" Grid.RowSpan="3">
+            <controls:Loader  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                               IsVisible="{Binding IsLoading}"/>
+  </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

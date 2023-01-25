@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HrApp.Controls.BottomBar">
+    <ContentView.Content>
+         <Frame BackgroundColor="#214455" CornerRadius="30" Padding="15"  Margin="60,10,55,7" VerticalOptions="EndAndExpand">
+         <Grid ColumnDefinitions="*,*,*,*" >
+             <Grid.Resources>
+                 <ResourceDictionary>
+                     <Style TargetType="Image">
+                         <Setter Property="Aspect" Value="AspectFit"></Setter>
+                                                  <Setter Property="HeightRequest" Value="30"></Setter>
+                                                  <Setter Property="WidthRequest" Value="30"></Setter>
+
+                     </Style>
+                 </ResourceDictionary>
+             </Grid.Resources>
+             <Image Source="bottomnavhomeicon.png" Aspect="AspectFit" Grid.Column="0">
+ <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoHome}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+             </Image>
+                      <Image Source="logoutIcon.png" Grid.Column="3">
+ <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignOutCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                      </Image>
+                    <Grid Grid.Column="1" Grid.Row="0" RowDefinitions="15,*" >
+                        <Image Source="notIcon.png" Grid.RowSpan="2" BackgroundColor="Transparent"   >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Ellipse IsVisible="{Binding  Isnotification}" 
+        
+         WidthRequest="15"
+                                Fill="Red"
+         HeightRequest="15"
+                          VerticalOptions="Start"
+         HorizontalOptions="Center" Margin="7,-2,0,0" />
+                        <Label IsVisible="{Binding  Isnotification}" TextColor="White" FontFamily="Poppins-Bold.ttf"
+                               Text="{Binding NotificationCount}"
+        FontSize="10"
+                               Margin="10,0,3,3"
+                                HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+VerticalTextAlignment="Center"      />
+
+                    </Grid>
+                    <Image Source="bottomnavhelpicon.png" Grid.Column="2">
+
+                    </Image>
+
+
+         </Grid>
+     </Frame>
+    </ContentView.Content>
+</ContentView>

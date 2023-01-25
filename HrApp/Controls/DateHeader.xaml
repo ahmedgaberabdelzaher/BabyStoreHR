@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HrApp.Controls.DateHeader">
+  <ContentView.Content>
+      
+        <Grid  HorizontalOptions="CenterAndExpand"   RowDefinitions="*,*" ColumnDefinitions="auto,auto" VerticalOptions="Start" >
+         <Grid.Margin>
+             <OnPlatform x:TypeArguments="Thickness">
+                 <On Platform="iOS" Value="0,60,0,0"/>
+                 <On Platform="Android" Value="0,20,0,0"/>
+
+             </OnPlatform>
+         </Grid.Margin>  <Label TextColor="White" Grid.RowSpan="2" HorizontalOptions="Start" FontSize="35" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:dd}'}"/>
+            <Label TextColor="White" Margin="0,6,0,-4" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="EndAndExpand" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:dddd}'}"/>
+            <StackLayout Grid.Column="1" Grid.Row="1" Margin="0,-9,0,0" VerticalOptions="Start" Orientation="Horizontal">
+                <Label TextColor="White"  HorizontalOptions="Start"  FontSize="14" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:MMM}'}"/>
+
+                <Label TextColor="White"  HorizontalOptions="Start" FontSize="14" HorizontalTextAlignment="Start" Text=","/>
+                <Label TextColor="White"  HorizontalOptions="Start" FontSize="14" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:yyyy}'}"/>
+
+            </StackLayout>
+
+
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

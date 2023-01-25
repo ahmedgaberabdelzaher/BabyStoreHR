@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ef="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:vm="clr-namespace:HrApp.ViewModel" 
+              xmlns:controls="clr-namespace:HrApp.Controls" xmlns:VM="clr-namespace:HrApp.ViewModel"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="HrApp.View.OverTimeViews.OverTimeRequest">
+  
+    <ContentPage.Content>
+        <Grid>
+        <Grid RowDefinitions="auto,*" BackgroundColor="#FFFFFF">
+            <StackLayout Grid.Row="0" Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
+                    <StackLayout Margin="5">
+                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Label FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="Overtime Request"></Label>
+            </StackLayout>
+            <Grid Grid.Row="1" RowDefinitions="auto,80,70,*" Margin="10" >
+
+                <Label Grid.Row="0" Text="Please fill in the form:" Grid.ColumnSpan="2" TextColor="#214455" FontSize="18" FontFamily="Poppins-SemiBold.ttf"></Label>
+                   
+                    <Frame  Grid.Row="1"  BackgroundColor="#F0F4F9" Padding="0,5,0,0" Margin="5"  CornerRadius="10" BorderColor="#E4E6EF">
+
+                        <StackLayout HorizontalOptions="Center">
+                            <!--  <Label Text="Date "  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                        <DatePicker Format="dd/MM/yyyy"  Date="{Binding Datetime}" TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></DatePicker>
+                                      -->
+
+
+                            <!--   <Picker Title="Select a month" ItemsSource="{Binding CountryList}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" />-->
+                            <Picker x:Name="picker" ef:Border.On="True" ef:Border.Color="Transparent" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" TextColor="#214455" FontSize="14" FontFamily="Poppins-Bold.ttf"
+                                                      Title="Select a month" 
+                                    TitleColor="Black"
+                                    ItemsSource="{Binding MonthesModel }"
+                                    ItemDisplayBinding="{Binding Month}"
+                                    SelectedItem="{Binding selectedMoth}">
+
+
+
+                            </Picker>
+                        </StackLayout>
+
+
+                    </Frame>
+                    <Frame Grid.Column="1"  Grid.Row="1" BackgroundColor="#F0F4F9" Padding="0,5,0,0" Margin="5"  CornerRadius="10" BorderColor="#E4E6EF">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                            <Label Text="{Binding reQ_YEAR}"   HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="14" FontFamily="Poppins-Bold.ttf">
+
+                            </Label>
+                        </StackLayout>
+
+
+                    </Frame>
+                    <StackLayout IsVisible="{Binding EnableSelector}"  Grid.ColumnSpan="2" Grid.Row="1" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CheckAlert}" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Button Margin="5" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"   FontFamily="Poppins-SemiBold.ttf"  BackgroundColor="#00A7A3" CornerRadius="8" Command="{Binding PoPup}" Text="Add Overtime Record"></Button>
+                    <StackLayout Grid.ColumnSpan="2" Grid.Row="3">
+                        <StackLayout>
+                            <StackLayout>
+                            <CollectionView  ItemsSource="{Binding ItemsList}"  >
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <Grid Margin="10">
+
+                                            <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
+                                                <Grid RowDefinitions="auto,auto,auto" ColumnDefinitions="*,*" >
+                                                        <Label  Text="{Binding Day ,StringFormat='Day : {0}'}"  TextColor="#63788A" FontSize="14" ></Label>
+
+                                                  <!--  <StackLayout Margin="0,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" >
+
+                                                       
+
+                                                        <Label  Text="{Binding Day ,StringFormat='Day :{0}'}"  TextColor="#63788A" FontSize="14" ></Label>
+                                                                <Label  TextColor="#63788A" HorizontalOptions="Start" FontSize="14">
+                                                                    <Label.Text>
+                                                                        <MultiBinding StringFormat="{}{0:00}:{1:00;00}">
+                                                                            <Binding Path="TimeIn.Hours" />
+                                                                            <Binding Path="TimeIn.Minutes" />
+                                                                        </MultiBinding>
+                                                                    </Label.Text>
+                                                                </Label>
+                                                                <Label  TextColor="#63788A" HorizontalOptions="StartAndExpand" FontSize="14">
+                                                                    <Label.Text>
+                                                                        <MultiBinding StringFormat="{}{0:- 00}:{1: 00;00}">
+                                                                            <Binding Path="TimeOut.Hours" />
+                                                                            <Binding Path="TimeOut.Minutes" />
+                                                                        </MultiBinding>
+                                                                    </Label.Text>
+                                                                </Label>
+                                                                <Label Text="&#xf2ed;" FontFamily="FontAwesome" HorizontalOptions="EndAndExpand" VerticalOptions="Start" TextColor="Red" BackgroundColor="Transparent" >
+
+                                                                    <Label.GestureRecognizers>
+                                                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:OverTimeViewModel}}, Path=DeleteItem}" CommandParameter="{Binding .}" />
+                                                                    </Label.GestureRecognizers>
+                                                                </Label>
+
+                                                            </StackLayout>
+                                                   -->
+                                                    <StackLayout Orientation="Horizontal" Margin="0,0,0,0" Grid.Row="1" Grid.ColumnSpan="2"  >
+                                                                <Label Text="Hours : "  FontAttributes="Bold"  TextColor="#010101" FontSize="14"></Label>
+                                                        <Label  TextColor="#63788A" FontSize="14">
+                                                            <Label.Text>
+                                                                <MultiBinding StringFormat="{}{0:00}:{1:00;00}">
+                                                                    <Binding Path="Hours.Hours" />
+                                                                    <Binding Path="Hours.Minutes" />
+                                                                </MultiBinding>
+                                                            </Label.Text>
+                                                        </Label>
+
+
+                                                            </StackLayout>
+                                                            <Label Text="{Binding Notes ,StringFormat='Note : {0}'}" Grid.Row="2" TextColor="#B5B5C3" FontSize="14"  Grid.ColumnSpan="2" />
+
+                                                            <!--      <Grid ColumnDefinitions="auto,auto,auto,auto" Grid.Row="2" RowDefinitions="40" Grid.ColumnSpan="2" ColumnSpacing="2">
+
+                                                                <Label Margin="0,5,0,0" Text="Time In:" FontAttributes="Bold"  TextColor="#010101" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                                                <TimePicker IsEnabled="False" Time="{Binding TimeIn}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"   FontFamily="Poppins-SemiBold.ttf"/>
+                                                                <Label  Margin="0,5,0,0" Text="Time Out:" FontAttributes="Bold"  TextColor="#010101" FontSize="14"  Grid.Row="0" Grid.Column="2"></Label>
+                                                                <TimePicker VerticalOptions="CenterAndExpand" IsEnabled="False" ef:Border.On="False" Time="{Binding TimeOut}"  TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="3"   FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                                                                <Label Text="{Binding Notes ,StringFormat='Note : {0}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5">
+
+
+                                                        </Label>
+
+                                                    </Grid>-->
+
+                                                    <!--  <Label Text="{Binding reQ_DATE,StringFormat='Requested on: {0:d MMM , yyyy}'}" Grid.Row="2" Grid.ColumnSpan="2"></Label>-->
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </ContentView>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                                
+                            <CollectionView.EmptyView>
+                                <Grid Margin="20,10,20,5">
+                                    <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
+                                                <Label FontSize="21" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="Overtime Records" Grid.Row="0" Grid.Column="0"></Label>
+                                    </Frame>
+                                </Grid>
+                            </CollectionView.EmptyView>
+                          
+                                  
+                        </CollectionView>
+
+                                <Button Margin="10,0" BackgroundColor="#00A7A3" CornerRadius="8" Text="{Binding SendRequestText }"  Command="{Binding SendOverTimeRequestCommand}" IsVisible="{Binding ShowSubmit}"></Button>
+                                <Label Text="{Binding ServiceRequestNote}"  FontSize="12" TextColor="#B5B5C3"></Label>
+                            </StackLayout>
+            </StackLayout>  
+                       
+</StackLayout>
+
+
+                </Grid>
+              
+            </Grid>
+            <Grid    IsVisible="{Binding popisopend}" >
+                <Frame HasShadow="False" CornerRadius="10" Margin="40,100" >
+                    <StackLayout >
+
+                        <ScrollView VerticalScrollBarVisibility="Never"  Grid.Row="0" >
+                            <StackLayout Margin="5">
+                                <Grid RowDefinitions="auto,auto,auto,auto,auto" RowSpacing="15" ColumnDefinitions="*,*" Margin="0,5,0,10" Padding="0">
+                                    <StackLayout  >
+
+                                        <Frame ef:AddNumberPicker.On="true"	ef:AddNumberPicker.Min="1"
+			ef:AddNumberPicker.Max="{Binding MAxDays}"
+			ef:AddNumberPicker.Number="{Binding DayofMonth}"
+			ef:AddNumberPicker.Title="Select"  BackgroundColor="#F0F4F9" Padding="5,10,5,5" Margin="0" HeightRequest="50" WidthRequest="120" CornerRadius="10" BorderColor="#E4E6EF" HorizontalOptions="End">
+                                            <StackLayout>
+                                                <Label Text=" Day "  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                                <Label Text="{Binding DayofMonth}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf">
+                                                </Label>
+
+                                            </StackLayout>
+
+
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <Frame  Grid.Row="0" Grid.Column="1"  BackgroundColor="#F0F4F9" Padding="5,10,5,5" Margin="0" HeightRequest="50" WidthRequest="120" CornerRadius="10" BorderColor="#E4E6EF" HorizontalOptions="End">
+                                        <StackLayout>
+                                            <Label Text=" Hours "  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                            <Label  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf">
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0:00}:{1:00;00}">
+                                                        <Binding Path="Days.Hours" />
+                                                        <Binding Path="Days.Minutes" />
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                            
+
+                                            
+                                               
+                                           
+                                        </StackLayout>
+
+
+                                    </Frame>
+                                    <Frame Grid.Row="1" Grid.Column="0"  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                                        <StackLayout HorizontalOptions="CenterAndExpand">
+                                            <Label Text="Time In"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                            <TimePicker Time="{Binding Timein}" TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <Frame Grid.Row="1" Grid.Column="1"  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                                        <StackLayout HorizontalOptions="CenterAndExpand">
+                                            <Label Text="Time Out"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                            <TimePicker Time="{Binding Timeout}" TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                                            <Label Text="27" IsVisible="false" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                                        </StackLayout>
+                                    </Frame>
+
+
+                                    
+
+                                    <Frame Grid.Row="4" HeightRequest="100" Grid.Column="0" Grid.ColumnSpan="2"  BackgroundColor="White" Padding="20,10,8,0" CornerRadius="10" BorderColor="#00A7A3">
+                                        <StackLayout>
+                                            <Label Text="Notes" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                            <Editor Text="{Binding Note}" HeightRequest="90" TextColor="#214455" FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Editor>
+                                        </StackLayout>
+
+                                    </Frame>
+                                    <Button Margin="5" Grid.Row="5" Grid.Column="0"     FontFamily="Poppins-SemiBold.ttf"  BackgroundColor="#00A7A3" CornerRadius="8" Command="{Binding AddItem}" Text="Add"></Button>
+
+                                    <Button Margin="5" Grid.Row="5" Grid.Column="1"    FontFamily="Poppins-SemiBold.ttf"  BackgroundColor="#F64E60" CornerRadius="8" Command="{Binding PoPup}" Text="Close"></Button>
+
+                                </Grid>
+                                
+                            </StackLayout>
+
+                        </ScrollView>
+
+                    </StackLayout>
+
+                </Frame>
+
+            </Grid>
+
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

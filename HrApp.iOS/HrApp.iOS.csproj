@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1AFACE78-3DFD-4156-B94F-A30446E63FA5}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HrApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>HrApp.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n>mideast</MtouchI18n>
+    <CodesignKey>Apple Development: Created via API (HQBYRKR2PN)</CodesignKey>
+    <CodesignEntitlements></CodesignEntitlements>
+    <CodesignProvision>VS: com.alseef.hr Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignKey>Apple Development: Created via API (HQBYRKR2PN)</CodesignKey>
+    <CodesignProvision>VS: com.alseef.hr Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Development: Created via API (HQBYRKR2PN)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>VS: com.alseef.hr Development</CodesignProvision>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Distribution: Alaa Abdulrahman (KWS4PXYWGT)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignProvision>my alseef hr</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CustomNaviPageRenderer.cs" />
+    <Compile Include="CustomPageRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomWebViewRenderer.cs" />
+    <Compile Include="CustomRenderers\SaveiOS.cs" />
+    <Compile Include="CustomRenderers\ShareiOS.cs" />
+    <Compile Include="CustomWebViewRenderer.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Home.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>Home.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="MyViewController.xib" />
+    <Compile Include="MyViewController.cs" />
+    <Compile Include="MyViewController.designer.cs">
+      <DependentUpon>MyViewController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="CustomPageRenderer.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appstore.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AiForms.Effects">
+      <Version>1.6.11</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer">
+      <Version>19.4.0.48</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Polly">
+      <Version>7.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>2.3.0.759</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Unity.Forms">
+      <Version>8.1.97</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Multilingual">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.SaveOpenPDFPackage">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Plugin.SharedTransitions">
+      <Version>2.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="XamForms.Controls.Calendar">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="JV.XamForms.Controls.Calendar">
+      <Version>1.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.IQKeyboardManager">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FirebasePushNotification">
+      <Version>3.3.10</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\HrApp\HrApp.csproj">
+      <Project>{9F4C56A5-ABBA-449D-B2D4-C6C1F00EAFF3}</Project>
+      <Name>HrApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\homeemployeecentericon.png" />
+    <BundleResource Include="Resources\homeemployeecentericon%402x.png" />
+    <BundleResource Include="Resources\HomeIcon.png" />
+    <BundleResource Include="Resources\HomeIcon%402x.png" />
+    <BundleResource Include="Resources\ProfileIcon.png" />
+    <BundleResource Include="Resources\ProfileIcon%402x.png" />
+    <BundleResource Include="Resources\notificationIcon.png" />
+    <BundleResource Include="Resources\notificationIcon%402x.png" />
+    <BundleResource Include="Resources\bottomnavhomeicon.png" />
+    <BundleResource Include="Resources\bottomnavhomeicon%402x.png" />
+    <BundleResource Include="Resources\bottomnavmailicon.png" />
+    <BundleResource Include="Resources\bottomnavmailicon%402x.png" />
+    <BundleResource Include="Resources\bottomnavnotificationsicon.png" />
+    <BundleResource Include="Resources\bottomnavnotificationsicon%402x.png" />
+    <BundleResource Include="Resources\bottomnavhelpicon.png" />
+    <BundleResource Include="Resources\bottomnavhelpicon%402x.png" />
+    <BundleResource Include="Resources\homemanagercentericon.png" />
+    <BundleResource Include="Resources\homemanagercentericon%402x.png" />
+    <BundleResource Include="Resources\homenewsboardicon.png" />
+    <BundleResource Include="Resources\homenewsboardicon%402x.png" />
+    <BundleResource Include="Resources\homelivechaticon.png" />
+    <BundleResource Include="Resources\homelivechaticon%402x.png" />
+    <BundleResource Include="Resources\homequicklinksicon.png" />
+    <BundleResource Include="Resources\homequicklinksicon%402x.png" />
+    <BundleResource Include="Resources\bg.png" />
+    <BundleResource Include="Resources\bg%402x.png" />
+    <BundleResource Include="Resources\homeemployeecentericonUnActive.png" />
+    <BundleResource Include="Resources\homeemployeecentericonUnActive%402x.png" />
+    <BundleResource Include="Resources\welcomeLogin.png" />
+    <BundleResource Include="Resources\welcomeLogin%402x.png" />
+    <BundleResource Include="Resources\splash.png" />
+    <BundleResource Include="Resources\splash%402x.png" />
+    <BundleResource Include="Resources\employeemyprofileicon.png" />
+    <BundleResource Include="Resources\employeemyprofileicon%402x.png" />
+    <BundleResource Include="Resources\employeeonlineservicesicon.png" />
+    <BundleResource Include="Resources\employeeonlineservicesicon%402x.png" />
+    <BundleResource Include="Resources\employeestaffdutyscheduleicon.png" />
+    <BundleResource Include="Resources\employeestaffdutyscheduleicon%402x.png" />
+    <BundleResource Include="Resources\employeedigitalvaleticon.png" />
+    <BundleResource Include="Resources\employeedigitalvaleticon%402x.png" />
+    <BundleResource Include="Resources\employeeatticon.png" />
+    <BundleResource Include="Resources\employeeatticon%402x.png" />
+    <BundleResource Include="Resources\manageronlinerequestsicon.png" />
+    <BundleResource Include="Resources\manageronlinerequestsicon%402x.png" />
+    <BundleResource Include="Resources\managerempatticon.png" />
+    <BundleResource Include="Resources\managerempatticon%402x.png" />
+    <BundleResource Include="Resources\managerdepartscheduleicon.png" />
+    <BundleResource Include="Resources\managerdepartscheduleicon%402x.png" />
+    <BundleResource Include="Resources\managerempdirectoryicon.png" />
+    <BundleResource Include="Resources\managerempdirectoryicon%402x.png" />
+    <BundleResource Include="Resources\managerbuildingcamerasicon.png" />
+    <BundleResource Include="Resources\managerbuildingcamerasicon%402x.png" />
+    <BundleResource Include="Resources\servicesleavesicon.png" />
+    <BundleResource Include="Resources\servicesleavesicon%402x.png" />
+    <BundleResource Include="Resources\servicesovertimeicon.png" />
+    <BundleResource Include="Resources\servicesovertimeicon%402x.png" />
+    <BundleResource Include="Resources\servicescertificatesicon.png" />
+    <BundleResource Include="Resources\servicescertificatesicon%402x.png" />
+    <BundleResource Include="Resources\servicesstcsubicon.png" />
+    <BundleResource Include="Resources\servicesstcsubicon%402x.png" />
+    <BundleResource Include="Resources\leaveshajjicon.png" />
+    <BundleResource Include="Resources\leaveshajjicon%402x.png" />
+    <BundleResource Include="Resources\leavesunpaidicon.png" />
+    <BundleResource Include="Resources\leavesunpaidicon%402x.png" />
+    <BundleResource Include="Resources\leavestimebackicon.png" />
+    <BundleResource Include="Resources\leavestimebackicon%402x.png" />
+    <BundleResource Include="Resources\leavesmaternityicon.png" />
+    <BundleResource Include="Resources\leavesmaternityicon%402x.png" />
+    <BundleResource Include="Resources\leavesconferenceicon.png" />
+    <BundleResource Include="Resources\leavesconferenceicon%402x.png" />
+    <BundleResource Include="Resources\GetHomeNotification%402x.png" />
+    <BundleResource Include="Resources\leavescompassionateicon.png" />
+    <BundleResource Include="Resources\leavesbusinesstripicon.png" />
+    <BundleResource Include="Resources\leavesbusinesstripicon%402x.png" />
+    <BundleResource Include="Resources\leavesstudyicon.png" />
+    <BundleResource Include="Resources\leavesstudyicon%402x.png" />
+    <BundleResource Include="Resources\leavessickicon.png" />
+    <BundleResource Include="Resources\leavessickicon%402x.png" />
+    <BundleResource Include="Resources\aside_faq_icon.png" />
+    <BundleResource Include="Resources\aside_home_icon.png" />
+    <BundleResource Include="Resources\hide_nav_icon.png" />
+    <BundleResource Include="Resources\show_nav_icon.png" />
+    <BundleResource Include="Resources\annualLeaves.png" />
+    <BundleResource Include="Resources\annualLeaves%402x.png" />
+    <BundleResource Include="Resources\annualLeaves%403x.png" />
+    <BundleResource Include="Resources\aside_faq_icon%402x.png" />
+    <BundleResource Include="Resources\aside_faq_icon%403x.png" />
+    <BundleResource Include="Resources\aside_home_icon%402x.png" />
+    <BundleResource Include="Resources\aside_home_icon%403x.png" />
+    <BundleResource Include="Resources\bg%403x.png" />
+    <BundleResource Include="Resources\bottomnavhelpicon%403x.png" />
+    <BundleResource Include="Resources\bottomnavhomeicon%403x.png" />
+    <BundleResource Include="Resources\bottomnavmailicon%403x.png" />
+    <BundleResource Include="Resources\bottomnavnotificationsicon%403x.png" />
+    <BundleResource Include="Resources\employeeatticon%403x.png" />
+    <BundleResource Include="Resources\employeedigitalvaleticon%403x.png" />
+    <BundleResource Include="Resources\employeemyprofileicon%403x.png" />
+    <BundleResource Include="Resources\employeeonlineservicesicon%403x.png" />
+    <BundleResource Include="Resources\employeestaffdutyscheduleicon%403x.png" />
+    <BundleResource Include="Resources\hide_nav_icon%402x.png" />
+    <BundleResource Include="Resources\hide_nav_icon%403x.png" />
+    <BundleResource Include="Resources\homeemployeecentericonUnActive%403x.png" />
+    <BundleResource Include="Resources\HomeIcon%403x.png" />
+    <BundleResource Include="Resources\homelivechaticon%403x.png" />
+    <BundleResource Include="Resources\homenewsboardicon%403x.png" />
+    <BundleResource Include="Resources\homequicklinksicon%403x.png" />
+    <BundleResource Include="Resources\leavepermissionicon.png" />
+    <BundleResource Include="Resources\leavepermissionicon%402x.png" />
+    <BundleResource Include="Resources\leavepermissionicon%403x.png" />
+    <BundleResource Include="Resources\leavesbusinesstripicon%403x.png" />
+    <BundleResource Include="Resources\leavescompassionateicon%402x.png" />
+    <BundleResource Include="Resources\leavescompassionateicon%403x.png" />
+    <BundleResource Include="Resources\leavesconferenceicon%403x.png" />
+    <BundleResource Include="Resources\leavesencashmenticon.png" />
+    <BundleResource Include="Resources\leavesencashmenticon%402x.png" />
+    <BundleResource Include="Resources\leavesencashmenticon%403x.png" />
+    <BundleResource Include="Resources\leaveshajjicon%403x.png" />
+    <BundleResource Include="Resources\leavesmaternityicon%403x.png" />
+    <BundleResource Include="Resources\leavesresumptionicon.png" />
+    <BundleResource Include="Resources\leavesresumptionicon%402x.png" />
+    <BundleResource Include="Resources\leavesresumptionicon%403x.png" />
+    <BundleResource Include="Resources\leavessickicon%403x.png" />
+    <BundleResource Include="Resources\leavesstudyicon%403x.png" />
+    <BundleResource Include="Resources\leavestimebackicon%403x.png" />
+    <BundleResource Include="Resources\leavesunpaidicon%403x.png" />
+    <BundleResource Include="Resources\managerbuildingcamerasicon%403x.png" />
+    <BundleResource Include="Resources\managerdepartscheduleicon%403x.png" />
+    <BundleResource Include="Resources\managerempatticon%403x.png" />
+    <BundleResource Include="Resources\managerempdirectoryicon%403x.png" />
+    <BundleResource Include="Resources\manageronlinerequestsicon%403x.png" />
+    <BundleResource Include="Resources\profilebg.png" />
+    <BundleResource Include="Resources\profilebg%402x.png" />
+    <BundleResource Include="Resources\profilebg%403x.png" />
+    <BundleResource Include="Resources\ProfileIcon%403x.png" />
+    <BundleResource Include="Resources\profileimg.png" />
+    <BundleResource Include="Resources\profileimg%402x.png" />
+    <BundleResource Include="Resources\profileimg%403x.png" />
+    <BundleResource Include="Resources\servicesbreastfeedingactiveicon.png" />
+    <BundleResource Include="Resources\servicesbreastfeedingactiveicon%402x.png" />
+    <BundleResource Include="Resources\servicesbreastfeedingactiveicon%403x.png" />
+    <BundleResource Include="Resources\servicescertificatesicon%403x.png" />
+    <BundleResource Include="Resources\servicesleavesicon%403x.png" />
+    <BundleResource Include="Resources\servicesovertimeicon%403x.png" />
+    <BundleResource Include="Resources\servicesstcsubicon%403x.png" />
+    <BundleResource Include="Resources\show_nav_icon%402x.png" />
+    <BundleResource Include="Resources\show_nav_icon%403x.png" />
+    <BundleResource Include="Resources\welcome.png" />
+    <BundleResource Include="Resources\welcome%402x.png" />
+    <BundleResource Include="Resources\welcome%403x.png" />
+    <BundleResource Include="Resources\welcomeLogin%403x.png" />
+    <BundleResource Include="Resources\welcomewithLogo.png" />
+    <BundleResource Include="Resources\welcomewithLogo%402x.png" />
+    <BundleResource Include="Resources\welcomewithLogo%403x.png" />
+    <BundleResource Include="Resources\welcomewithLogo2.png" />
+    <BundleResource Include="Resources\welcomewithLogo2%402x.png" />
+    <BundleResource Include="Resources\welcomewithLogo2%403x.png" />
+    <BundleResource Include="Resources\yearsbadge.png" />
+    <BundleResource Include="Resources\yearsbadge%402x.png" />
+    <BundleResource Include="Resources\yearsbadge%403x.png" />
+    <BundleResource Include="Resources\EmployeeCenter.png" />
+    <BundleResource Include="Resources\EmployeeCenter%402x.png" />
+    <BundleResource Include="Resources\managercentericon.png" />
+    <BundleResource Include="Resources\managercentericon%402x.png" />
+    <BundleResource Include="Resources\livechaticon.png" />
+    <BundleResource Include="Resources\livechaticon%402x.png" />
+    <BundleResource Include="Resources\newsboardicon.png" />
+    <BundleResource Include="Resources\newsboardicon%402x.png" />
+    <BundleResource Include="Resources\quicklinksicon.png" />
+    <BundleResource Include="Resources\quicklinksicon%402x.png" />
+    <BundleResource Include="Resources\Empprofileicon.png" />
+    <BundleResource Include="Resources\Empprofileicon%402x.png" />
+    <BundleResource Include="Resources\OnlineServiceIcon.png" />
+    <BundleResource Include="Resources\OnlineServiceIcon%402x.png" />
+    <BundleResource Include="Resources\StufDutyScheduleicon.png" />
+    <BundleResource Include="Resources\StufDutyScheduleicon%402x.png" />
+    <BundleResource Include="Resources\digitalvaleticon.png" />
+    <BundleResource Include="Resources\digitalvaleticon%402x.png" />
+    <BundleResource Include="Resources\empatticon.png" />
+    <BundleResource Include="Resources\empatticon%402x.png" />
+    <BundleResource Include="Resources\onlinerequestsicon.png" />
+    <BundleResource Include="Resources\onlinerequestsicon%402x.png" />
+    <BundleResource Include="Resources\managerempatt.png" />
+    <BundleResource Include="Resources\managerempatt%402x.png" />
+    <BundleResource Include="Resources\departscheduleicon.png" />
+    <BundleResource Include="Resources\departscheduleicon%402x.png" />
+    <BundleResource Include="Resources\empdirectoryicon.png" />
+    <BundleResource Include="Resources\empdirectoryicon%402x.png" />
+    <BundleResource Include="Resources\login%403x.png" />
+    <BundleResource Include="Resources\login%402x.png" />
+    <BundleResource Include="Resources\login.png" />
+    <BundleResource Include="Resources\register.png" />
+    <BundleResource Include="Resources\register%402x.png" />
+    <BundleResource Include="Resources\register%403x.png" />
+    <BundleResource Include="Resources\SecondSplachImage%402x.png" />
+    <BundleResource Include="Resources\SecondSplachImage%403x.png" />
+    <BundleResource Include="Resources\selectedHomeIcon.png" />
+    <BundleResource Include="Resources\selectedHomeIcon%402x.png" />
+    <BundleResource Include="Resources\notIcon.png" />
+    <BundleResource Include="Resources\notIcon%402x.png" />
+    <BundleResource Include="Resources\logoutIcon.png" />
+    <BundleResource Include="Resources\logoutIcon%402x.png" />
+    <BundleResource Include="Resources\splash%403x.png" />
+    <BundleResource Include="Resources\leavesannualicon.png" />
+    <BundleResource Include="Resources\leavesannualicon%402x.png" />
+    <BundleResource Include="Resources\leavesannualicon%403x.png" />
+    <BundleResource Include="Resources\leavessickicon-1.png" />
+    <BundleResource Include="Resources\leavessickicon-1%402x.png" />
+    <BundleResource Include="Resources\leavessickicon-1%403x.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\credits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\credits%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\credits%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new-account%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new-account%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\under_construction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\under_construction%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\under_construction%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\welcome-illustration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\welcome-illustration%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\welcome-illustration%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\new_accountVictor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\loginVictor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SecondSplachImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\resetPassword%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\resetPassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\resetPassword%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProfileIconDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProfileImgDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homelivechatnewmsgicon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homelivechatnewmsgicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homelivechatnewmsgicon%402x.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             BackgroundImageSource="SecondSplachImage.png"
+             NavigationPage.HasNavigationBar="False"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             
+          
+             x:Class="HrApp.View.SecondSplach.SecondSplach">
+    <Grid >
+        <Image Source="SecondSplachImage.png" Aspect="Fill"  
+       />
+       <!-- <Label Text="Skip >>" TextColor="Black" FontSize="Body" HorizontalOptions="End" VerticalOptions="Start" Margin="20">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SkipTapped}"  />
+            </Label.GestureRecognizers>
+        </Label>-->
+    </Grid>
+
+</ContentPage>

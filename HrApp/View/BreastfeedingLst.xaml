@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.BreastfeedingLst">
+    <ContentPage.Content>
+                <Grid BackgroundColor="#F7F6F3">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
+                <StackLayout Margin="5">
+                <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="Breastfeeding Request"></Label>
+                </StackLayout>
+               <StackLayout Orientation="Horizontal" Margin="25">
+               
+                     
+                       <Frame BackgroundColor="#00A7A3"  Padding="10" HeightRequest="40" IsVisible="{Binding IsShowNewRequest}" HorizontalOptions="EndAndExpand" CornerRadius="10" WidthRequest="120" >
+                           <Frame.GestureRecognizers>
+                               <TapGestureRecognizer Command="{Binding GoNewPageCommand}" CommandParameter="BreastfeedingNewRequest"></TapGestureRecognizer>
+                           </Frame.GestureRecognizers>
+                           <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                           <Label Text="&#xf055;" FontSize="25" VerticalOptions="CenterAndExpand"  FontFamily="FontAwesome"/>
+                                <Label Text="Add New" FontSize="17" TextColor="White"></Label>
+                       </StackLayout>
+                   
+                   </Frame>
+               </StackLayout>
+                <CollectionView ItemsSource="{Binding BreatFeasteLst}" SelectionMode="Single" SelectionChangedCommand="{Binding GoToDetailsCommand}" SelectedItem="{Binding SelectedValue}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <Grid Margin="20,10,20,5">
+                                    <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
+                                        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto" ColumnDefinitions="*,*" >
+                                            <Label FontSize="14" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="{Binding RefNO}" Grid.Row="1" Grid.Column="0"></Label>
+                                            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalOptions="Start">
+                                                <controls:requeststates/>
+                                            </StackLayout>
+                                                <Grid ColumnDefinitions="auto,auto,auto,auto" Grid.Row="4" Grid.ColumnSpan="2" ColumnSpacing="3">
+                                                <Label Text="From:" TextColor="#63788A" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                                <Label Text="{Binding StartDate,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"></Label>
+                                                <Label Text="To: " TextColor="#63788A" FontSize="14"  Grid.Row="0" Grid.Column="2"></Label>
+                                                <Label Text="{Binding EndDate,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="3"></Label>
+                                            </Grid>
+                                            <Label Text="{Binding StuffFirstNameLastName }" Grid.Row="2" Grid.ColumnSpan="2"></Label>
+                                            <Label Text="{Binding department }" Grid.Row="3" Grid.ColumnSpan="2"></Label>
+
+                                            <Label Text="{Binding Notes,StringFormat='Note: {0}'}" Grid.Row="5" Grid.ColumnSpan="2"></Label>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                          <Grid Margin="20,10,20,5">
+                                    <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
+                                  <Label FontSize="21" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="No Requests Found" Grid.Row="0" Grid.Column="0"></Label>
+                                    </Frame>
+                              </Grid>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </StackLayout>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+
+    </ContentPage.Content>  
+</ContentPage>

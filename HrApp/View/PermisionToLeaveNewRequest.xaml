@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.PermisionToLeaveNewRequest">
+    <ContentPage.Content>
+             <Grid BackgroundColor="#FFFFFF">
+              <Grid RowDefinitions="auto,*">
+                <StackLayout Grid.Row="0" Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
+                    <StackLayout Margin="5">
+                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Label FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="Permission to Leave"></Label>
+                </StackLayout>
+                  <ScrollView VerticalScrollBarVisibility="Never"  Grid.Row="1" >
+                  <StackLayout Margin="30,30,20,10">
+                        <controls:FormHead/>
+                        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto" RowSpacing="15" ColumnDefinitions="*,*,auto" Margin="0,5,0,10" Padding="0" IsEnabled="{Binding IsEmployee}">
+
+                       
+
+                          <Frame IsVisible="false" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="20,8,8,-7.5" CornerRadius="10" BorderColor="#00A7A3">
+                              <StackLayout Padding="0" Margin="0">
+                                  <Label Text="Total Permisions" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Entry TextColor="#214455" Text="{Binding TotalPermision}" FontSize="14" FontFamily="Poppins-Mediaum.ttf"></Entry>
+                              </StackLayout>
+                          </Frame>
+                                <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" Padding="10,10,0,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="FillAndExpand">
+                                  <Label Text="Date of Permission "  HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                    <DatePicker   Format="dd/MM/yyyy"  Date="{Binding Perdate,StringFormat='{0:dd MMM , yyyy}'}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></DatePicker>
+                              </StackLayout>
+                          </Frame>
+                          <Grid ColumnDefinitions="*,*,*" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand">
+                          <Frame  Grid.Column="1"  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="Fill">
+                                  <Label Text="Time In"  HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                        <TimePicker Time="{Binding Timeout}"  TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                              </StackLayout>
+                          </Frame>
+                              <Frame Grid.Column="0"   BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="FillAndExpand">
+                                  <Label Text="Time Out" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                        <TimePicker Time="{Binding Timein}" TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                              </StackLayout>
+                          </Frame>
+                                 <Frame Grid.Column="2"  BackgroundColor="#F0F4F9" Padding="5,10,5,5" Margin="0" HeightRequest="60" WidthRequest="90" CornerRadius="10" BorderColor="#E4E6EF" HorizontalOptions="End">
+                              <StackLayout>
+                                  <Label Text="Hours"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="{Binding TotalHours,StringFormat='{}{0:hh\\:mm}'}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                              </StackLayout>
+                          </Frame>
+                </Grid>
+
+                              <Frame Grid.Row="3" HeightRequest="100" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="20,10,8,0" CornerRadius="10" BorderColor="#00A7A3">
+                              <StackLayout>
+                                  <Label Text="Reason" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Editor Text="{Binding Reason}" HeightRequest="90" TextColor="#214455" FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Editor>
+                              </StackLayout>
+
+                          </Frame>
+   </Grid>
+                        <Button BackgroundColor="Red" IsVisible="false" CornerRadius="8" Margin="10" Command="{Binding DeleteItem}" Text="Delete"></Button>
+
+                        <Button IsVisible="{Binding IsEmployee}"  BackgroundColor="#00A7A3" CornerRadius="8" Command="{Binding SendRequestCommand}" Text="{Binding SendRequestText}"></Button>
+                      <Label IsVisible="{Binding IsEmployee}" Text="{Binding ServiceRequestNote}" FontSize="12" TextColor="#B5B5C3"></Label>
+                                             <StackLayout  Margin="0" IsVisible="{Binding IsActionsVisible}" >
+                                                   <Frame BackgroundColor="#F0F4F9" Grid.Row="6" IsVisible="{Binding IsPendingOnHrManager}" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,4,5,5">
+                                 <Frame.GestureRecognizers>
+                                     <TapGestureRecognizer Command="{Binding SelectDeoitizerCommand}"></TapGestureRecognizer>
+                                 </Frame.GestureRecognizers>
+                                 <Grid ColumnDefinitions="*,20" VerticalOptions="CenterAndExpand">
+                              <StackLayout Grid.Column="0" Padding="0" Margin="0">
+                                        <Label Text="HR Officer" TextColor="#B5B5C3" FontSize="12" ></Label>
+                              <Label Text="{Binding DepitizedName}" TextColor="#214455" FontFamily="Poppins-Medium.ttf" FontSize="15"></Label>
+                                  </StackLayout>
+                              
+                                  <Label FontSize="15" Text="&#xf0dc;" TextColor="#214455" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontFamily="FontAwesome" Grid.Column="1"></Label>
+                                  
+                             
+                              </Grid>
+                      </Frame>
+
+                            <StackLayout Orientation="Horizontal" IsVisible="{Binding IsActionsVisible}"  Margin="10">
+                                     <Button BackgroundColor="#00A7A3" CornerRadius="8" Command="{Binding SendApproveCommand}" Text="Approve"></Button>
+                                       <Button BackgroundColor="Red" CornerRadius="8" Command="{Binding SendRejectionCommand}" IsVisible="{Binding IsHideRject}" Text="Reject"></Button>
+
+                          </StackLayout>
+                  </StackLayout>
+
+                  </StackLayout>
+                      </ScrollView>
+                  </Grid>
+          <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

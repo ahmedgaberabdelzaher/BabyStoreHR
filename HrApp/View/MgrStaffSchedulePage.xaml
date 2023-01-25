@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+      xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:myControls="clr-namespace:HrApp.Controls"
+   NavigationPage.HasNavigationBar="False"
+    x:Class="HrApp.View.MgrStaffSchedulePage">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" RowDefinitions="100,*,140">
+               <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="100" Spacing="10" BackgroundColor="#214455">
+
+                   <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                         <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                         </Label.GestureRecognizers>
+                    </Label>
+
+                   <Label Text="Staff Schedule" HorizontalOptions="StartAndExpand" FontSize="20" FontFamily="Poppins-Bold.ttf"
+                          VerticalTextAlignment="Center" TextColor="#CEBFB3"/>
+
+       <myControls:ProfileandNotificationHeader></myControls:ProfileandNotificationHeader>
+
+                </StackLayout>
+            <!-- calendar section-->
+                <AbsoluteLayout Grid.Row="1"  Margin="10,10,10,0">
+
+                     <yummy:PancakeView CornerRadius="5" Padding="10"
+                                 BackgroundColor="#E4E9F5"
+                                        HorizontalOptions="Fill"
+                                  AbsoluteLayout.LayoutBounds="0,0,1,60"
+                                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional">
+                   <yummy:PancakeView.Border>
+                        <yummy:Border Color="#0C75B0" Thickness="1" />
+                     </yummy:PancakeView.Border>
+                    <StackLayout VerticalOptions="Center" Spacing="10" Orientation="Horizontal">
+
+                        <ActivityIndicator IsRunning="True"
+                               IsEnabled="True"
+                               IsVisible="{Binding IsLoadingStaff}"
+                               Grid.Row="2" VerticalOptions="Center"/>
+
+                         <Image Source="ProfileIconDefault.png" HeightRequest="{StaticResource profileHeight}" WidthRequest="{StaticResource profileWidth}" Aspect="AspectFit" VerticalOptions="Center"/>
+                        <Label Grid.Row="0" Text="Select Staff" TextColor="#63788A" FontFamily="Poppins-Medium.ttf"
+                                     IsVisible="{Binding NoData}"  FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+
+                            <Label Grid.Row="0" Text="{Binding SelectedStaff.name}" TextColor="#63788A" FontFamily="Poppins-Medium.ttf"
+                                    FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                         <Label Text="&#xf107;" FontSize="25" VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#63788A" WidthRequest="40"
+                            HeightRequest="40"  FontFamily="FontAwesome"/>
+
+
+                        <Picker ItemsSource="{Binding Staff}"  SelectedItem="{Binding SelectedStaff}" x:Name="fromPicker" IsVisible="false" TextColor="Transparent"/>
+                    </StackLayout>
+                  <yummy:PancakeView.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                  </yummy:PancakeView.GestureRecognizers>
+            </yummy:PancakeView>
+
+             <controls:Calendar x:Name="MyCalendar" Margin="0,60,0,0" BackgroundColor="White" 
+                                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                DatesFontFamily="Poppins-Regular.ttf"
+                                WeekdaysFontFamily="Poppins-Bold.ttf"
+                                DateCommand="{Binding SelectDateCommand}"
+                                SelectedDate="{Binding SelectedDate}"
+                                StartDay="Saturday" TitleLeftArrowIsVisible="False"
+                           DisabledBorderWidth="0" DatesFontSize="14" DatesTextColor="#63788A"
+                           WeekdaysTextColor="#214455" SelectedTextColor="#214455"
+                           WeekdaysFormat="ddd" WeekdaysFontSize="13"
+                              SelectedBorderColor="White"
+                           BorderColor="Transparent" TitleLabelTextColor="Transparent" TitleLabelVerticalTextAlignment="Start" 
+                           SelectedBackgroundColor="#CEBFB3"  TitleLabelHorizontalTextAlignment="Start"
+                           TitleRightArrowIsVisible="False" 
+                           DisabledBorderColor="Black"/>
+
+             <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1,0.1"
+                          Margin="10,90,-20,0"
+                          AbsoluteLayout.LayoutFlags="All">
+                 <Label x:Name="YearMonthLab" TextColor="#214455" FontFamily="Poppins-Bold.ttf" Text="September 2021" FontSize="15" VerticalOptions="Center"
+                         HorizontalOptions="FillAndExpand"/>
+
+                 <StackLayout Orientation="Horizontal" WidthRequest="105" Margin="10,0,10,0" Spacing="0">
+                     <Label Text="&#xf106;" FontSize="25"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            VerticalOptions="Center"  TextColor="#214455"
+                            WidthRequest="40" HeightRequest="40"
+                            FontFamily="FontAwesome">
+                         <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="UPTapGestureRecognizer_Tapped"/>
+                          </Label.GestureRecognizers>
+                    </Label>
+                     <Label Text="&#xf107;" FontSize="25" VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#214455" WidthRequest="40"
+                            HeightRequest="40"  FontFamily="FontAwesome">
+                         <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DownTapGestureRecognizer_Tapped"/>
+                          </Label.GestureRecognizers>
+                    </Label>
+                 </StackLayout>
+
+            </StackLayout>
+        </AbsoluteLayout>
+
+            <AbsoluteLayout Grid.Row="2" BackgroundColor="#00A7A3" >
+       
+            <!-- events list-->
+        <ScrollView VerticalScrollBarVisibility="Never" HeightRequest="200" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0.8,1,0.8">
+           <StackLayout Spacing="0" BindableLayout.ItemsSource="{Binding Events}">
+                    <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                   <StackLayout Padding="10,0,10,0" Orientation="Horizontal" Spacing="10" BackgroundColor="#00A7A3">
+                       <StackLayout Spacing="0">
+                           <Label Text="{Binding FromatedTime}" TextColor="White" FontFamily="Poppins-Bold.ttf" FontSize="14"/>
+                       </StackLayout>
+                        <StackLayout Spacing="3">
+                           <Label Text="o" TextColor="#C2E3D3"
+                                  VerticalOptions="End"
+                                  VerticalTextAlignment="End"
+                                  FontAttributes="Bold"
+                                  FontSize="16"/>
+                           <BoxView WidthRequest="2" BackgroundColor="#C2E3D3"
+                                    Margin="0,-10,0,0"
+                                    HeightRequest="77" HorizontalOptions="Center"/>
+                       </StackLayout>
+                <StackLayout Spacing="0">
+                   <Label Text="{Binding Description}" TextColor="#C2E3D3" FontFamily="Poppins-Medium.ttf"  FontSize="15"/>
+                   <Label Text="{Binding FromTo}" TextColor="#C2E3D3BF" FontFamily="Poppins-Regular.ttf"  FontSize="13"/>
+                           </StackLayout>
+                       </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+               </StackLayout>
+       </ScrollView>
+
+                 <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,0.2" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
+            <yummy:PancakeView CornerRadius="25" Padding="10,5,10,5" BackgroundColor="#CEBFB3" Margin="0,-20,0,0" HeightRequest="40"  HorizontalOptions="Center">
+               <Label Text="{Binding SelectedDateText}" FontFamily="Poppins-Medium.ttf" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" />
+            </yummy:PancakeView>
+        </StackLayout>
+
+              </AbsoluteLayout>
+
+            <myControls:Loader  HorizontalOptions="Center" VerticalOptions="Center"
+                               IsVisible="{Binding IsLoading}" Grid.Row="2"/>
+
+           </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HrApp.Controls.FormHead">
+  <ContentView.Content>
+      <StackLayout>
+            <Label  IsVisible="{Binding IsEmployee}" Text="Please fill in the form" TextColor="#214455" FontSize="16" FontFamily="Poppins-SemiBold.ttf">
+            </Label>
+            <StackLayout  IsVisible="{Binding Isreadeonly}">
+                <Label TextColor="#214455" FontSize="12" Text="{Binding RefNO,StringFormat='Ref No : {0}'}" FontFamily="Poppins-Medium.ttf"/>
+                <Label  Text="{Binding StuffFirstNameLastName}"  TextColor="#214455" FontSize="11" />
+                <Label  Text="{Binding department}"  TextColor="#214455" FontSize="11"/>
+
+                <!--  <Label.Text>
+                        <MultiBinding StringFormat="{}Requested By :{0}  {1:- On: dd/MM/yyyy}">
+                            <Binding Path="StuffFirstNameLastName" />
+                            <Binding Path="reqDate"  />
+                        </MultiBinding>
+                    </Label.Text>-->
+
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

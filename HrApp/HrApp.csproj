@@ -1,0 +1,128 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ApplicationIcon />
+    <Win32Resource />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AiForms.Effects" Version="1.6.11" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="5.0.6" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="19.4.0.48" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Polly" Version="7.2.2" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+    <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
+    <PackageReference Include="Xamarin.Forms.SaveOpenPDFPackage" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.4.0" />
+    <PackageReference Include="XamForms.Controls.Calendar" Version="1.1.1" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
+    <PackageReference Include="JV.XamForms.Controls.Calendar" Version="1.2.0" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fonts\GreatVibes-Regular.ttf" />
+    <None Remove="Helpers\" />
+    <None Remove="Converters\" />
+    <None Remove="Model\" />
+    <None Remove="View\" />
+    <None Remove="ViewModel\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Interface\" />
+    <None Remove="Services\Class\" />
+    <None Remove="Behaviours\" />
+    <None Remove="Resources\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Polly" />
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="Prism.Unity.Forms" />
+    <None Remove="Plugin.Multilingual" />
+    <None Remove="Fonts\" />
+    <None Remove="Controls\" />
+    <None Remove="Fonts\fa-solid-900.ttf" />
+    <None Remove="Fonts\Poppins-ExtraLight.ttf" />
+    <None Remove="Fonts\Poppins-ThinItalic.ttf" />
+    <None Remove="Fonts\Poppins-ExtraLightItalic.ttf" />
+    <None Remove="Fonts\Poppins-BoldItalic.ttf" />
+    <None Remove="Fonts\Poppins-Light.ttf" />
+    <None Remove="Fonts\Poppins-Medium.ttf" />
+    <None Remove="Fonts\Poppins-SemiBoldItalic.ttf" />
+    <None Remove="Fonts\Poppins-ExtraBoldItalic.ttf" />
+    <None Remove="Fonts\Poppins-ExtraBold.ttf" />
+    <None Remove="Fonts\Poppins-BlackItalic.ttf" />
+    <None Remove="Fonts\Poppins-Regular.ttf" />
+    <None Remove="Fonts\Poppins-LightItalic.ttf" />
+    <None Remove="Fonts\Poppins-Bold.ttf" />
+    <None Remove="Fonts\Poppins-Black.ttf" />
+    <None Remove="Fonts\Poppins-Thin.ttf" />
+    <None Remove="Fonts\Poppins-SemiBold.ttf" />
+    <None Remove="Fonts\Poppins-Italic.ttf" />
+    <None Remove="Fonts\Poppins-MediumItalic.ttf" />
+    <None Remove="XamForms.Controls.Calendar" />
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="JV.XamForms.Controls.Calendar" />
+    <None Remove="Xam.Plugins.Forms.ImageCircle" />
+    <None Remove="Plugin.PushNotification" />
+    <None Remove="Plugin.FirebasePushNotification" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\MenuControl.xaml.cs">
+      <DependentUpon>MenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\StcSubscriptionLst.xaml.cs">
+      <DependentUpon>StcSubscriptionLst.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\DigitalValetPage.xaml.cs">
+      <DependentUpon>DigitalValetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Notification.xaml.cs">
+      <DependentUpon>Notification.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\fa-solid-900.ttf" />
+    <EmbeddedResource Include="Fonts\GreatVibes-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-ExtraLight.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-ThinItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-BoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-ExtraBold.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-BlackItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-LightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Black.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Thin.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-SemiBold.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-Italic.ttf" />
+    <EmbeddedResource Include="Fonts\Poppins-MediumItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\ChatInputBarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

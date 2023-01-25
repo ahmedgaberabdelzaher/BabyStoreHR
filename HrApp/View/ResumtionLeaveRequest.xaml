@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.ResumtionLeaveRequest" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+             <Grid BackgroundColor="#FFFFFF">
+              <Grid RowDefinitions="auto,*">
+                <StackLayout Grid.Row="0" Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
+                    <StackLayout Margin="5">
+                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Label FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="Leave Resumption"></Label>
+                </StackLayout>
+                  <ScrollView VerticalScrollBarVisibility="Never"  Grid.Row="1" >
+                  <StackLayout Margin="30,10,20,10">
+                        <controls:FormHead/>
+
+                        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto" RowSpacing="15" ColumnDefinitions="*,*,auto" Margin="0,5,0,10" Padding="0" IsEnabled="{Binding IsEmployee}">
+                      <Frame BackgroundColor="#F0F4F9" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,4,5,5">
+                          <Frame.GestureRecognizers>
+                              <TapGestureRecognizer Command="{Binding SelectResumptionTypeCommand}"></TapGestureRecognizer>
+                          </Frame.GestureRecognizers>
+                          <Grid ColumnDefinitions="*,20" VerticalOptions="CenterAndExpand">
+                              <StackLayout Grid.Column="0" Padding="0" Margin="0">
+                              <Label Text="Resumption Type" TextColor="#B5B5C3" FontSize="12" ></Label>
+                              <Label Text="{Binding ResumtionTypeName}"  TextColor="#214455" FontFamily="Poppins-Medium.ttf" FontSize="17"></Label>
+                                  </StackLayout>
+                              
+                                  <Label FontSize="15" Text="&#xf0dc;" TextColor="#214455" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontFamily="FontAwesome" Grid.Column="1"></Label>
+                                  
+                             
+                              </Grid>
+                      </Frame>
+                          <Frame Grid.Row="1" Grid.Column="2" IsVisible="false" BackgroundColor="#C2E3D3" Padding="5,10,5,5" Margin="0" HeightRequest="60" WidthRequest="90" CornerRadius="10" BorderColor="#00A7A3" HorizontalOptions="End">
+                              <StackLayout>
+                                  <Label Text="BALANCE"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="{Binding Ballance}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                              </StackLayout>
+                          </Frame>
+
+                            <Frame Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="FillAndExpand">
+                                  <Label Text="Resumption Date"  HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                    <DatePicker Format="dd/MM/yyyy" MinimumDate="{Binding MiniReDate}"  Date="{Binding RESUMPTION_DATE}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></DatePicker>
+                              </StackLayout>
+                          </Frame>
+                       
+                             <Frame Grid.Row="1" Grid.Column="2" IsVisible="false"  BackgroundColor="#C2E3D3" Padding="5,10,5,5" Margin="0" HeightRequest="60" WidthRequest="90" CornerRadius="10" BorderColor="#00A7A3" HorizontalOptions="End">
+                              <StackLayout>
+                                  <Label Text="Days"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="1" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                              </StackLayout>
+                          </Frame>
+                                                       <Frame BackgroundColor="#F0F4F9" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,4,5,5">
+                                 <Frame.GestureRecognizers>
+                                     <TapGestureRecognizer Command="{Binding SelectLeaveCommand}"></TapGestureRecognizer>
+                                 </Frame.GestureRecognizers>
+                                 <Grid ColumnDefinitions="*,20" VerticalOptions="CenterAndExpand">
+                              <StackLayout Grid.Column="0" Padding="0" Margin="0">
+                              <Label Text="Select Leave" TextColor="#B5B5C3" FontSize="12" ></Label>
+                              <Label Text="{Binding LEAVE_SERIAL}" TextColor="#214455" FontFamily="Poppins-Medium.ttf" FontSize="15"></Label>
+                                  </StackLayout>
+                              
+                                  <Label FontSize="15" Text="&#xf0dc;" TextColor="#214455" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontFamily="FontAwesome" Grid.Column="1"></Label>
+                                  
+                             
+                              </Grid>
+                      </Frame>
+
+                            <Frame Grid.Row="1" Grid.Column="2" IsVisible="false"  BackgroundColor="White" Padding="5,10,5,5" Margin="0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout>
+                                  <Label Text="Resumption Type"  HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                   <Entry TextColor="#214455" Text="{Binding RESUMPTION_TYPE}" Keyboard="Numeric"  FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Entry>
+                              </StackLayout>
+                          </Frame>
+                              
+                                            
+                                <Frame Grid.Row="2" IsVisible="{Binding IsShowLeave}" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Leave.leaveName}" TextColor="#63788A" FontSize="18" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"></Label>
+                                            <Grid ColumnDefinitions="auto,auto,auto,auto" Padding="5" Grid.Row="3" Grid.ColumnSpan="2" ColumnSpacing="3">
+                                                <Label Text="From:" TextColor="#63788A" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                                <Label Text="{Binding Leave.datE_FROM,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"></Label>
+                                                <Label Text="To: " TextColor="#63788A" FontSize="14"  Grid.Row="0" Grid.Column="2"></Label>
+                                                <Label Text="{Binding Leave.datE_TO,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="3"></Label>
+                                            </Grid></StackLayout>
+                          </Frame>
+                        
+                              <Frame Grid.Row="5" HeightRequest="100" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="20,10,8,0" CornerRadius="10" BorderColor="#00A7A3">
+                              <StackLayout>
+                                  <Label Text="Notes" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Editor Text="{Binding REMARKS}" HeightRequest="90" TextColor="#214455" FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Editor>
+                              </StackLayout>
+
+                          </Frame>
+   </Grid>
+           <Button IsVisible="{Binding IsEmployee}"  BackgroundColor="#00A7A3" CornerRadius="8" Command="{Binding SendLeaveRequestCommand}" Text="{Binding SendRequestText}"></Button>
+                      <Label IsVisible="{Binding IsEmployee}" Text="{Binding ServiceRequestNote}" FontSize="12" TextColor="#B5B5C3"></Label>
+                                             <StackLayout  Margin="0" IsVisible="{Binding IsActionsVisible}" >
+                                                   <Frame BackgroundColor="#F0F4F9" Grid.Row="6" IsVisible="{Binding IsPendingOnHrManager}" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,4,5,5">
+                                 <Frame.GestureRecognizers>
+                                     <TapGestureRecognizer Command="{Binding SelectDeoitizerCommand}"></TapGestureRecognizer>
+                                 </Frame.GestureRecognizers>
+                                 <Grid ColumnDefinitions="*,20" VerticalOptions="CenterAndExpand">
+                              <StackLayout Grid.Column="0" Padding="0" Margin="0">
+                                        <Label Text="HR Officer" TextColor="#B5B5C3" FontSize="12" ></Label>
+                              <Label Text="{Binding DepitizedName}" TextColor="#214455" FontFamily="Poppins-Medium.ttf" FontSize="15"></Label>
+                                  </StackLayout>
+                              
+                                  <Label FontSize="15" Text="&#xf0dc;" TextColor="#214455" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontFamily="FontAwesome" Grid.Column="1"></Label>
+                                  
+                             
+                              </Grid>
+                      </Frame>
+                            <Button BackgroundColor="Red" IsVisible="false" CornerRadius="8" Margin="10" Command="{Binding DeleteItem}" Text="Delete"></Button>
+
+                            <StackLayout Orientation="Horizontal" IsVisible="{Binding IsActionsVisible}"  Margin="10">
+                                     <Button BackgroundColor="#00A7A3" CornerRadius="8" Command="{Binding SendApproveCommand}" Text="Approve"></Button>
+                                       <Button BackgroundColor="Red" CornerRadius="8" Command="{Binding SendRejectionCommand}" IsVisible="{Binding IsHideRject}" Text="Reject"></Button>
+
+                          </StackLayout>
+                  </StackLayout>
+
+                  </StackLayout>
+                      </ScrollView>
+                  </Grid>
+          <controls:Loader IsVisible="false"></controls:Loader>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

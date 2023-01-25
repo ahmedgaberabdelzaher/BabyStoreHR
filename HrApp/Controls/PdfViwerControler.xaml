@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:HrApp.View" xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms" xmlns:controls="clr-namespace:HrApp.Controls"
+             x:Class="HrApp.Controls.PdfViwerControler">
+    <StackLayout>
+        <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="80"  BackgroundColor="#214455">
+
+            <StackLayout Margin="5">
+                <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,20,11,30" FontFamily="FontAwesome">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+          
+
+            <Label x:Name="pdfname" Text="{Binding PDFNAME}" HorizontalOptions="StartAndExpand" FontSize="16" FontFamily="Poppins-Bold.ttf"
+                          VerticalTextAlignment="Center" TextColor="#CEBFB3"/>
+  <StackLayout HorizontalOptions="StartAndExpand" Margin="2">
+                <Label IsVisible="true" Text="&#xf064;" HorizontalOptions="CenterAndExpand"  FontSize="20" VerticalOptions="CenterAndExpand"  TextColor="White" Margin="25,20,11,30" FontFamily="FontAwesome">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnShareButtonClicked"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnShareButtonClicked"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </StackLayout>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="pdfViewGrid">
+
+            <syncfusion:SfPdfViewer x:Name="pdfViewerControl" IsToolbarVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  InputFileStream="{Binding URL}"/>
+    </Grid></StackLayout>
+</ContentPage>

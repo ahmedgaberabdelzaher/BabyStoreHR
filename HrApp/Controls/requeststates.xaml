@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HrApp.Controls.requeststates">
+  <ContentView.Content>
+      <StackLayout Orientation="Horizontal">
+          
+                <Ellipse    HeightRequest="10" WidthRequest="10" VerticalOptions="CenterAndExpand" Fill="#08b4fc">
+                    <Ellipse.Triggers>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Approved By Dept. Manager">
+                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Approved By HR Manager">
+                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Processed By HR Officer">
+                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Rejected By Dept. Manager">
+                            <Setter Property="Fill" Value="#f35958"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Rejected By HR Manager">
+                            <Setter Property="Fill" Value="#f35958"></Setter>
+                        </DataTrigger>
+
+                    </Ellipse.Triggers>
+                </Ellipse>
+                <Label Text="{Binding statusName}" FontSize="14" VerticalOptions="CenterAndExpand" TextColor="#08b4fc" FontFamily="Poppins-Medium.ttf"  >
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Approved By Dept. Manager">
+                            <Setter Property="TextColor" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Approved By HR Manager">
+                            <Setter Property="TextColor" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Processed By HR Officer">
+                            <Setter Property="TextColor" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Rejected By Dept. Manager">
+                            <Setter Property="TextColor" Value="#f35958"></Setter>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Rejected By HR Manager">
+                            <Setter Property="TextColor" Value="#f35958"></Setter>
+                        </DataTrigger>
+
+
+                    </Label.Triggers>
+                </Label>
+
+          
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

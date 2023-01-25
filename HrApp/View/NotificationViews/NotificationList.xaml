@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:local="clr-namespace:HrApp.Converters"
+             xmlns:VM="clr-namespace:HrApp.ViewModel"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="HrApp.View.NotificationViews.NotificationList">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StateConverter x:Key="StateConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+        <Grid BackgroundColor="#F7F6F3">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
+                    <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoHome}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="Notifications"></Label>
+                </StackLayout>
+           
+        <Grid Margin="10">
+            <CollectionView  Margin="5"    ItemsSource="{Binding NotificationList}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ItemSizingStrategy="MeasureFirstItem"   >
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20"
+                        Span="1"  />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <Frame CornerRadius="5" Padding="15">
+
+                                <Grid RowDefinitions="auto,auto,auto,auto,auto,auto" BackgroundColor="White" ColumnDefinitions="*,*" >
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type VM:NotificationViewModel}}, Path=NotifiTabbed}"		 CommandParameter="{Binding .} " />
+                                    </Grid.GestureRecognizers>
+                                    <Label FontSize="21" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="{Binding requestRef}" Grid.Row="0" Grid.Column="0"></Label>
+                                      <Label Text="{Binding StuffFirstNameLastName }" Grid.Row="2" Grid.ColumnSpan="2"></Label>
+                                    <Label Text="{Binding department }" Grid.Row="3" Grid.ColumnSpan="2"></Label>
+
+                                    <Label Text="{Binding requestTypeName}"  TextColor="#63788A" FontSize="18" Grid.Row="4" Grid.Column="0" ></Label>
+                                    <Grid ColumnDefinitions="auto,auto" Grid.Row="3" Grid.ColumnSpan="2" ColumnSpacing="5">
+                                        <Label Text="Request Date:" TextColor="#63788A" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
+                                        <Label Text="{Binding notificationDate,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"></Label>
+                                          </Grid>
+
+                                </Grid>
+                             
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+            </StackLayout>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+    
+  
+</ContentPage>

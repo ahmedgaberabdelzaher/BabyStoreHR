@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:controls="clr-namespace:HrApp.Controls"
+   NavigationPage.HasNavigationBar="False"
+    x:Class="HrApp.View.StaffAttendancePage">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" RowDefinitions="100,Auto,*">
+              
+               <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="100" Spacing="10" BackgroundColor="#214455">
+                <StackLayout Margin="5">
+                   <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
+                     
+                       <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                         </Label.GestureRecognizers>
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                  
+                </StackLayout>
+                <Label Text="My Attendance" HorizontalOptions="StartAndExpand" FontSize="20" FontFamily="Poppins-Bold.ttf"
+                          VerticalTextAlignment="Center" TextColor="#CEBFB3"/>
+
+                             <controls:ProfileandNotificationHeader></controls:ProfileandNotificationHeader>
+
+                </StackLayout>
+            <!-- calendar section-->
+                <Grid IsVisible="false" ColumnDefinitions="*,*" HorizontalOptions="Fill" Grid.Row="1"
+                             Margin="10" >
+          
+                  <yummy:PancakeView CornerRadius="5" Padding="10"
+                                     BackgroundColor="#FFFFFF"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Fill"
+                                     Grid.Column="0"
+                                     HeightRequest="50">
+                       <yummy:PancakeView.Border>
+                            <yummy:Border Color="#E4E6EF" Thickness="1" />
+                         </yummy:PancakeView.Border>
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Spacing="0">
+                        
+                                           <Label Grid.Row="0" Text="Date From" TextColor="#B5B5C3" FontFamily="Poppins-Regular.ttf"
+                                                  FontSize="12" VerticalOptions="Center" />
+                            <Label Grid.Row="1"  Text="{Binding DateFrom, StringFormat='{0:dd/MM/yyy}'}" FontFamily="Poppins-Medium.ttf"
+                                                  FontSize="15" TextColor="#214455"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                            <DatePicker Format="dd/MM/yyyy"  x:Name="fromPicker" IsVisible="false"  Date="{Binding DateFrom}" TextColor="Transparent"/>
+                        </StackLayout>
+                      <yummy:PancakeView.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="TapGestureRecognizer_FromTapped"/>
+                      </yummy:PancakeView.GestureRecognizers>
+                </yummy:PancakeView>
+
+                  <yummy:PancakeView CornerRadius="5" Padding="10"
+                                     BackgroundColor="#FFFFFF"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Fill"
+                                      Grid.Column="1" HeightRequest="50">
+                       <yummy:PancakeView.Border>
+                            <yummy:Border Color="#E4E6EF" Thickness="1" />
+                         </yummy:PancakeView.Border>
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Spacing="0">
+                        
+                                           <Label Grid.Row="0" Text="Date To" TextColor="#B5B5C3" FontFamily="Poppins-Regular.ttf"
+                                                  FontSize="12"  VerticalOptions="Center" />
+                            <Label Grid.Row="1"  Text="{Binding DateTo, StringFormat='{0:dd/MM/yyy}'}" FontFamily="Poppins-Medium.ttf"
+                                                  FontSize="15" TextColor="#214455"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                            <DatePicker Format="dd/MM/yyyy"  x:Name="toPicker" IsVisible="false" Date="{Binding DateTo}" TextColor="Transparent"/>
+                        </StackLayout>
+                      <yummy:PancakeView.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="TapGestureRecognizer_ToTapped"/>
+                      </yummy:PancakeView.GestureRecognizers>
+                </yummy:PancakeView>
+
+                      
+              </Grid>
+
+            <AbsoluteLayout Grid.Row="2" BackgroundColor="White" >
+       
+            <!-- events list-->
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                 <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="40,100,10,10"></On>
+            <On Platform="Android" Value="10,100,10,10"/>
+
+                    </OnPlatform>
+                </StackLayout.Margin>       <Frame HasShadow="False"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="10" BackgroundColor="White" CornerRadius="10">
+                        <StackLayout>
+                    <Image Source="under_construction"/>
+                            <Label Text="Coming Soon" FontAttributes="Bold" TextColor="#00A7A3" HorizontalOptions="CenterAndExpand" FontSize="32" />
+                            <Label Text="We Are Working On It" TextColor="Gray" HorizontalOptions="CenterAndExpand" FontSize="16" />
+
+                        </StackLayout>
+                        
+                    </Frame>
+                </StackLayout>
+                <!--    <ScrollView VerticalScrollBarVisibility="Never" HeightRequest="200" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0.8,1,0.8">
+
+                    
+                 
+                    <StackLayout IsVisible="false" Spacing="0" BindableLayout.ItemsSource="{Binding Events}">
+                    <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                   <StackLayout Padding="10,0,10,0" Orientation="Horizontal" Spacing="10" BackgroundColor="#00A7A3">
+                       <StackLayout Spacing="0">
+                           <Label Text="{Binding FromatedTime}" TextColor="White" FontFamily="Poppins-Bold.ttf" FontSize="14"/>
+                           <Label Text="{Binding Date, StringFormat='{0:tt}'}" VerticalTextAlignment="Start" TextColor="White" FontFamily="Poppins-Medium.ttf"  FontSize="13"/>
+                       </StackLayout>
+                        <StackLayout Spacing="3">
+                           <Label Text="o" TextColor="#C2E3D3"
+                                  VerticalOptions="End"
+                                  VerticalTextAlignment="End"
+                                  FontAttributes="Bold"
+                                  FontSize="16"/>
+                           <BoxView WidthRequest="2" BackgroundColor="#C2E3D3"
+                                    Margin="0,-10,0,0"
+                                    HeightRequest="77" HorizontalOptions="Center"/>
+                       </StackLayout>
+                <StackLayout Spacing="0">
+                   <Label Text="{Binding Description}" TextColor="#C2E3D3" FontFamily="Poppins-Medium.ttf"  FontSize="15"/>
+                   <Label Text="{Binding FromTo}" TextColor="#C2E3D3BF" FontFamily="Poppins-Regular.ttf"  FontSize="13"/>
+                           </StackLayout>
+                       </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+               </StackLayout>
+       </ScrollView> -->
+
+                
+
+              </AbsoluteLayout>
+            <controls:Loader 
+                               IsVisible="{Binding IsLoading}"
+                               Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+           </Grid>
+    </ContentPage.Content>
+</ContentPage>

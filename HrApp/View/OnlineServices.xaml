@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:notification="clr-namespace:HrApp.View.NotificationViews" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="HrApp.View.OnlineServices">
+    <ContentPage.Content>
+        <Grid >
+     <Image Source="home.png" Aspect="AspectFill"></Image>
+            
+            <StackLayout >
+                     <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,50,10,10"></On>
+            <On Platform="Android" Value="0,30,10,10"/>
+
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <controls:HeaderWithBack></controls:HeaderWithBack>
+                <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,0" >
+                    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" >
+                        <StackLayout >
+                        <controls:MenuControl  IsVisible="false" FirstItemCommand="{Binding LeavesCommand}" FirstItemImage="servicesleavesicon.png" FirstItemText="Leaves" SecondItemText="OverTime"
+                                   SecondItemImage="servicesovertimeicon.png" SecondItemCommand="{Binding OverTimeCommand}"
+                                   FourthItemTitleText="Certificates" FourthItemImageSource="servicescertificatesicon.png" Margin="-10,0,0,0" FourthItemCommand="{Binding CertificatesCommand}" FifthItemTitleText="STC Subscription" FifthItemImageSource="servicesstcsubicon.png" FifthItemCommand="{Binding StcSubscriptionCommand}"></controls:MenuControl>
+                    
+                <controls:OnlineServicesMenu></controls:OnlineServicesMenu>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout   HorizontalOptions="Center" VerticalOptions="Start">
+                <controls:DateHeader />
+            </StackLayout>
+            <Frame BackgroundColor="#214455"  BorderColor="Transparent" CornerRadius="30" Padding="15"  Margin="60,10,55,7" VerticalOptions="EndAndExpand">
+         <Grid ColumnDefinitions="*,*,*,*" >
+             <Grid.Resources>
+                 <ResourceDictionary>
+                     <Style TargetType="Image">
+                         <Setter Property="Aspect" Value="AspectFit"></Setter>
+                                                  <Setter Property="HeightRequest" Value="30"></Setter>
+                                                  <Setter Property="WidthRequest" Value="30"></Setter>
+
+                     </Style>
+                 </ResourceDictionary>
+             </Grid.Resources>
+             <Image Source="bottomnavhomeicon.png" Aspect="AspectFit" Grid.Column="0">
+ <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoHome}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+             </Image>
+                      <Image Source="logoutIcon.png" Grid.Column="3">
+ <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignOutCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                      </Image>
+                    <Grid Grid.Column="1" Grid.Row="0" RowDefinitions="15,*" >
+                        <Image Source="notIcon.png" Grid.RowSpan="2" BackgroundColor="Transparent"   >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Ellipse IsVisible="{Binding  Isnotification}" 
+        
+         WidthRequest="18"
+                                Fill="red"
+         HeightRequest="18"
+                          VerticalOptions="Start"
+         HorizontalOptions="Center" Margin="7,-2,0,0" />
+                        <Label IsVisible="{Binding  Isnotification}" TextColor="White" FontFamily="Poppins-Bold.ttf"
+                               Text="{Binding NotificationCount}"
+        FontSize="10"
+                               
+                                HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+VerticalTextAlignment="Center"      >
+                            <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="10,-1.5,3,0"></On>
+            <On Platform="Android" Value="10,-1.5,3,3"/>
+
+                    </OnPlatform>
+                </Label.Margin>
+                            </Label>
+
+                    </Grid>
+                    <Image Source="bottomnavhelpicon.png" Grid.Column="2">
+                          <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowFaqCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                    </Image>
+
+
+         </Grid>
+     </Frame>
+                     <Grid IsVisible="{Binding NotiISopend}" VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"         
+                               >
+                <BoxView x:Name="NotiGrid" BackgroundColor="White" Opacity="0.1">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <pancakeview:PancakeView  
+                  x:Name="Pancake"
+                TranslationY="800"
+                                    
+                                  
+                                Padding="0"
+                                BackgroundColor="#F7F6F3"
+                          
+                                  CornerRadius="15,15,0,0" >
+                    <pancakeview:PancakeView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="5,150,5,0"></On>
+                        <On Platform="Android" Value="5,100,5,0"/>
+
+                    </OnPlatform>
+                </pancakeview:PancakeView.Margin>
+                    <StackLayout>
+                        <StackLayout  BackgroundColor="#214455" HeightRequest="40" >
+                            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="20" Text=">" FontAttributes="Bold" Rotation="90" >
+                                <Label.GestureRecognizers>
+                                    <SwipeGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}" Direction="Down" />
+                                    <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}" />
+                                     
+                                </Label.GestureRecognizers>
+                            </Label>
+
+
+                        </StackLayout>
+
+                        <notification:NotificationView />
+                    </StackLayout>
+
+                </pancakeview:PancakeView>
+            </Grid>
+
+
+            <controls:QuickMenuControl IsVisible="false" HorizontalOptions="End"
+                                        VerticalOptions="End"
+                                        FaqCommand="{Binding ShowFaqCommand}"
+                                        HomeCommand="{Binding ShowHomeCommand}"/>
+        </Grid> 
+    </ContentPage.Content>
+</ContentPage>

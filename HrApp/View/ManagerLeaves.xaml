@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.ManagerLeaves">
+    <ContentPage.Content>
+           <Grid >
+     <Image Source="home.png" Aspect="Fill"></Image>
+               <StackLayout   HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                    <controls:DateHeader />
+                </StackLayout>
+            <StackLayout >
+                     <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="15,50,29,10"></On>
+            <On Platform="Android" Value="15,30,29,10"/>
+
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <controls:HeaderWithBack></controls:HeaderWithBack>
+
+
+                <ScrollView VerticalOptions="StartAndExpand"  VerticalScrollBarVisibility="Never"  Padding="0">
+                           <Grid RowDefinitions="auto,auto,auto,auto" RowSpacing="10" Padding="0" Margin="-5,0,-5,0" ColumnSpacing="2" ColumnDefinitions="*,*,*"  VerticalOptions="Start">
+                               <Grid.Resources>
+                                   <ResourceDictionary>
+                                       <Style TargetType="Image">
+                                            <Setter Property="Margin" Value="0"></Setter>
+                                         <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                                                                                    <Setter Property="HeightRequest" Value="85"></Setter>
+                                                                                    <Setter Property="WidthRequest" Value="85"></Setter>
+
+                                       </Style>
+                                       <Style TargetType="StackLayout">
+                                            <Setter Property="HeightRequest" Value="120"></Setter>
+                                           <Setter Property="Margin" Value="0"></Setter>
+                                                                                                                                 <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+
+                                       </Style>
+                                         <Style TargetType="Label">
+                                     <Setter Property="VerticalOptions" Value="StartAndExpand"></Setter>
+                                                                                  <Setter Property="FontSize" Value="12"></Setter>
+
+                                           <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                                            <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                                          <Setter Property="Margin" Value="0,0,0,0"></Setter>
+
+                                       </Style>
+                                   </ResourceDictionary>
+                               </Grid.Resources>
+                               <StackLayout Grid.Row="0" Grid.Column="0">
+                             <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="3"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                            <Image Source="leaveshajjicon.png" ></Image>
+                        <Label Text="Hajj"   TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                               <StackLayout  Grid.Row="0" Grid.Column="1">
+                         <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="1"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                        <Image Source="annualLeaves.png" >
+                        </Image>
+                        <Label Text="Annual"  Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                        <StackLayout  Grid.Row="0" Grid.Column="2">
+                             <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="4"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                            <Image Source="leavesmaternityicon.png" ></Image>
+                        <Label Text="Maternity"  VerticalOptions="CenterAndExpand"  Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+         
+      <StackLayout  Grid.Row="1" Grid.Column="0">
+           <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="2"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+          <Image Source="leavesunpaidicon.png" ></Image>
+                        <Label Text="Unpaid"   Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                    
+       <StackLayout Grid.Row="1" Grid.Column="1">
+            <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="15"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+           <Image Source="leavestimebackicon.png" ></Image>
+                        <Label Text="Time Back" Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                       <StackLayout  Grid.Row="1" Grid.Column="2">
+                                       <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="17"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                           <Image Source="leavessickicon.png" ></Image>
+                        <Label Text="Sick" Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                   
+                  <!--       <StackLayout   Grid.Row="2" Grid.Column="0">
+                                         <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="14"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                             <Image Source="leavesconferenceicon.png" ></Image>
+                        <Label Text="Conference"   Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>-->
+                        <StackLayout Grid.Row="2" Grid.Column="1">
+                                           <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="6"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                            <Image Source="leavescompassionateicon.png" ></Image>
+                        <Label Text="Compassionate" Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                       <StackLayout Grid.Row="2" Grid.Column="2">
+                                   <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="16"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                           <Image Source="leavesbusinesstripicon.png" ></Image>
+                        <Label Text="Buisness Trip"  Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                   <StackLayout Grid.Row="2" Grid.Column="0">
+                         <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToLeavesPageCommand}" CommandParameter="7"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                       <Image Source="leavesstudyicon.png" ></Image>
+                        <Label Text="Study" Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                                   <StackLayout Margin="0,0,0,5" Grid.Row="3" Grid.Column="0">
+                         <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToResumptionLeavesPageCommand}" CommandParameter="7"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                       <Image Source="leavesresumptionicon.png" ></Image>
+                            <Label Text="Leave &#10;  Resumption" Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                                   <StackLayout Grid.Row="3" Grid.Column="1">
+                         <StackLayout.GestureRecognizers>
+         <TapGestureRecognizer Command="{Binding GoToEncashmentPageCommand}"></TapGestureRecognizer>
+     </StackLayout.GestureRecognizers>
+                       <Image Source="leavesencashmenticon.png" ></Image>
+                            <Label Text="Leave &#10; Encashment" Padding="0" TextColor="#CEBFB3"></Label>
+                        </StackLayout>
+                        </Grid>
+                    </ScrollView>
+
+            </StackLayout>
+        </Grid>   
+    </ContentPage.Content>
+</ContentPage>
