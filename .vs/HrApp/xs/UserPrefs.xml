@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{1AFACE78-3DFD-4156-B94F-A30446E63FA5}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.nexus_10_-_api_31" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HrApp.iOS/Info.plist">
+    <Files>
+      <File FileName="HrApp/View/LogIn.xaml" Line="65" Column="52" />
+      <File FileName="HrApp/View/Home.xaml" Line="17" Column="1" />
+      <File FileName="HrApp.iOS/Info.plist" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HrApp" expanded="True">
+            <Node name="HrApp.iOS" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="Home.xaml" expanded="True" />
+              </Node>
+              <Node name="MyViewController.cs" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.HrApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.040195D4-426F-485E-828F-EFEDAFD56E49" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.HrApp.Android PreferredExecutionTarget="Android.nexus_10_-_api_31" />
+</Properties>

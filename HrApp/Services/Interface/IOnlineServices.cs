@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HrApp.Model;
+using HrApp.Model.OnlineServicesModels;
 
 namespace HrApp.Services.Interface
 {
@@ -31,5 +32,6 @@ namespace HrApp.Services.Interface
 
         Task<Tuple<ObservableCollection<ResumptionTypeModel>, bool, string>> GetCertificatTypes();
         Task<Tuple<ObservableCollection<ResumptionTypeModel>, bool, string>> GetBankTypes();
+        Task<Tuple<OnlineServiceMenuModel, bool, string>> GetOnlineServicesLst();
     }
 }

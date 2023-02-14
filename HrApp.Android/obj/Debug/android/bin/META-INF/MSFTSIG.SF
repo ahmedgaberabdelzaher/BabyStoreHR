@@ -1,0 +1,207 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: VmrRqAIgAm0FCZViZFzpaP8OfDbN4
+ iY0MyYFuzTMPv8=
+SHA-256-Digest-Manifest: aDh5oqFDMW6+HVaQ0eGmZLFkIASkJgQl4LPt7KHATUY=
+Created-By: 1.8.0_112 (Oracle Corporation)
+
+Name: androidx/annotation/ContentView.class
+SHA-256-Digest: yK8DOVifsmDTz72F+oOd/nXf6FlogQOhM1TkP/A8frA=
+
+Name: androidx/annotation/ColorLong.class
+SHA-256-Digest: imotYpX7ZGTC7VUJ2rJWcKacALKRgeZOC0vH5ek6Unc=
+
+Name: androidx/annotation/PluralsRes.class
+SHA-256-Digest: QU439Zus716z5bBaqAZCeOtUvoTr62gUior/8VZIhOI=
+
+Name: androidx/annotation/AttrRes.class
+SHA-256-Digest: M52UpR+6UoNHoonJp70w7B+X0MsUiDY6EvZ9BjoRum8=
+
+Name: androidx/annotation/GravityInt.class
+SHA-256-Digest: OuoCqJViIAcU/2zM/xyGt8yvexU7jUjvHKHvRSK8q1M=
+
+Name: androidx/annotation/RequiresPermission.class
+SHA-256-Digest: F2QMcIeJttZhAKM5ILZATAX0NScX3d0pO4qbzpsb1Uc=
+
+Name: androidx/annotation/UiContext.class
+SHA-256-Digest: MiqDjV3iPvpzSM/zUcoaOyKHkyuSREUDb7tLLVlt3p8=
+
+Name: androidx/annotation/UiThread.class
+SHA-256-Digest: dVnEOyEThMgfnRRhHVRpHNyGfqEznbpFEmFllXifxaA=
+
+Name: androidx/annotation/CheckResult.class
+SHA-256-Digest: WlwYWug53eijhoHvti/G68Dsi/FqILMA5LvI4twtmVk=
+
+Name: androidx/annotation/RestrictTo$Scope.class
+SHA-256-Digest: HpDLYYNMwc4+3rt9Bkqvl/0L7dY9fPjGApYUf8/ALbY=
+
+Name: androidx/annotation/Px.class
+SHA-256-Digest: 96wik5ymcJIENGNuGZ4t3sGdupEsskQ1Y4n+u2AUkMU=
+
+Name: androidx/annotation/ColorInt.class
+SHA-256-Digest: bEZyxBaO7iTuUv5meEjmiRTmr5f4vcdSYMu9jMaZO70=
+
+Name: androidx/annotation/StringRes.class
+SHA-256-Digest: Wug6YxualkNb8HYOmIttq9TueA7OP9orwx56VY26RGw=
+
+Name: androidx/annotation/ColorRes.class
+SHA-256-Digest: t6wk7wuCJEQ0ZcGCXCW76wDKb0hmc/ZsGqtYm6ks4xA=
+
+Name: androidx/annotation/DrawableRes.class
+SHA-256-Digest: rjoFwXPXhBTOCwJxwMXmtvqHLm178yMrziPL5Lc5YBQ=
+
+Name: androidx/annotation/XmlRes.class
+SHA-256-Digest: J8Po7P7MKVktIEjgEUp7PtskoR6j46gnYtCd0AhehmM=
+
+Name: androidx/annotation/InspectableProperty$EnumEntry.class
+SHA-256-Digest: 2FVFrPOaJqOwjou3/le/5E3IxnuuvlGVwrCxi/FUpQ4=
+
+Name: androidx/annotation/MenuRes.class
+SHA-256-Digest: +yqUh9/3KCkQuFc5fSF+K9Y8we56pU0lXlvHAhcI+NY=
+
+Name: androidx/annotation/AnyRes.class
+SHA-256-Digest: taWOkhpfsI8jK+lVYGj98c6T8ZetRwixZmxa17zIfX4=
+
+Name: androidx/annotation/DisplayContext.class
+SHA-256-Digest: qykQ31ifKwq7kniCXBsg7Uj5Zg2MbRJ2yQLbjn75JYg=
+
+Name: androidx/annotation/CallSuper.class
+SHA-256-Digest: DSgsZInf6WwVE2An2Ss4UfyF8pMB8EFrAV0byo0vkvA=
+
+Name: androidx/annotation/MainThread.class
+SHA-256-Digest: DbNfh8ZSAn2H0pn240CIXziYbDyFG9sA7upYp6Qt4Hs=
+
+Name: androidx/annotation/RestrictTo.class
+SHA-256-Digest: rQRJ4WqRMnnEdIhJZw+wQYzaMCQQCNhs7bL9nbMAlNg=
+
+Name: androidx/annotation/AnyThread.class
+SHA-256-Digest: 2oH96gouQ96cVEeLFTeRHvUr2AO8J1qDNeY4Fm7iLpk=
+
+Name: androidx/annotation/HalfFloat.class
+SHA-256-Digest: keCPl2v64pfoHtgD4jBS6vy/S9FrdKBv0WNMVu91kgI=
+
+Name: androidx/annotation/RequiresFeature.class
+SHA-256-Digest: zO5H3xfT0dtR1ZVNpeHMqbGySIDzG/V2B7H2Gu2+aMk=
+
+Name: androidx/annotation/RequiresPermission$Write.class
+SHA-256-Digest: ctBdrKV8dg+5FpG1vNJbroaOFjW1NAMdueX/NE3zbIM=
+
+Name: androidx/annotation/DimenRes.class
+SHA-256-Digest: T68DsibM12vt0DeCZub2tyGy6/bTG9V5TE8FAamt6CY=
+
+Name: androidx/annotation/BoolRes.class
+SHA-256-Digest: 8af9I3O7jfdYtuyjRIVE6D5mskBmiWsmLtKFpvPMUkg=
+
+Name: androidx/annotation/NonUiContext.class
+SHA-256-Digest: oER2vb6Ya4tQNKOPep5KXl+WTe2oJyt9xrJkYcmB960=
+
+Name: androidx/annotation/AnimatorRes.class
+SHA-256-Digest: An7ticEksfxUto7/kbYAW55dW2pBnySues6BzPiMr2s=
+
+Name: androidx/annotation/NonNull.class
+SHA-256-Digest: i5bsm5Arh7dYvotALEwMelnhZ3cfX72498eAsemwVUA=
+
+Name: androidx/annotation/VisibleForTesting.class
+SHA-256-Digest: N/ymFku0qh10xQwnRQ+sJS/iE1DB7JWeBmsVSv5MNDA=
+
+Name: androidx/annotation/LayoutRes.class
+SHA-256-Digest: mho0wc91zNUHGoon1h8pzqs7mlKFm/Qd4rPoEbKBusw=
+
+Name: androidx/annotation/WorkerThread.class
+SHA-256-Digest: dGQRlNMswOFVoshFNUFgDNIKSQJbW+fX2Y3RQ5kSZak=
+
+Name: androidx/annotation/BinderThread.class
+SHA-256-Digest: zvD/R8xYo/pQrxB/iURY2j3Y2IRQ8oQ07P5/1b03YJo=
+
+Name: androidx/annotation/Dimension.class
+SHA-256-Digest: 4sydGebSBRtUMomTCUWNi6GiWuSfxrnVUDv+n5m0sN4=
+
+Name: androidx/annotation/InspectableProperty$ValueType.class
+SHA-256-Digest: Nn+SHqLngfgt7zLtYmlo/CRu9mWfU0AMH+oU3qrrj0Q=
+
+Name: androidx/annotation/IntegerRes.class
+SHA-256-Digest: cquXF489Tul4qbWYgwg1vwg38wEhULi5v/NKA04Jp/U=
+
+Name: androidx/annotation/RawRes.class
+SHA-256-Digest: UPd2ovTArksTXbTwFUZT9ulzUQrvcsU8RFpQ7Z12Z30=
+
+Name: androidx/annotation/NavigationRes.class
+SHA-256-Digest: 1ZbRBOEVC6MzXOJ2U5tJKmnzA9tAj7OtGZKsQvsvZYs=
+
+Name: androidx/annotation/FractionRes.class
+SHA-256-Digest: 5NyzzHklBhn5SKfY/9fefX65F+hahfBQKFN+pzqXwD0=
+
+Name: androidx/annotation/FloatRange.class
+SHA-256-Digest: 1UnKy6Zyb4DvMZX5st9/vm8/yJIEmGgeIcZWwhsKaIM=
+
+Name: androidx/annotation/Keep.class
+SHA-256-Digest: Cu8+32nfMegXadeL6xfyuFI8Ljg2I8Bl3u+qRzMVwB4=
+
+Name: androidx/annotation/StyleRes.class
+SHA-256-Digest: bjpR6td56eey2Wqr72Vw6mJSRRiUaVIV64UhB80TsrA=
+
+Name: androidx/annotation/AnimRes.class
+SHA-256-Digest: IjZR7JLAaxyTcaGpsak4TSYv1C0/F3mUtKnRJq7Bxl4=
+
+Name: androidx/annotation/ChecksSdkIntAtLeast.class
+SHA-256-Digest: SjbmJCyH2a0Oh7Gu5jmY04G3fxXWBwG1AhRmSNwbxos=
+
+Name: androidx/annotation/LongDef.class
+SHA-256-Digest: tWsYF+pCZNJ5w8bnqMcm81Gpf6k7n4QCfkZF6XIG/78=
+
+Name: androidx/annotation/Nullable.class
+SHA-256-Digest: f8kUA79WZunJFjHe0jC1Z8wQommNa/jRq4pS01PRxGc=
+
+Name: androidx/annotation/StringDef.class
+SHA-256-Digest: lxrDyZz7GPAccr6p0CRUMTcBnpND17Dk8izRi+j7tcg=
+
+Name: androidx/annotation/ArrayRes.class
+SHA-256-Digest: GLEE7kMAKaOi/Non3e/O/3ZI7dCpnjnnro8daGb+Myc=
+
+Name: androidx/annotation/TransitionRes.class
+SHA-256-Digest: ENnSz5flk55v8qO8SBHHpwRBIIHxvD+481Hb/6nda7w=
+
+Name: androidx/annotation/GuardedBy.class
+SHA-256-Digest: h39AyiKP0SrgSmkisTHWshDcbA51Db54SY/tPOzyoxY=
+
+Name: META-INF/proguard/androidx-annotations.pro
+SHA-256-Digest: 2DSGqre75s/HlcLdGURGKFwkYDXokjrZWYuN4viGZZs=
+
+Name: androidx/annotation/InspectableProperty.class
+SHA-256-Digest: QgRRLnXR8TyKCcLPVuVkfbKV/FO9n/NCqGw+azz/5fE=
+
+Name: androidx/annotation/FontRes.class
+SHA-256-Digest: pFPwBZOFKKshFDq2jT56mdWoypyH7qLvg0EWLnWhIMU=
+
+Name: androidx/annotation/IntRange.class
+SHA-256-Digest: pylj//BuT+6Z8/0EyPeI7T2jTY7ndSysjz+S/QpA2eE=
+
+Name: androidx/annotation/StyleableRes.class
+SHA-256-Digest: jHfekIXJuQd+rHE2/sEPOqY75Ufi2hc4803otqxPINc=
+
+Name: androidx/annotation/InspectableProperty$FlagEntry.class
+SHA-256-Digest: X7vFAroZ3h2/ktZYEJHMQCL4LpBkR18psTKO0BdS5uk=
+
+Name: androidx/annotation/InterpolatorRes.class
+SHA-256-Digest: b27tX4sNs6YR5MY2m25GZpTol5bLtHZtSGtoP4xcTrs=
+
+Name: androidx/annotation/IdRes.class
+SHA-256-Digest: XPVK23tJLWE/N+xUIuioP4azBG5Z1RyXmKs4l2Pw5nE=
+
+Name: androidx/annotation/DoNotInline.class
+SHA-256-Digest: PUVlXD1PdD7YL3BlUMpfWnHgrjf+v54JPGZQ4prad+0=
+
+Name: androidx/annotation/IntDef.class
+SHA-256-Digest: cxq4SJhN55vR1/bKYxwA6NldTMA+Srv9Az/F1GoXnk0=
+
+Name: androidx/annotation/RequiresPermission$Read.class
+SHA-256-Digest: XtVkzIc6y2MQxekg4MKSy1P1jWqHrMwLhm03p2sP8rw=
+
+Name: androidx/annotation/RequiresApi.class
+SHA-256-Digest: WFSnXpbf4OyG1iA49NZcWFF7h03r6KxB7qpGMkeFNog=
+
+Name: androidx/annotation/Size.class
+SHA-256-Digest: 9eDp9CZZ+oFImXGbrN1T4cpayuLayMzqNkpd9+ao5l0=
+
+Name: androidx/annotation/Discouraged.class
+SHA-256-Digest: 0G19evNIwk9M7a6s+szac1egKjJEBL/G8zOXyU8La00=
+

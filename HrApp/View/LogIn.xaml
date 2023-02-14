@@ -12,28 +12,6 @@
         <Grid RowDefinitions="1.5*,*,auto">
             
         <Image Aspect="AspectFill" Source="login" Margin="0,-10,0,0"  Grid.Row="0" Grid.RowSpan="3"></Image>
-            <!--                  <Label Text="Login "  TextColor="#00A7A3" FontSize="32" FontFamily="Poppins-Bold.ttf" HorizontalOptions="CenterAndExpand" >
-                             <Label.Margin>
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS" Value="5,70,0,20"></On>
-            <On Platform="Android" Value="5,34,0,20"/>
-
-                    </OnPlatform>
-                </Label.Margin>
-                        </Label>
-                <Label Text="  to connect "  TextColor="#00A7A3" FontSize="21" FontFamily="GreatVibes-Regular.ttf" HorizontalOptions="CenterAndExpand" >
-                    <Label.Margin>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS" Value="70,110,0,20"></On>
-                            <On Platform="Android" Value="70,74,0,20"/>
-
-                        </OnPlatform>
-                    </Label.Margin>
-                </Label>
-
-                <Image Source="welcomeLogin" HeightRequest="280" WidthRequest="280" HorizontalOptions="CenterAndExpand" Margin="0,40,0,70">
-
-            </Image> --> 
             <ScrollView Margin="0,0,0,0"  Grid.Row="1">
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
             <Label Text="Al Seef Hospital" IsVisible="false" HorizontalOptions="CenterAndExpand" TextColor="#CEBFB3" FontSize="14" FontFamily="Poppins-Regular.ttf" ></Label>

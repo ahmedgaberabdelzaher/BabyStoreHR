@@ -37,9 +37,9 @@ namespace HrApp
          */
         #endregion
         
-        public static string BaseAuth = "https://myalseef.alseef-hospital.com/";
+        public static string BaseAuth = "https://supportatit-babystory-addons-stg-6545816.dev.odoo.com/";
 
-         public static string BaseUrl = "https://myalseef.alseef-hospital.com/HR/";
+         public static string BaseUrl = "https://supportatit-babystory-addons-stg-6545816.dev.odoo.com/";
        
         public static string HRDEBNAME = "Human Resources & Administration";
 
@@ -86,10 +86,10 @@ namespace HrApp
              else
              {
             */
-          //  await NavigationService.NavigateAsync("NavigationPage/LogIn");
+          await NavigationService.NavigateAsync("NavigationPage/LogIn");
 
             //   await NavigationService.NavigateAsync("/NavigationPage/Home");
-             await NavigationService.NavigateAsync("NavigationPage/SecondSplach");
+           //  await NavigationService.NavigateAsync("NavigationPage/SecondSplach");
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTc5NTg3QDMxMzkyZTM0MmUzMEM3ekZjMG5LcllibHFQd2krTjU0K2FBTXd1bVp4ZEdQOXZkRjhwbTgzTVE9");
             /* if (isLoged)
              {
@@ -205,6 +205,7 @@ namespace HrApp
             containerRegistry.RegisterForNavigation<OnlineServices, HomeViewModel>();
             containerRegistry.RegisterForNavigation<OverTimeList, OverTimeViewModel>();
             containerRegistry.RegisterForNavigation<OverTimeRequest, OverTimeViewModel>();
+            containerRegistry.RegisterForNavigation<OnlineServicesView, OnlineServicesViewModel>();
 
            
             containerRegistry.RegisterForNavigation<OnlineServices, HomeViewModel>();

@@ -23,6 +23,11 @@ namespace HrApp.Services.Class
             var response = await HttpManager.PostAsync(App.BaseAuth+$"Account/LoginApi", model).ConfigureAwait(false);
             return response;
         }
+        public async Task<HttpResponseMessage> Authonticate(AuthonticateModel model)
+        {
+            var response = await HttpManager.PostAsync(App.BaseAuth+$"web/session/authenticate", model).ConfigureAwait(false);
+            return response;
+        }
         public async Task<HttpResponseMessage> LeaveRequest(LeaveRequestBody model)
         {
             var response = await HttpManager.PostAsync(App.BaseUrl + $"api/EmpLeavesOperations/AddNewEmpLeave/", model).ConfigureAwait(false);

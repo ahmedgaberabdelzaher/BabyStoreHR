@@ -539,7 +539,18 @@ namespace HrApp.ViewModel
 
         }
 
+        public DelegateCommand GoToOnlineServicesMenuCommand
+        {
+            get
+            {
+                return new DelegateCommand(async () =>
+                {
 
+                    await NavigationService.NavigateAsync(ViewsRoutes.OnlineServicesView) ;
+                });
+
+            }
+        }
         public async override void Initialize(INavigationParameters parameters)
         {
             if (parameters!=null&&parameters.Count>0)

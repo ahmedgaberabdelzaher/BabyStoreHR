@@ -25,5 +25,6 @@ namespace HrApp.Services.Interface
         Task<Tuple<ObservableCollection<HrOfficersModel>, bool, string>> GetHrOfficers();
         Task<Tuple<ObservableCollection<CategoryLink>, bool, string>> GetCategoryLinks();
         Task<Tuple<ObservableCollection<DigitalValidModel>, bool, string>> GetDigitalValet();
+        Task<HttpResponseMessage> Authonticate(AuthonticateModel model);
     }
 }

@@ -121,5 +121,28 @@ namespace HrApp.Resources {
                 return ResourceManager.GetString("SessionExpired", resourceCulture);
             }
         }
+
+   /// <summary>
+        ///   Looks up a localized string similar to Session Expired.
+        /// </summary>
+        internal static string InvalidCredentials
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidCredentials", resourceCulture);
+            }
+        }
+
+
+  /// <summary>
+        ///   Looks up a localized string similar to Session Expired.
+        /// </summary>
+        internal static string Ok
+        {
+            get
+            {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
     }
 }

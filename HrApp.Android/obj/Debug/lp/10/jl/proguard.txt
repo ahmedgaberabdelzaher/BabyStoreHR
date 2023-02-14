@@ -1,0 +1,7 @@
+-keep class com.huawei.hianalytics.** {*;}
+
+-keep class org.apache.http.conn.ssl.BrowserCompatHostnameVerifier {*;}
+-keep class org.apache.http.conn.ssl.StrictHostnameVerifier {*;}
+-keep class org.apache.http.conn.ssl.X509HostnameVerifier {*;}
+
+-keep class org.apache.http.conn.ssl.SSLSocketFactory {*;}

@@ -182,4 +182,7 @@
   <data name="SendToPresident" xml:space="preserve">
     <value>Send To President</value>
   </data>
+    <data name="InvalidCredentials" xml:space="preserve">
+    <value>Invalid user name or password</value>
+  </data>
 </root>

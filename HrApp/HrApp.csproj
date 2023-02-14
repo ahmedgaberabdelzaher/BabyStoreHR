@@ -77,9 +77,15 @@
     <None Remove="Xam.Plugins.Forms.ImageCircle" />
     <None Remove="Plugin.PushNotification" />
     <None Remove="Plugin.FirebasePushNotification" />
+    <None Remove="Model\OdooAutonticate\" />
+    <None Remove="ViewModel\OnlineServicesViewModels\" />
+    <None Remove="Model\OnlineServicesModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Model\OdooAutonticate\" />
+    <Folder Include="ViewModel\OnlineServicesViewModels\" />
+    <Folder Include="Model\OnlineServicesModels\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="View\LogIn.xaml.cs">

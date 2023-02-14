@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using HrApp.Model;
+using HrApp.Model.OdooAutonticate;
 using HrApp.Model.Response;
 using HrApp.Services.Interface;
 using Newtonsoft.Json;
@@ -8,6 +9,9 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using Xamarin.Essentials;
+using HrApp.Resources;
+using System.Net;
+using System.Linq;
 
 namespace HrApp.ViewModel
 {
@@ -184,7 +188,7 @@ namespace HrApp.ViewModel
             {
                 return new DelegateCommand(async () =>
                 {
-                    await Login();
+                    await OdooLogin();
                 });
             }
         }
@@ -362,6 +366,84 @@ namespace HrApp.ViewModel
             }
 
         }
+        async Task OdooLogin()
+        {
+            try
+            {
+                IsLoading = true;
+                if (string.IsNullOrEmpty(EmployeeId) || string.IsNullOrEmpty(Password))
+                {
+                    await DialogService.DisplayAlertAsync("", "Please fill all data", "Ok");
+                    return;
+                }
+                string token = Preferences.Get("FCMToken", "");
+                //await DialogService.DisplayAlertAsync("",token, "Ok");
+                string deviceType = "0";
+                var manufacturer = Xamarin.Essentials.DeviceInfo.Manufacturer;
+                if (manufacturer == "HUAWEI" && Preferences.Get("HCM", false))
+                {
+                    deviceType = "1";
+                }
+                var model = new AuthonticateModel() { jsonrpc= "2.0", @params=new Params() { db= "supportatit-babystory-addons-stg-6545816", login= this.EmployeeId, password=this.password }};
+                var resp = await _userServices.Authonticate(model);
 
+
+                if (resp.IsSuccessStatusCode)
+                {
+                    var result = await resp.Content.ReadAsStringAsync();
+                    var userData = JsonConvert.DeserializeObject<AuthonticateResponse>(result);
+                    if (userData.error == null)
+                    {
+                        var responseHeaders = resp.Headers.GetValues("Set-Cookie");
+                        if (responseHeaders != null)
+                        {
+                            var headerValues = responseHeaders.ToList();
+                            var SetCookiesHeader = headerValues[0].Split('=');
+                            var sessiondId = SetCookiesHeader[1].Split(';')[0];
+                            Preferences.Set("SesseionId", sessiondId);
+                        } 
+                        if (userData.result != null)
+                        {
+                           
+                           // Preferences.Set("Department", userData.stuffRecord.department);
+                            Preferences.Set("UserName", userData.result.username);
+                            //Preferences.Set("Ballance", userData.stuffRecord.leavE_BALANCE);
+                            Preferences.Set("userId", userData.result.uid);
+                           // Preferences.Set("role", userData.result.r);
+                           Preferences.Set("IsAdmin", userData.result.is_admin);
+
+                           // string user = JsonConvert.SerializeObject(userData.stuffRecord);
+                           // Preferences.Set("User", user);
+
+                        }
+
+                        Preferences.Set("IsLogedIn", true);
+                        //  await SecureStorage.SetAsync("user", EmployeeId);
+                        //await SecureStorage.SetAsync("passwerd", Password);
+                     
+                     
+                            await NavigationService.NavigateAsync("/Home");
+                            // await NavigationService.NavigateAsync("../Profile");
+                    }
+                    else
+                    {
+                        await DialogService.DisplayAlertAsync("", LangaugeResource.InvalidCredentials, LangaugeResource.Ok);
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                await DialogService.DisplayAlertAsync("", ex.Message, LangaugeResource.Ok);
+
+                IsLoading = false;
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+
+        }
     }
 }

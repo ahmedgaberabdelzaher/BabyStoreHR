@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:notification="clr-namespace:HrApp.View.NotificationViews" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:HrApp.Converters"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    xmlns:notification="clr-namespace:HrApp.View.NotificationViews"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:local="clr-namespace:HrApp.Converters"
     x:Class="HrApp.View.Home" BackgroundImageSource="home.png">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -21,102 +24,65 @@
                 </StackLayout.Margin>
 
                 <controls:Useravatar  Margin="0,0,10,0"/>
-                <Grid RowDefinitions="auto,auto,auto" IsVisible="false" ColumnDefinitions="40,auto,*,30,auto,40" Margin="0,0,0,15">
-<Image Source="HomeIcon.png" VerticalOptions="StartAndExpand" Margin="0,7,0,0" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
-    <Image.HeightRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="iOS" Value="45"></On>
-        <On Platform="Android" Value="{StaticResource profileHeight}"></On>
-
-
-                    </OnPlatform>
-                </Image.HeightRequest>
-                        <Image.Triggers >
-                            <DataTrigger TargetType="Image" Binding="{Binding UserImage}" Value="">
-                                <Setter Property="Source" Value="ProfileImgDefault.png"/>
-                            </DataTrigger>
-                        </Image.Triggers>
-                    </Image>
-
-                    <Label Text="Employee App" TextColor="#FFFFFF" FontSize="20" Grid.Row="0" Grid.Column="1"></Label>
-<Label Text="Home" Margin="0,-10,0,0" Grid.Row="1" FontSize="15" TextColor="#FFFFFF" Grid.Column="1"></Label>
-
-    <Image Source="notificationIcon.png" Grid.Row="0"  Grid.Column="3"></Image>
-    <StackLayout  Grid.Row="0"  Grid.Column="5" Grid.RowSpan="2" HorizontalOptions="End">
-       
-                <Image Source="ProfileIconDefault.png" Aspect="Fill">
-                 <Image.HeightRequest>
-<OnPlatform x:TypeArguments="x:Double">
-    <On Platform="iOS" Value="{StaticResource profileHeight}"></On>
-        <On Platform="Android" Value="{StaticResource profileHeight}"></On>
-
-</OnPlatform>
-</Image.HeightRequest>
-                         <Image.WidthRequest>
-<OnPlatform x:TypeArguments="x:Double">
-    <On Platform="iOS" Value="{StaticResource profileWidth}"></On>
-        <On Platform="Android" Value="{StaticResource profileWidth}"></On>
-
-</OnPlatform>
-</Image.WidthRequest>
-                     <Image.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding MyProfileCommand}"></TapGestureRecognizer>
-        </Image.GestureRecognizers>
-                </Image>
-
-
-    </StackLayout>
-             <Label Text="Logout" HorizontalOptions="EndAndExpand" Grid.Row="2"  Grid.Column="3" Grid.ColumnSpan="3" FontFamily="Poppins-Bold.ttf" HorizontalTextAlignment="Center" TextColor="#FFFFFF">
-                 <Label.GestureRecognizers>
-                 <TapGestureRecognizer Command="{Binding SignOutCommand}"></TapGestureRecognizer>
-             </Label.GestureRecognizers>
-         </Label>
-
-</Grid>
-                <!--
-                <controls:MenuControl IsVisible="{Binding IsEmployeeCenter}" x:Name="EmployeeCenter" FirstItemCommand="{Binding EmployeeCenterCommand}" FirstItemImage="employeemyprofileicon.png" FirstItemText="My Profile" SecondItemText="Online Services" SecondItemImage="employeeonlineservicesicon.png" SecondItemCommand="{Binding OnlineRequestsCommand}" ThirdItemTitleText="STAFF DUTY SCHEDULE" ThirdItemImageSource="employeestaffdutyscheduleicon.png" ThirdItemCommand="{Binding EmployeeCenterCommand}" FourthItemTitleText="DIGITAL VALET" FourthItemImageSource="employeedigitalvaleticon.png" FourthItemCommand="{Binding EmployeeCenterCommand}" FifthItemTitleText="MY ATTENDANCE" FifthItemImageSource="employeeatticon.png" FifthItemCommand="{Binding EmployeeCenterCommand}"></controls:MenuControl> 
-                                  <controls:MenuControl IsVisible="{Binding IsManagereCenter}" x:Name="ManagerCenter" FirstItemCommand="{Binding OnlineRequestsCommand}" FirstItemImage="manageronlinerequestsicon.png" FirstItemText="ONLINE REQUESTS" SecondItemText="EMPLOYEE ATTENDANCE" SecondItemImage="managerempatticon.png" SecondItemCommand="{Binding EmployeeCenterCommand}" ThirdItemTitleText="DEPARTMENT SCHEDULE" ThirdItemImageSource="managerdepartscheduleicon.png" ThirdItemCommand="{Binding EmployeeCenterCommand}" FourthItemTitleText="EMPLOYEE DIRECTORY" FourthItemImageSource="managerempdirectoryicon.png" FourthItemCommand="{Binding EmployeeCenterCommand}" FifthItemTitleText="BUILDING CAMERAS" FifthItemImageSource="managerbuildingcamerasicon.png" FifthItemCommand="{Binding EmployeeCenterCommand}"></controls:MenuControl> 
-                              <controls:MenuControl IsVisible="{Binding IsOnlineServices}" x:Name="OnlineServices" FirstItemCommand="{Binding OnlineRequestsCommand}" FirstItemImage="servicesleavesicon.png" FirstItemText="LEAVES" SecondItemText="OVERTIME" SecondItemImage="servicesovertimeicon.png" SecondItemCommand="{Binding EmployeeCenterCommand}" FourthItemTitleText="CERTIFICATES" FourthItemImageSource="servicescertificatesicon.png" FourthItemCommand="{Binding EmployeeCenterCommand}" FifthItemTitleText="STC SUBCRIPTION" FifthItemImageSource="servicesstcsubicon.png" FifthItemCommand="{Binding EmployeeCenterCommand}"></controls:MenuControl> 
--->
-                <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,0" >
+         <!--#region Home Body-->
+                <StackLayout Margin="0,0,0,0" >
                     <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" >
-                    <StackLayout ><controls:MenuControl IsVisible="{Binding IsManager}" FirstItemCommand="{Binding EmployeeCenterCommand}" FirstItemImage="EmployeeCenter.png" FirstItemText="Employee Center" SecondItemText="Manager Center"
-                                      SecondItemImage="managercentericon.png"
-                                      SecondItemCommand="{Binding ManagerCenterCommand}"
-                                      ThirdItemTitleText="Live Chat"
-                                      ThirdItemImageSource="{Binding newmessage}"                                                       
-                                      ThirdItemCommand="{Binding LifeChatCommand}" FourthItemTitleText="News &amp; Events"
-                                      FourthItemImageSource="newsboardicon.png"
-                                                        FourthItemCommand="{Binding NewsCommand}" FifthItemTitleText="Quick Links"
-                                      FifthItemImageSource="quicklinksicon.png"
-                                                        FifthItemCommand="{Binding QuickLinksCommand}">
-                    <controls:MenuControl.Triggers>
-                        <DataTrigger TargetType="controls:MenuControl" Binding="{Binding User.employeeType}" Value="4">
-                            <Setter Property="SecondItemText" Value="HR Officer Center"/>
-                            <Setter Property="SecondItemCommand" Value="{Binding OfficerCenterCommand}"/>
-                        </DataTrigger>
-                    </controls:MenuControl.Triggers>
-                    
-                </controls:MenuControl>
+                        <StackLayout VerticalOptions="FillAndExpand">
+                        <!--#region CheckIn & Out Table-->
+      <Frame Margin="30" CornerRadius="15" BackgroundColor="White" Padding="19"> 
+                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,1,*">
+                                <Grid.Resources>
+                                    <ResourceDictionary>
+                                        <Style TargetType="Label">
+                                            <Setter Property="TextColor" Value="#21293A"></Setter>
+                                                                                        <Setter Property="FontSize" Value="16"></Setter>
 
-                
-                                     <controls:MenuControl  IsVisible="{Binding IsEmployee}"  FirstItemCommand="{Binding EmployeeCenterCommand}" FirstItemImage="EmployeeCenter.png" FirstItemText="Employee Center"
-                                                                         SecondItemText="Live Chat"  SecondItemImage="{Binding newmessage}" SecondItemCommand="{Binding LifeChatCommand}"
-                                                                         FourthItemTitleText="News  &amp; Events" FourthItemImageSource="newsboardicon.png" FourthItemCommand="{Binding NewsCommand}"
-                                                                         FifthItemTitleText="Quik Links" FifthItemImageSource="quicklinksicon.png" FifthItemCommand="{Binding QuickLinksCommand}"></controls:MenuControl>
+                                        </Style>
 
-                        </StackLayout>
+                                    </ResourceDictionary>
+
+                                </Grid.Resources>
+                                <Label Text="CheckIn" FontSize="16" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0"> </Label>
+                                 <Label Text="CheckOut" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1"> </Label>
+                                <BoxView Grid.Row="1" Color="Gray" HeightRequest="1"  Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+                                <Label Text="--/--" HorizontalOptions="CenterAndExpand" Grid.Row="2"  Grid.Column="0"> </Label>
+                                 <Label Text="--/--" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1"> </Label>
+                            </Grid>
+
+                        </Frame>
+                        <!--#endregion-->
+
+          
+                  </StackLayout>
                     </ScrollView>
                 </StackLayout>
+               <!--#endregion-->
             </StackLayout>
-
-    
+                             <!--#region Online Services-->
+                                              <Frame VerticalOptions="CenterAndExpand" BackgroundColor="#16B562" BorderColor="Transparent" CornerRadius="23" Padding="15"  HorizontalOptions="CenterAndExpand">
+             <StackLayout Orientation="Horizontal">
+                                 <Label Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" FontSize="18" ></Label>
+                                        <Label Margin="9,5,9,5" Text="Online Services" TextColor="White"></Label>
+                                 <Label Text="&#xf054;"  FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" HorizontalOptions="EndAndExpand" FontSize="18" ></Label>
+</StackLayout>
+                            
+</Frame>
+                        <!--#endregion-->
+    <!--#region Date Header-->
             <StackLayout   HorizontalOptions="Center" VerticalOptions="StartAndExpand">
             <controls:DateHeader />
             </StackLayout>
+            <!--#endregion-->
 
-        
-            <Frame BackgroundColor="#214455" BorderColor="Transparent" CornerRadius="30" Padding="15"  Margin="60,10,55,7"  VerticalOptions="EndAndExpand">
+            <!--#region Footer-->
+            <StackLayout VerticalOptions="EndAndExpand">
+                    <!--#region CheckIn-->
+                        <Frame BackgroundColor="White"  BorderColor="Transparent" Margin="51,10,51,15"  CornerRadius="20" Padding="15"  HorizontalOptions="FillAndExpand"  VerticalOptions="End">
+                <Label  Text="CheckIn" HorizontalOptions="CenterAndExpand"  ></Label>
+</Frame>
+            <!--#endregion-->
+                         <!--#region Bottom Menu-->
+            <Frame BackgroundColor="#214455" BorderColor="Transparent" CornerRadius="30" Padding="15"  Margin="7,10,7,7"  VerticalOptions="EndAndExpand">
                 <Grid ColumnDefinitions="*,*,*,*" >
                     <Grid.Resources>
                         <ResourceDictionary>
@@ -177,6 +143,11 @@ VerticalTextAlignment="Center"      >   <Label.Margin>
 
                 </Grid>
             </Frame>
+            <!--#endregion-->
+            </StackLayout>
+            <!--#endregion-->
+
+            <!--#region NotificationLst-->
 
             <Grid IsVisible="{Binding NotiISopend}" VerticalOptions="FillAndExpand"
                                 HorizontalOptions="FillAndExpand"         >
@@ -218,7 +189,7 @@ VerticalTextAlignment="Center"      >   <Label.Margin>
                 </pancakeview:PancakeView.Margin>
                 </pancakeview:PancakeView>
             </Grid>
-
+            <!--#endregion-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

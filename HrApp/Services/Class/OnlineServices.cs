@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using HrApp.Helpers;
 using HrApp.Model;
+using HrApp.Model.OnlineServicesModels;
 using HrApp.Services.Interface;
 using Xamarin.Essentials;
 
@@ -93,7 +94,11 @@ namespace HrApp.Services.Class
         }
 
       
-
+         public async Task<Tuple<OnlineServiceMenuModel, bool, string>> GetOnlineServicesLst()
+        {
+            var response = await HttpManager.GetAsyncWithBody<OnlineServiceMenuModel>(App.BaseUrl + $"get_menu",).ConfigureAwait(false);
+            return response;
+        }
      
 
       
