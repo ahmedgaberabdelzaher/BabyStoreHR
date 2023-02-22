@@ -4060,3 +4060,12 @@ xamforms.controls.droid.CalendarButtonRenderer;crc64fd013b27b0f98839.CalendarBut
 XamForms.Controls.Droid.TextDrawable, XamForms.Controls.Calendar.Droid;crc64fd013b27b0f98839.TextDrawable
 XamForms.Controls.Droid.TextDrawable;crc64fd013b27b0f98839.TextDrawable
 xamforms.controls.droid.TextDrawable;crc64fd013b27b0f98839.TextDrawable
+XamSvg.SvgPictureDrawable, XamSvg.Droid;crc64604113006a3121f0.SvgPictureDrawable
+XamSvg.SvgPictureDrawable;crc64604113006a3121f0.SvgPictureDrawable
+xamsvg.SvgPictureDrawable;crc64604113006a3121f0.SvgPictureDrawable
+XamSvg.SvgImageView, XamSvg.Droid;xamsvg.SvgImageView
+XamSvg.SvgImageView;xamsvg.SvgImageView
+xamsvg.SvgImageView;xamsvg.SvgImageView
+XamSvg.XamForms.Droid.SvgImageRenderer, XamSvg.XamForms;crc64b9318ce09ebb5813.SvgImageRenderer
+XamSvg.XamForms.Droid.SvgImageRenderer;crc64b9318ce09ebb5813.SvgImageRenderer
+xamsvg.xamforms.droid.SvgImageRenderer;crc64b9318ce09ebb5813.SvgImageRenderer

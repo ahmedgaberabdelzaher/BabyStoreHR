@@ -39,6 +39,9 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Extensions.Logging.dll",
 		"Microsoft.Extensions.Options.dll",
 		"Microsoft.Extensions.Primitives.dll",
+		"Microsoft.IdentityModel.JsonWebTokens.dll",
+		"Microsoft.IdentityModel.Logging.dll",
+		"Microsoft.IdentityModel.Tokens.dll",
 		"Newtonsoft.Json.dll",
 		"Plugin.FirebasePushNotification.dll",
 		"Plugin.Multilingual.Abstractions.dll",
@@ -66,6 +69,7 @@ public class MonoPackageManager_Resources {
 		"Syncfusion.SfRangeSlider.XForms.Android.dll",
 		"Syncfusion.SfRangeSlider.XForms.dll",
 		"System.Diagnostics.DiagnosticSource.dll",
+		"System.IdentityModel.Tokens.Jwt.dll",
 		"System.IO.Pipelines.dll",
 		"System.Text.Encodings.Web.dll",
 		"System.Text.Json.dll",
@@ -178,6 +182,10 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Kotlin.StdLib.dll",
 		"XamForms.Controls.Calendar.dll",
 		"XamForms.Controls.Calendar.Droid.dll",
+		"XamSvg.Abstractions.dll",
+		"XamSvg.Droid.dll",
+		"XamSvg.Shared.dll",
+		"XamSvg.XamForms.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

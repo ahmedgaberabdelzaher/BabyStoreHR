@@ -7,18 +7,30 @@ using Prism.Services;
 
 namespace HrApp.ViewModel.OnlineServicesViewModels
 {
-	public class OnlineServicesViewModel:ViewModelBase
+	public class OnlineServicesMenuViewModel:ViewModelBase
 	{
 
         ObservableCollection<Model.LookUpModel> onlineServicesMenuItems = new ObservableCollection<Model.LookUpModel>();
         public ObservableCollection<Model.LookUpModel> OnlineServicesMenuItems { get { return onlineServicesMenuItems; } set { onlineServicesMenuItems = value; RaisePropertyChanged(); } }
 
+        Model.LookUpModel selectedRequestType;
+        public Model.LookUpModel SelectedRequestType { get { return selectedRequestType; } set { selectedRequestType = value;RaisePropertyChanged(); } }
 
         Services.Interface.IOnlineServices _onlineServices;
 
-        public OnlineServicesViewModel(Services.Interface.IOnlineServices onlineServices, INavigationService navigationService, IPageDialogService pageDialogService) : base(navigationService, pageDialogService)
+        public OnlineServicesMenuViewModel(Services.Interface.IOnlineServices onlineServices, INavigationService navigationService, IPageDialogService pageDialogService) : base(navigationService, pageDialogService)
         {
             _onlineServices = onlineServices;
+            OnlineServicesMenuItems = new ObservableCollection<Model.LookUpModel>()
+            {
+                 new Model.LookUpModel(){  icon="leaverequest.svg",Id=1,Name="Leave Request"},
+                              new Model.LookUpModel(){  icon="leaverequest.svg",Id=1,Name="Leave Request"},
+                                           new Model.LookUpModel(){  icon="leaverequest",Id=1,Name="Leave Request"},
+                                                        new Model.LookUpModel(){  icon="leaverequest.svg",Id=1,Name="Leave Request"},
+                                                                     new Model.LookUpModel(){  icon="leaverequest.svg",Id=1,Name="Leave Request"},
+                                                                                  new Model.LookUpModel(){  icon="leaverequest.svg",Id=1,Name="Leave Request"},             new Model.LookUpModel(){  icon="leaverequest",Id=1,Name="Leave Request"},
+                                                                                               new Model.LookUpModel(){  icon="leaverequest",Id=1,Name="Leave Request"}
+            };
         }
 
         public DelegateCommand GoToDetailsCommand
@@ -34,7 +46,29 @@ namespace HrApp.ViewModel.OnlineServicesViewModels
             }
         }
 
+      public DelegateCommand SelectedRequestTypeChangedCommand
+        {
+            get
+            {
+                return new DelegateCommand(async () =>
+                {
 
+                    if (SelectedRequestType!=null)
+                    {
+                        var navParameters = new NavigationParameters();
+                        navParameters.Add("RequesttypeId", SelectedRequestType.Id);
+                          navParameters.Add("List", 1);
+                          navParameters.Add("IsFromManager", "1");
+                          navParameters.Add("RequesttypeName", SelectedRequestType.Name);
+                        navParameters.Add("PageTitle", "Leaves");
+                        await NavigationService.NavigateAsync("LeavesList", navParameters);
+                
+                 
+                    }
+                });
+
+            }
+        }
 
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
@@ -46,7 +80,8 @@ namespace HrApp.ViewModel.OnlineServicesViewModels
             try
             {
                 IsLoading = true;
-                var resp = await _onlineServices.GetOnlineServicesLst();
+                
+                var resp = await _onlineServices.GetOnlineServicesLst(new Model.OnlineServicesModels.OnlineServiceMenuModel());
                 if (resp.Item2)
                 {
                     var menu = resp.Item1;

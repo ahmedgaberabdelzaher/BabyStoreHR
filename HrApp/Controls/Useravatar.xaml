@@ -9,9 +9,10 @@
         </ResourceDictionary>
     </ContentView.Resources>
     
-            <custom:CircleImage  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Source="{Binding UserImage,Converter={StaticResource Base64Image}}"  WidthRequest="50" HeightRequest="50" Aspect="AspectFill"  >   <custom:CircleImage.Triggers >
+            <custom:CircleImage BorderColor="{StaticResource TitleColor}"  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Source="{Binding UserImage,Converter={StaticResource Base64Image}}"  WidthRequest="50" HeightRequest="50" Aspect="AspectFill"  >
+        <custom:CircleImage.Triggers >
                                 <DataTrigger TargetType="custom:CircleImage" Binding="{Binding UserImage}" Value="">
-                                    <Setter Property="Source" Value="ProfileImgDefault.png"/>
+                                    <Setter Property="Source" Value="Profile.png"/>
                                 </DataTrigger>
                             </custom:CircleImage.Triggers>
                 <custom:CircleImage.GestureRecognizers>

@@ -94,9 +94,9 @@ namespace HrApp.Services.Class
         }
 
       
-         public async Task<Tuple<OnlineServiceMenuModel, bool, string>> GetOnlineServicesLst()
+         public async Task<Tuple<OnlineServiceMenuModel, bool, string>> GetOnlineServicesLst(OnlineServiceMenuModel model)
         {
-            var response = await HttpManager.GetAsyncWithBody<OnlineServiceMenuModel>(App.BaseUrl + $"get_menu",).ConfigureAwait(false);
+            var response = await HttpManager.GetAsyncWithBody<OnlineServiceMenuModel>(App.BaseUrl + $"get_menu",model).ConfigureAwait(false);
             return response;
         }
      

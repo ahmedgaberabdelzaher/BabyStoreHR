@@ -4,14 +4,26 @@
              x:Class="HrApp.Controls.DateHeader">
   <ContentView.Content>
       
-        <Grid  HorizontalOptions="CenterAndExpand"   RowDefinitions="*,*" ColumnDefinitions="auto,auto" VerticalOptions="Start" >
+        <Grid  HorizontalOptions="CenterAndExpand" RowSpacing="15"  RowDefinitions="*,*" ColumnDefinitions="auto,auto" VerticalOptions="Start" >
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="{StaticResource TitleColor}"></Setter>
+                                                <Setter Property="FontFamily" Value="Bubblegum.ttf"></Setter>
+
+                    </Style>
+
+                </ResourceDictionary>
+
+            </Grid.Resources>
          <Grid.Margin>
              <OnPlatform x:TypeArguments="Thickness">
                  <On Platform="iOS" Value="0,60,0,0"/>
                  <On Platform="Android" Value="0,20,0,0"/>
 
              </OnPlatform>
-         </Grid.Margin>  <Label TextColor="White" Grid.RowSpan="2" HorizontalOptions="Start" FontSize="35" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:dd}'}"/>
+         </Grid.Margin>
+            <Label TextColor="White" Grid.RowSpan="2" HorizontalOptions="Start" FontSize="35" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:dd}'}"/>
             <Label TextColor="White" Margin="0,6,0,-4" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="EndAndExpand" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:dddd}'}"/>
             <StackLayout Grid.Column="1" Grid.Row="1" Margin="0,-9,0,0" VerticalOptions="Start" Orientation="Horizontal">
                 <Label TextColor="White"  HorizontalOptions="Start"  FontSize="14" HorizontalTextAlignment="Start" Text="{Binding DateTimeToday ,StringFormat='{0:MMM}'}"/>

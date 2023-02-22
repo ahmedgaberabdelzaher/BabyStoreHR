@@ -130,6 +130,9 @@
     <PackageReference Include="Huawei.Hms.Push">
       <Version>6.3.0.304</Version>
     </PackageReference>
+    <PackageReference Include="Vapolia.Xamarin.Svg.Forms">
+      <Version>4.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomeRenderers\CustomWebViewRenderer.cs" />
@@ -446,6 +449,22 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xxxhdpi\home.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\HeaderLogo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\OnlineServices.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\AttentionIcon.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Profile.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

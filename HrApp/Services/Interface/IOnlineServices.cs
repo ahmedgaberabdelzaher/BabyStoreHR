@@ -32,6 +32,6 @@ namespace HrApp.Services.Interface
 
         Task<Tuple<ObservableCollection<ResumptionTypeModel>, bool, string>> GetCertificatTypes();
         Task<Tuple<ObservableCollection<ResumptionTypeModel>, bool, string>> GetBankTypes();
-        Task<Tuple<OnlineServiceMenuModel, bool, string>> GetOnlineServicesLst();
+        Task<Tuple<OnlineServiceMenuModel, bool, string>> GetOnlineServicesLst(OnlineServiceMenuModel model);
     }
 }

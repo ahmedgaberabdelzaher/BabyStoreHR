@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
     xmlns:notification="clr-namespace:HrApp.View.NotificationViews"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:local="clr-namespace:HrApp.Converters"
+    xmlns:local="clr-namespace:HrApp.Converters" xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
     x:Class="HrApp.View.Home" BackgroundImageSource="home.png">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -12,22 +12,22 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
- <Grid >
-     <Image Source="home.png" Aspect="AspectFill"></Image>
-            <StackLayout >
-                <StackLayout.Margin>
+ <Grid RowDefinitions="auto,*,auto">
+     <Image Grid.Row="0" Grid.RowSpan="3" Source="home.png" Aspect="AspectFill"></Image>
+
+              <!-- <StackLayout.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS" Value="0,50,20,10"></On>
                         <On Platform="Android" Value="0,30,20,10"/>
 
                     </OnPlatform>
-                </StackLayout.Margin>
-
-                <controls:Useravatar  Margin="0,0,10,0"/>
+                </StackLayout.Margin>--> 
          <!--#region Home Body-->
-                <StackLayout Margin="0,0,0,0" >
+                <StackLayout Margin="0,0,0,0" Grid.Row="1">
                     <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" >
                         <StackLayout VerticalOptions="FillAndExpand">
+                           
+
                         <!--#region CheckIn & Out Table-->
       <Frame Margin="30" CornerRadius="15" BackgroundColor="White" Padding="19"> 
                             <Grid  ColumnDefinitions="*,*" RowDefinitions="*,1,*">
@@ -52,37 +52,60 @@
                         </Frame>
                         <!--#endregion-->
 
-          
-                  </StackLayout>
-                    </ScrollView>
-                </StackLayout>
-               <!--#endregion-->
-            </StackLayout>
-                             <!--#region Online Services-->
-                                              <Frame VerticalOptions="CenterAndExpand" BackgroundColor="#16B562" BorderColor="Transparent" CornerRadius="23" Padding="15"  HorizontalOptions="CenterAndExpand">
+                            <!--#region Online Services-->
+                                              <Frame VerticalOptions="CenterAndExpand"  BackgroundColor="#16B562" BorderColor="Transparent" CornerRadius="23" Padding="7"  HorizontalOptions="CenterAndExpand">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToOnlineServicesMenuCommand}"></TapGestureRecognizer>
+
+                            </Frame.GestureRecognizers>
              <StackLayout Orientation="Horizontal">
-                                 <Label Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" FontSize="18" ></Label>
-                                        <Label Margin="9,5,9,5" Text="Online Services" TextColor="White"></Label>
+                                 <Label IsVisible="false" Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" FontSize="18" ></Label>
+                                <Image Source="OnlineServices" VerticalOptions="Center" HeightRequest="32"></Image>
+                                <Label Margin="9,5,9,5" Text="Online Services" TextColor="White"></Label>
                                  <Label Text="&#xf054;"  FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" HorizontalOptions="EndAndExpand" FontSize="18" ></Label>
 </StackLayout>
                             
 </Frame>
                         <!--#endregion-->
-    <!--#region Date Header-->
-            <StackLayout   HorizontalOptions="Center" VerticalOptions="StartAndExpand">
-            <controls:DateHeader />
-            </StackLayout>
+          
+                  </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+               <!--#endregion-->
+                    
+    
+                        
+            <!--#region Header-->
+
+          
+            <Grid ColumnDefinitions="auto,*" ColumnSpacing="10" Grid.Row="0" Margin="29,29,29,40" VerticalOptions="StartAndExpand">
+                <StackLayout Orientation="Horizontal" Grid.Row="0">
+                <custom:CircleImage Grid.Column="0" BorderColor="{StaticResource TitleColor}"  HorizontalOptions="End" Margin="0,0,0,0" VerticalOptions="StartAndExpand" Source="Profile"  WidthRequest="50" HeightRequest="50" Aspect="AspectFill"  >
+                <custom:CircleImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MyProfileCommand}"></TapGestureRecognizer>
+                </custom:CircleImage.GestureRecognizers>
+                                             </custom:CircleImage>
+                <StackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
+              <Label FontSize="17" Text="Hello Menna "  TextColor="{StaticResource TitleColor}" FontFamily="Bubblegum.ttf" ></Label>
+               <Label TextColor="#FFFFFF" FontSize="14" Text="`Employee"></Label>
+           </StackLayout></StackLayout>
+                <Image Grid.Column="2" Source="HeaderLogo" HeightRequest="54" HorizontalOptions="End"></Image>
+                <!--#region Date Header-->
+                <controls:DateHeader IsVisible="false" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" />
+                <!--#endregion-->
+            </Grid>
+           
             <!--#endregion-->
 
             <!--#region Footer-->
-            <StackLayout VerticalOptions="EndAndExpand">
+            <StackLayout Grid.Row="2" VerticalOptions="EndAndExpand">
                     <!--#region CheckIn-->
-                        <Frame BackgroundColor="White"  BorderColor="Transparent" Margin="51,10,51,15"  CornerRadius="20" Padding="15"  HorizontalOptions="FillAndExpand"  VerticalOptions="End">
+                        <Frame BackgroundColor="White"  BorderColor="#ED007B" Margin="51,10,51,15"  CornerRadius="20" Padding="15"  HorizontalOptions="FillAndExpand"  VerticalOptions="End">
                 <Label  Text="CheckIn" HorizontalOptions="CenterAndExpand"  ></Label>
 </Frame>
             <!--#endregion-->
                          <!--#region Bottom Menu-->
-            <Frame BackgroundColor="#214455" BorderColor="Transparent" CornerRadius="30" Padding="15"  Margin="7,10,7,7"  VerticalOptions="EndAndExpand">
+            <Frame BackgroundColor="{StaticResource TitleColor}" BorderColor="Transparent" CornerRadius="30" Padding="15"  Margin="7,10,7,7"  VerticalOptions="EndAndExpand">
                 <Grid ColumnDefinitions="*,*,*,*" >
                     <Grid.Resources>
                         <ResourceDictionary>

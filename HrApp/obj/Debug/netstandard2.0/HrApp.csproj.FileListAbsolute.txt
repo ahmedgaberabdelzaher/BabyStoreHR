@@ -3,6 +3,7 @@
 /Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/bin/Debug/netstandard2.0/ref/HrApp.dll
 /Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/bin/Debug/netstandard2.0/HrApp.pdb
 /Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/bin/Debug/netstandard2.0/ar/HrApp.resources.dll
+/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/obj/Debug/netstandard2.0/HrApp.csproj.AssemblyReference.cache
 /Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/obj/Debug/netstandard2.0/HrApp.Resources.LangaugeResource.resources
 /Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/obj/Debug/netstandard2.0/HrApp.Resources.LangaugeResource.ar.resources
 /Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/obj/Debug/netstandard2.0/HrApp.csproj.GenerateResource.cache

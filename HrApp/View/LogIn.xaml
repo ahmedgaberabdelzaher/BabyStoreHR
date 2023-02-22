@@ -3,21 +3,21 @@
     xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:panckake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:controls1="clr-namespace:HrApp.Controls"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-         xmlns:ef="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
+         xmlns:ef="clr-namespace:AiForms.Effects;assembly=AiForms.Effects" xmlns:svg="clr-namespace:XamSvg.XamForms;assembly=XamSvg.XamForms"
 
     x:Class="HrApp.View.LogIn">
     <ContentPage.Content>
        
                 <Grid  x:Name="LoginP">
-        <Grid RowDefinitions="1.5*,*,auto">
-            
-        <Image Aspect="AspectFill" Source="login" Margin="0,-10,0,0"  Grid.Row="0" Grid.RowSpan="3"></Image>
-            <ScrollView Margin="0,0,0,0"  Grid.Row="1">
+        <Grid RowDefinitions="1.1*,*,auto">
+                    <svg:SvgImage FillMode="Fill" Source="loginbg.svg" Grid.Row="0" Grid.RowSpan="3" HorizontalOptions="Fill" VerticalOptions="FillAndExpand"/>
+
+        <Image IsVisible="false" Aspect="AspectFill" Source="login" Margin="0,-10,0,0"  Grid.Row="0" Grid.RowSpan="3"></Image>
+           <Label Margin="0,-25,0,0" VerticalOptions="End" FontSize="24" Text="Have an account" Grid.Row="0" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource TitleColor}" FontFamily="Bubblegum.ttf" ></Label>
+            <ScrollView Margin="0,20,0,0"  Grid.Row="1">
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
-            <Label Text="Al Seef Hospital" IsVisible="false" HorizontalOptions="CenterAndExpand" TextColor="#CEBFB3" FontSize="14" FontFamily="Poppins-Regular.ttf" ></Label>
-                        <Label Text=" My Al Seef" IsVisible="false"  HorizontalOptions="CenterAndExpand" TextColor="#CEBFB3" FontSize="30" FontFamily="Poppins-Regular.ttf" ></Label>
-                        <Label Text="Please sign up to continue" IsVisible="false" HorizontalOptions="CenterAndExpand" TextColor="#CEBFB3CC" FontSize="16" FontFamily="Poppins-Regular.ttf" ></Label>
-                       <Frame  Margin="30,40,30,15" Padding="20" BackgroundColor="#C2E3D3">
+                        <Label Text="Please Login  to continue" HorizontalOptions="CenterAndExpand" TextColor="#72A8D8" FontSize="16" FontFamily="Poppins-Regular.ttf" ></Label>
+                       <Frame BorderColor="{StaticResource PrimaryColor}" Margin="30,40,30,15" Padding="20" BackgroundColor="#21293A40" Opacity=".75">
                            <Frame.CornerRadius>
         <OnPlatform x:TypeArguments="x:Single">
             <On Platform="iOS" Value="25"/>
@@ -32,7 +32,7 @@
                         </Entry>
                     </Grid>
                 </Frame>
-                      <Frame  Margin="30,0,30,15" Padding="20" BackgroundColor="#C2E3D3">
+                      <Frame BorderColor="{StaticResource PrimaryColor}" Margin="30,0,30,15" Padding="20" BackgroundColor="#21293A40" Opacity=".75">
                           <Frame.CornerRadius>
         <OnPlatform x:TypeArguments="x:Single">
             <On Platform="iOS" Value="25"/>
@@ -40,15 +40,15 @@
         </OnPlatform>
     </Frame.CornerRadius>
                     <Grid ColumnDefinitions="auto,*">
-                        <Label Text="&#xf023;" FontFamily="FontAwesome" Grid.Column="0" TextColor="#214455" FontSize="15" VerticalOptions="CenterAndExpand"></Label>
-                        <Entry   Placeholder="Password" Text="{Binding Password}" IsPassword="True" Margin="5,-30,5,-30" Grid.Column="1" PlaceholderColor="#214455"></Entry>
+                        <Label Text="&#xf023;" FontFamily="FontAwesome" Grid.Column="0" TextColor="{StaticResource PrimaryColor}" FontSize="15" VerticalOptions="CenterAndExpand"></Label>
+                        <Entry   Placeholder="Password" Text="{Binding Password}" IsPassword="True" Margin="5,-30,5,-30" Grid.Column="1" PlaceholderColor="{StaticResource PrimaryColor}"></Entry>
                     </Grid>
                 </Frame>
             </StackLayout>
                 </ScrollView>
 
-           <StackLayout Orientation="Horizontal" Grid.Row="2" Margin="0,5,0,10">
-                    <StackLayout Margin="10,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"> 
+           <StackLayout Orientation="Horizontal"  Grid.Row="2" Margin="0,5,0,10">
+                    <StackLayout IsVisible="false" Margin="10,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"> 
                         <Label  Text="Don't have an account?" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontSize="14" TextColor="#CEBFB3CC" FontFamily="Poppins-Regular.ttf">
                    <Label.GestureRecognizers>
                        <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"></TapGestureRecognizer>
@@ -60,13 +60,13 @@
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout> 
-               <panckake:PancakeView CornerRadius="64,0,0,0" WidthRequest="155" HeightRequest="60" Margin="0,-10,0,-10" BackgroundColor="#00A7A3" HorizontalOptions="EndAndExpand">
+               <panckake:PancakeView CornerRadius="64,0,0,0" WidthRequest="155" HeightRequest="60" Margin="0,-10,0,-10" BackgroundColor="#72A8D8" HorizontalOptions="EndAndExpand">
                    <panckake:PancakeView.GestureRecognizers>
                        <TapGestureRecognizer Command="{Binding LoginCommand}"></TapGestureRecognizer>
                    </panckake:PancakeView.GestureRecognizers>
                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                 <Label VerticalOptions="CenterAndExpand"  TextColor="#FFFFFF" FontSize="18" FontFamily="Poppins-Medium.ttf" Text="Login"></Label>
-                                        <Label Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" FontSize="18" ></Label>
+                 <Label VerticalOptions="CenterAndExpand"  TextColor="{StaticResource PrimaryColor}" FontSize="18" FontFamily="Poppins-Medium.ttf" Text="Login"></Label>
+                                        <Label Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="{StaticResource PrimaryColor}"  FontSize="18" ></Label>
 
                    </StackLayout>
                </panckake:PancakeView>

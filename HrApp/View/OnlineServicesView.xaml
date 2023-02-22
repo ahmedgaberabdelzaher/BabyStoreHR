@@ -1,10 +1,50 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:svg="clr-namespace:XamSvg.XamForms;assembly=XamSvg.XamForms"
     x:Class="HrApp.View.OnlineServicesView" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <Label Text="Online Service"></Label>
+     <Grid RowDefinitions="100,*">
+           <!--#region Header-->
+            <Grid ColumnDefinitions="auto,auto,*" Grid.Row="0" Padding="25,0,25,0" BackgroundColor="{StaticResource PrimaryColor}" HeightRequest="100">
+                    <StackLayout Grid.Column="0">
+                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" FontFamily="FontAwesome">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Label Grid.Column="1" FontFamily="Bubblegum.ttf" VerticalOptions="Center" TextColor="{StaticResource TitleColor}" FontSize="20"  Text="Online Services" ></Label>
+                                <Image  Grid.Column="2" Source="HeaderLogo" HeightRequest="54" HorizontalOptions="End"></Image>
+
+            </Grid>                  
+            <!--#endregion-->
+            <!--#region Body-->
+            <CollectionView Margin="20" Grid.Row="1" ItemsSource="{Binding OnlineServicesMenuItems}" SelectionMode="Single" SelectedItem="{Binding SelectedRequestType}">
+    <CollectionView.ItemsLayout>
+       <GridItemsLayout Orientation="Vertical" HorizontalItemSpacing="10" VerticalItemSpacing="10"
+                        Span="2" />
+    </CollectionView.ItemsLayout>
+   <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10">
+                           <Frame BorderColor="{StaticResource PrimaryColor}" Padding="10" CornerRadius="10">
+                                <StackLayout>
+                                  <svg:SvgImage FillMode="Fill" Source="{Binding icon}"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label FontSize="16" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontAttributes="Bold" Text="{Binding Name}"></Label>
+                                </StackLayout>
+                            </Frame>
+
+                        </Grid>
+
+                    </DataTemplate>
+</CollectionView.ItemTemplate>
+</CollectionView>
+            <!--#endregion-->
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
 

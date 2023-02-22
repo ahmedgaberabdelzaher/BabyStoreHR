@@ -13,6 +13,7 @@ using HrApp.View.NotificationViews;
 using HrApp.View.OverTimeViews;
 using HrApp.View.SecondSplach;
 using HrApp.ViewModel;
+using HrApp.ViewModel.OnlineServicesViewModels;
 using Plugin.FirebasePushNotification;
 using Prism;
 using Prism.Ioc;
@@ -86,9 +87,9 @@ namespace HrApp
              else
              {
             */
-          await NavigationService.NavigateAsync("NavigationPage/LogIn");
+         // await NavigationService.NavigateAsync("NavigationPage/LogIn");
 
-            //   await NavigationService.NavigateAsync("/NavigationPage/Home");
+             await NavigationService.NavigateAsync("/NavigationPage/Home");
            //  await NavigationService.NavigateAsync("NavigationPage/SecondSplach");
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTc5NTg3QDMxMzkyZTM0MmUzMEM3ekZjMG5LcllibHFQd2krTjU0K2FBTXd1bVp4ZEdQOXZkRjhwbTgzTVE9");
             /* if (isLoged)
@@ -205,7 +206,7 @@ namespace HrApp
             containerRegistry.RegisterForNavigation<OnlineServices, HomeViewModel>();
             containerRegistry.RegisterForNavigation<OverTimeList, OverTimeViewModel>();
             containerRegistry.RegisterForNavigation<OverTimeRequest, OverTimeViewModel>();
-            containerRegistry.RegisterForNavigation<OnlineServicesView, OnlineServicesViewModel>();
+            containerRegistry.RegisterForNavigation<OnlineServicesView, OnlineServicesMenuViewModel>();
 
            
             containerRegistry.RegisterForNavigation<OnlineServices, HomeViewModel>();

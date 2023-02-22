@@ -32,9 +32,9 @@
     <PackageReference Include="JV.XamForms.Controls.Calendar" Version="1.2.0" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+    <PackageReference Include="Vapolia.Xamarin.Svg.Forms" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Fonts\GreatVibes-Regular.ttf" />
     <None Remove="Helpers\" />
     <None Remove="Converters\" />
     <None Remove="Model\" />
@@ -80,12 +80,46 @@
     <None Remove="Model\OdooAutonticate\" />
     <None Remove="ViewModel\OnlineServicesViewModels\" />
     <None Remove="Model\OnlineServicesModels\" />
+    <None Remove="Fonts\Bubblegum.ttf" />
+    <None Remove="Fonts\Montserrat-LightItalic.ttf" />
+    <None Remove="Fonts\Montserrat-Medium.ttf" />
+    <None Remove="Fonts\Montserrat-BoldItalic.ttf" />
+    <None Remove="Fonts\Montserrat-Light.ttf" />
+    <None Remove="Fonts\Montserrat-ThinItalic.ttf" />
+    <None Remove="Fonts\Montserrat-ExtraLight.ttf" />
+    <None Remove="Fonts\Montserrat-Thin.ttf" />
+    <None Remove="Fonts\Montserrat-Bold.ttf" />
+    <None Remove="Fonts\Montserrat-MediumItalic.ttf" />
+    <None Remove="Fonts\Montserrat-BlackItalic.ttf" />
+    <None Remove="Fonts\Montserrat-Arabic Medium 500.otf" />
+    <None Remove="Fonts\Montserrat-Arabic ExtraBold 800.otf" />
+    <None Remove="Fonts\Montserrat-Arabic Bold 700.otf" />
+    <None Remove="Fonts\Montserrat-Arabic Thin 250.otf" />
+    <None Remove="Fonts\Montserrat-Arabic Regular 400.otf" />
+    <None Remove="Fonts\Montserrat-SemiBold.ttf" />
+    <None Remove="Fonts\Montserrat-Arabic Black 900.otf" />
+    <None Remove="Fonts\Montserrat-ExtraLightItalic.ttf" />
+    <None Remove="Fonts\Montserrat-ExtraBold.ttf" />
+    <None Remove="Fonts\Montserrat-Black.ttf" />
+    <None Remove="Fonts\Montserrat-Regular.ttf" />
+    <None Remove="Fonts\Montserrat-Italic.ttf" />
+    <None Remove="Fonts\Montserrat-Arabic SemiBold 600.otf" />
+    <None Remove="Fonts\Montserrat-Arabic ExtraLight 275.otf" />
+    <None Remove="Fonts\Montserrat-Arabic Light 300.otf" />
+    <None Remove="Fonts\Montserrat-SemiBoldItalic.ttf" />
+    <None Remove="Fonts\Montserrat-ExtraBoldItalic.ttf" />
+    <None Remove="Fonts\GreatVibes-Regular.ttf" />
+    <None Remove="Vapolia.Xamarin.Svg.Forms" />
+    <None Remove="Images\" />
+    <None Remove="Images\loginbg.svg" />
+    <None Remove="Images\leaverequest.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Model\OdooAutonticate\" />
     <Folder Include="ViewModel\OnlineServicesViewModels\" />
     <Folder Include="Model\OnlineServicesModels\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="View\LogIn.xaml.cs">
@@ -106,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\fa-solid-900.ttf" />
-    <EmbeddedResource Include="Fonts\GreatVibes-Regular.ttf" />
     <EmbeddedResource Include="Fonts\Poppins-ExtraLight.ttf" />
     <EmbeddedResource Include="Fonts\Poppins-ThinItalic.ttf" />
     <EmbeddedResource Include="Fonts\Poppins-ExtraLightItalic.ttf" />
@@ -125,6 +158,37 @@
     <EmbeddedResource Include="Fonts\Poppins-SemiBold.ttf" />
     <EmbeddedResource Include="Fonts\Poppins-Italic.ttf" />
     <EmbeddedResource Include="Fonts\Poppins-MediumItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Bubblegum.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-LightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-BoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-ThinItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-ExtraLight.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Thin.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-MediumItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-BlackItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic Medium 500.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic ExtraBold 800.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic Bold 700.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic Thin 250.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic Regular 400.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-SemiBold.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic Black 900.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-ExtraBold.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Black.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Italic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic SemiBold 600.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic ExtraLight 275.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-Arabic Light 300.otf" />
+    <EmbeddedResource Include="Fonts\Montserrat-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Montserrat-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\GreatVibes-Regular.ttf" />
+    <EmbeddedResource Include="Images\loginbg.svg" />
+    <EmbeddedResource Include="Images\leaverequest.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\ChatInputBarView.xaml">

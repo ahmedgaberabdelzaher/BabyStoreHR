@@ -1,33 +1,52 @@
-﻿<Properties StartupConfiguration="{1AFACE78-3DFD-4156-B94F-A30446E63FA5}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{6CB59393-1149-490A-8997-DD39F43DFEBA}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="391" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="374" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/Helpers/HttpManager.cs" relfile="HrApp/Helpers/HttpManager.cs" line="466" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="400" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.nexus_10_-_api_31" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HrApp.iOS/Info.plist">
+  <MonoDevelop.Ide.ItemProperties.HrApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.040195D4-426F-485E-828F-EFEDAFD56E49" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HrApp/Model/OdooAutonticate/AuthonticateResponse.cs">
     <Files>
-      <File FileName="HrApp/View/LogIn.xaml" Line="65" Column="52" />
-      <File FileName="HrApp/View/Home.xaml" Line="17" Column="1" />
+      <File FileName="HrApp/View/LogIn.xaml" Line="1" Column="1" />
+      <File FileName="HrApp/View/Home.xaml" Line="16" Column="1" />
       <File FileName="HrApp.iOS/Info.plist" />
+      <File FileName="HrApp/Services/Class/UserServices.cs" />
+      <File FileName="HrApp/Model/NewUserModel.cs" Line="1" Column="1" />
+      <File FileName="HrApp/Model/AuthonticateModel.cs" Line="14" Column="32" />
+      <File FileName="HrApp/ViewModel/UserViewModel.cs" />
+      <File FileName="HrApp/Resources/LangaugeResource.resx" />
+      <File FileName="HrApp/Resources/LangaugeResource.ar.resx" />
+      <File FileName="HrApp/Resources/LangaugeResource.Designer.cs" />
+      <File FileName="HrApp/Helpers/HttpManager.cs" />
+      <File FileName="HrApp/App.xaml.cs" />
+      <File FileName="HrApp/View/OnlineServicesView.xaml" Line="1" Column="1" />
+      <File FileName="HrApp/View/OnlineServicesView.xaml.cs" />
+      <File FileName="HrApp/View/OnlineServices.xaml" />
+      <File FileName="HrApp/View/OnlineServices.xaml.cs" Line="1" Column="1" />
+      <File FileName="HrApp/Services/Class/OnlineServices.cs" Line="13" Column="43" />
+      <File FileName="HrApp/ViewModel/OnlineServicesViewModels/OnlineServicesViewModel.cs" Line="54" Column="1" />
+      <File FileName="HrApp/ViewModel/BreatFestListViewModel.cs" Line="1" Column="1" />
+      <File FileName="HrApp/Model/OnlineServicesModels/OnlineServiceMenuModel.cs" Line="1" Column="1" />
+      <File FileName="HrApp/Services/Interface/IOnlineServices.cs" Line="35" Column="96" />
+      <File FileName="HrApp/ViewModel/HomeViewModel.cs" />
+      <File FileName="HrApp/Model/OdooAutonticate/AuthonticateResponse.cs" Line="171" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HrApp" expanded="True">
-            <Node name="HrApp.iOS" expanded="True">
-              <Node name="Properties" expanded="True" />
-              <Node name="Resources" expanded="True">
-                <Node name="Home.xaml" expanded="True" />
-              </Node>
-              <Node name="MyViewController.cs" expanded="True" />
-            </Node>
+            <Node name="HrApp.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.HrApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.040195D4-426F-485E-828F-EFEDAFD56E49" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.HrApp.Android PreferredExecutionTarget="Android.nexus_10_-_api_31" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.nexus_10_-_api_31" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.HrApp.Android PreferredExecutionTarget="Android.Pixel_3_API_30" />
 </Properties>

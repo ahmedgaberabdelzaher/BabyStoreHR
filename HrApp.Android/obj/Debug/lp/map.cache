@@ -102,6 +102,8 @@ Xamarin.GooglePlayServices.Tasks.dll
 Xamarin.Jetbrains.Annotations.dll
 Xamarin.Kotlin.StdLib.dll
 XamForms.Controls.Calendar.Droid.dll
+XamSvg.Droid.dll
+XamSvg.XamForms.dll
 androidx.multidex.multidex.aar
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.arch.core.core-runtime.aar

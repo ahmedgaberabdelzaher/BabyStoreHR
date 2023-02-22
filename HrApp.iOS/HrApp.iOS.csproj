@@ -25,12 +25,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchI18n>mideast</MtouchI18n>
     <CodesignKey>Apple Development: Created via API (HQBYRKR2PN)</CodesignKey>
     <CodesignEntitlements></CodesignEntitlements>
-    <CodesignProvision>VS: com.alseef.hr Development</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -231,6 +232,9 @@
     </PackageReference>
     <PackageReference Include="Plugin.FirebasePushNotification">
       <Version>3.3.10</Version>
+    </PackageReference>
+    <PackageReference Include="Vapolia.Xamarin.Svg.Forms">
+      <Version>4.1.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -456,6 +460,18 @@
     <BundleResource Include="Resources\spalsh.png" />
     <BundleResource Include="Resources\spalsh%402x.png" />
     <BundleResource Include="Resources\spalsh%403x.png" />
+    <BundleResource Include="Resources\HeaderLogo.png" />
+    <BundleResource Include="Resources\HeaderLogo%402x.png" />
+    <BundleResource Include="Resources\HeaderLogo%403x.png" />
+    <BundleResource Include="Resources\OnlineServices.png" />
+    <BundleResource Include="Resources\OnlineServices%402x.png" />
+    <BundleResource Include="Resources\OnlineServices%403x.png" />
+    <BundleResource Include="Resources\AttentionIcon.png" />
+    <BundleResource Include="Resources\AttentionIcon%402x.png" />
+    <BundleResource Include="Resources\AttentionIcon%403x.png" />
+    <BundleResource Include="Resources\Profile%402x.png" />
+    <BundleResource Include="Resources\Profile.png" />
+    <BundleResource Include="Resources\Profile%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Home.xaml">
