@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hIjuN9EuOhS/Sgt9dkdHMlx0PsKd8s3OPGAsaq2l31uN4I2EOMn5g6/5/MFfjUeUUSgdKjcaoo1HUxmJFpHvpA==",
+  "dgSpecHash": "2x/IWBWE4vGbHaa8cWmoFD4GpnH9LcpuKhmqEOzHIKXRXM6LUsIxbMOAQ1AxN3ivJaKtM6Yy1J0TYmQbnb840A==",
   "success": true,
   "projectFilePath": "/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/HrApp.csproj",
   "expectedPackageFiles": [
     "/Users/youxl/.nuget/packages/aiforms.effects/1.6.11/aiforms.effects.1.6.11.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/firebasenet/1.0.1/firebasenet.1.0.1.nupkg.sha512",
     "/Users/youxl/.nuget/packages/jv.xamforms.controls.calendar/1.2.0/jv.xamforms.controls.calendar.1.2.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/microsoft.aspnetcore.connections.abstractions/5.0.6/microsoft.aspnetcore.connections.abstractions.5.0.6.nupkg.sha512",
     "/Users/youxl/.nuget/packages/microsoft.aspnetcore.http.connections.client/5.0.6/microsoft.aspnetcore.http.connections.client.5.0.6.nupkg.sha512",
@@ -64,6 +65,7 @@
     "/Users/youxl/.nuget/packages/unity.container/5.11.11/unity.container.5.11.11.nupkg.sha512",
     "/Users/youxl/.nuget/packages/vapolia.xamarin.svg.forms/4.1.0/vapolia.xamarin.svg.forms.4.1.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xam.plugins.forms.imagecircle/3.0.0.5/xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/xam.plugins.forms.svg.1.0.0.27.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.communitytoolkit/2.0.4/xamarin.communitytoolkit.2.0.4.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.essentials/1.7.3/xamarin.essentials.1.7.3.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.forms/5.0.0.2515/xamarin.forms.5.0.0.2515.nupkg.sha512",
@@ -77,8 +79,28 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Package 'FirebaseNet 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Package 'JV.XamForms.Controls.Calendar 1.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "JV.XamForms.Controls.Calendar",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Xam.Plugins.Forms.Svg 1.0.0.27' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Xam.Plugins.Forms.Svg",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
       ]

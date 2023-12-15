@@ -14,5 +14,13 @@ namespace HrApp.Model
         public string FirebaseDeviceToken { get; set; }
         public string DeviceType { get; set; }
         public int  AppVersion { get; set; }
+        public string name { get; set; }
+        public string password { get; set; }
+        public string token { get; set; }
+    }
+    public class RessetUserPasswordModel
+    {
+        public string name { get; set; }
+        public string new_password { get; set; }
     }
 }

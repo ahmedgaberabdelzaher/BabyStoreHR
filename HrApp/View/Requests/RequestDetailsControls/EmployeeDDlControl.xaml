@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:HrApp.Controls"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.EmployeeDDlControl">
+    <ContentView.Content>
+            <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.EmployeeName}" SelectedValueTxt="{Binding EmployeeName}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectEmployeeCommand}"></TapGestureRecognizer>
+                                </controls:DDlControl.GestureRecognizers>
+                        </controls:DDlControl>
+    </ContentView.Content>
+</ContentView>
+

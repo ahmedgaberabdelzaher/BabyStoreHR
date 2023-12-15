@@ -10,7 +10,7 @@
 --targetver=8.0
 "--sim=/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp.iOS/bin/iPhoneSimulator/Debug/HrApp.iOS.app"
 --executable=HrApp.iOS
---linksdkonly
+--nolink
 --sdk=16.2
 --aot-options=-O=-float32
 --abi=x86_64
@@ -235,6 +235,10 @@
 --reference=/Users/youxl/.nuget/packages/vapolia.xamarin.svg.forms/4.1.0/lib/xamarinios10/XamSvg.Shared.dll
 --reference=/Users/youxl/.nuget/packages/vapolia.xamarin.svg.forms/4.1.0/lib/xamarinios10/XamSvg.XamForms.dll
 --reference=/Users/youxl/.nuget/packages/xam.plugins.forms.imagecircle/3.0.0.5/lib/xamarinios10/ImageCircle.Forms.Plugin.dll
+--reference=/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/lib/Xamarin.iOS10/NGraphics.Custom.dll
+--reference=/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll
+--reference=/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll
+--reference=/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll
 --reference=/Users/youxl/.nuget/packages/xamarin.communitytoolkit/2.0.4/lib/xamarinios10/Xamarin.CommunityToolkit.dll
 --reference=/Users/youxl/.nuget/packages/xamarin.essentials/1.7.3/lib/xamarinios10/Xamarin.Essentials.dll
 --reference=/Users/youxl/.nuget/packages/xamarin.firebase.ios.cloudmessaging/4.3.0/lib/xamarinios10/Firebase.CloudMessaging.dll

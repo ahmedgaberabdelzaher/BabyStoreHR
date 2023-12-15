@@ -16,6 +16,7 @@ using Xamarin.Essentials;
 using Android.Widget;
 using Android.Nfc;
 using Android.Text;
+using SVG.Forms.Plugin.Droid;
 
 namespace HrApp.Droid
 {
@@ -30,11 +31,12 @@ namespace HrApp.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            SvgImageRenderer.Init();
             AiForms.Effects.Droid.Effects.Init();
             ImageCircleRenderer.Init();
 
             XamForms.Controls.Droid.Calendar.Init();
-
+            SvgImageRenderer.Init();
             LoadApplication(new App());
             FirebasePushNotificationManager.ProcessIntent(this, Intent);
 

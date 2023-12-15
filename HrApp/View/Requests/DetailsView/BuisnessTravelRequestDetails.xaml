@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
+       xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    x:Class="HrApp.View.Requests.DetailsView.BuisnessTravelRequestDetails">
+    <Grid>
+        <StackLayout>
+        <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.BusinessTravelRequest}"></controls:Header>
+            <requestdetailscontrols:EmployeeDDlControl></requestdetailscontrols:EmployeeDDlControl>
+    <requestdetailscontrols:BTravelRequestDetailsControl VerticalOptions="Start" IsEnabled="False"></requestdetailscontrols:BTravelRequestDetailsControl>
+<requestdetailscontrols:ApproveandRejectControl></requestdetailscontrols:ApproveandRejectControl>
+</StackLayout>
+        <requestdetailscontrols:Reason_Control IsVisible="{Binding IsShowRejectionReason}"></requestdetailscontrols:Reason_Control>
+    </Grid>
+</ContentPage>
+

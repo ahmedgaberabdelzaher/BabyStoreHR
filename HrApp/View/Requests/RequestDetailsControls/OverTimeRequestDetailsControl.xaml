@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.OverTimeRequestDetailsControl">
+    <ContentView.Content>
+         <Grid BackgroundColor="Transparent">
+                <Frame VerticalOptions="EndAndExpand" CornerRadius="5"  Margin="0,10,0,0" Padding="10">
+                    <StackLayout>
+                                     <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.EmployeeName}" SelectedValueTxt="{Binding EmployeeName}">
+                            <controls:DDlControl.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectEmployeeCommand}"></TapGestureRecognizer>
+
+                            </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                                                     <Frame  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.PaymentDate}" Margin="10,3,10,0" VerticalOptions="EndAndExpand"  Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"    HorizontalOptions="FillAndExpand"   Date="{Binding OverTimeDate}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+
+                                                       <Grid ColumnDefinitions="*,*,*"  HorizontalOptions="FillAndExpand">
+                          <Frame  Grid.Column="0"  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="Fill">
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.StartTime}"  HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                        <TimePicker Time="{Binding TimeFrom}"  TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                              </StackLayout>
+                          </Frame>
+                              <Frame Grid.Column="1"   BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout HorizontalOptions="FillAndExpand">
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.EndTime}" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                        <TimePicker Time="{Binding TimeTo}" TextColor="#214455" FontSize="15" FontFamily="Poppins-SemiBold.ttf"></TimePicker>
+                              </StackLayout>
+                          </Frame>
+                                 <Frame Grid.Column="2"  BackgroundColor="#F0F4F9" Padding="5,10,5,5" Margin="0" HeightRequest="60" WidthRequest="90" CornerRadius="10" BorderColor="#E4E6EF" HorizontalOptions="End">
+                              <StackLayout>
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.Hours}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="{Binding TotalHours,StringFormat='{}{0:hh\\:mm}'}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                              </StackLayout>
+                          </Frame>
+                </Grid>
+                 </StackLayout>
+                </Frame>
+
+            </Grid>
+
+    </ContentView.Content>
+</ContentView>
+

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.BTravelRequestDetailsControl">
+                         <StackLayout>
+                        <Grid ColumnDefinitions="*,*">
+                                                        <Frame Grid.Row="1" Grid.Column="0"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.DateFrom}" Margin="10,3,10,0" VerticalOptions="EndAndExpand"  Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"    HorizontalOptions="FillAndExpand"   Date="{Binding FromDate}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+                              <Frame Grid.Row="1" Grid.Column="1"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                                <StackLayout Spacing="0"   HorizontalOptions="FillAndExpand">
+                                    <Label Text="{x:Static ResourceManager:LangaugeResource.DateTo}" Margin="10,3,10,0"  VerticalOptions="EndAndExpand"  Style="{StaticResource TitleLabel}"  FontSize="12" ></Label>
+                                    <StackLayout  HorizontalOptions="FillAndExpand" >
+                                        <DatePicker HorizontalOptions="FillAndExpand"   Format="dd/MM/yyyy" IsEnabled="{Binding todatereadeonly}"  MinimumDate="{Binding MiniDateNow}" Date="{Binding TomDate}"  TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf">
+                                        <DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin>
+                                        </DatePicker>
+                                    </StackLayout>
+
+                                    <Label Text="27" IsVisible="false" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                              </StackLayout>
+                          </Frame>
+
+                        </Grid>
+                                      <controls:DDlControl  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.TravelType}" SelectedValueTxt="{Binding TravelType}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectTravelTypeCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                         <controls:DDlControl  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.WayToTravel}" SelectedValueTxt="{Binding WayToTravele}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectWayToTravelCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                                                  <Frame  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Orientation="Horizontal">
+                                  <CheckBox VerticalOptions="CenterAndExpand" IsChecked="{Binding Eligible_for_ticket}"></CheckBox>
+
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.EligibleForTicket}"  VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+
+                              </StackLayout>
+                          </Frame>
+
+                         <controls:DDlControl IsVisible="{Binding Eligible_for_ticket}"  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.TicketType}" SelectedValueTxt="{Binding TicketType}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectTicketTypeCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+
+                                    <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.TraveCover}" SelectedValueTxt="{x:Static ResourceManager:LangaugeResource.SelectTravelCover}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectTravelCoverCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+                        </controls:DDlControl>
+                        <StackLayout x:Name="selectedTravelCoversView" Orientation="Horizontal" BindableLayout.ItemsSource="{Binding SelectedTravelCovers}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame x:Name="travelCover">
+                                        <StackLayout Orientation="Horizontal">
+                                         <Label Text="{Binding name}"></Label>
+                                           <Label Text="&#xf1f8;" HorizontalOptions="EndAndExpand" TextColor="Red" FontSize="20" VerticalOptions="CenterAndExpand"  FontFamily="FontAwesome">
+                                                <Label.GestureRecognizers >
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference selectedTravelCoversView}, Path=BindingContext.UnselectTravelCoverCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
+
+                                                </Label.GestureRecognizers>
+
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+
+                        </StackLayout>
+          <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.Description}" ValueTxt="{Binding Description}"></controls:EntryWithLabel>
+</StackLayout>
+
+</ContentView>
+

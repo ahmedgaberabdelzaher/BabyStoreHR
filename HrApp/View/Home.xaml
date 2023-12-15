@@ -3,8 +3,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
     xmlns:notification="clr-namespace:HrApp.View.NotificationViews"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:translator="clr-namespace:HrApp.Helpers"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:local="clr-namespace:HrApp.Converters" xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:local="clr-namespace:HrApp.Converters" xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
     x:Class="HrApp.View.Home" BackgroundImageSource="home.png">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,17 +17,13 @@
     </ContentPage.Resources>
     <ContentPage.Content>
  <Grid RowDefinitions="auto,*,auto">
-     <Image Grid.Row="0" Grid.RowSpan="3" Source="home.png" Aspect="AspectFill"></Image>
+     <Image Grid.Row="0" IsVisible="false" Grid.RowSpan="3" Source="home.png" Aspect="AspectFill"></Image>
+     <abstractions:SvgImage SvgAssembly="{Binding SvgAssembly}" Grid.Row="0" Grid.RowSpan="3"  HeightRequest="200" WidthRequest="800" SvgPath="HrApp.Images.home.svg"/>
 
-              <!-- <StackLayout.Margin>
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS" Value="0,50,20,10"></On>
-                        <On Platform="Android" Value="0,30,20,10"/>
-
-                    </OnPlatform>
-                </StackLayout.Margin>--> 
+             
          <!--#region Home Body-->
                 <StackLayout Margin="0,0,0,0" Grid.Row="1">
+                
                     <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" >
                         <StackLayout VerticalOptions="FillAndExpand">
                            
@@ -40,20 +40,20 @@
                                         </Style>
 
                                     </ResourceDictionary>
-
                                 </Grid.Resources>
-                                <Label Text="CheckIn" FontSize="16" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0"> </Label>
-                                 <Label Text="CheckOut" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1"> </Label>
+                                <Label Text="{translator:Translate CheckIn}" FontSize="16" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0"> </Label>
+                                 <Label Text="{translator:Translate CheckOut}" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1"> </Label>
                                 <BoxView Grid.Row="1" Color="Gray" HeightRequest="1"  Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
-                                <Label Text="--/--" HorizontalOptions="CenterAndExpand" Grid.Row="2"  Grid.Column="0"> </Label>
-                                 <Label Text="--/--" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1"> </Label>
+                                <Label Text="{Binding CheckInTime}" HorizontalOptions="CenterAndExpand" Grid.Row="2"  Grid.Column="0"> </Label>
+                                 <Label Text="{Binding CheckOuTime}" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1"> </Label>
                             </Grid>
 
                         </Frame>
                         <!--#endregion-->
-
+                        <!--#region Requests-->
+                        <Grid ColumnDefinitions="auto" HorizontalOptions="CenterAndExpand" RowDefinitions="auto,auto">
                             <!--#region Online Services-->
-                                              <Frame VerticalOptions="CenterAndExpand"  BackgroundColor="#16B562" BorderColor="Transparent" CornerRadius="23" Padding="7"  HorizontalOptions="CenterAndExpand">
+                                              <Frame Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Fill"  BackgroundColor="#16B562" BorderColor="Transparent" CornerRadius="23" Padding="7">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding GoToOnlineServicesMenuCommand}"></TapGestureRecognizer>
 
@@ -61,13 +61,49 @@
              <StackLayout Orientation="Horizontal">
                                  <Label IsVisible="false" Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" FontSize="18" ></Label>
                                 <Image Source="OnlineServices" VerticalOptions="Center" HeightRequest="32"></Image>
-                                <Label Margin="9,5,9,5" Text="Online Services" TextColor="White"></Label>
-                                 <Label Text="&#xf054;"  FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" HorizontalOptions="EndAndExpand" FontSize="18" ></Label>
+                                <Label Margin="9,5,9,5" Text="{x:Static ResourceManager:LangaugeResource.OnlineServices}" TextColor="White"></Label>
+                                 <Label Text="&#xf054;"  FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" HorizontalOptions="EndAndExpand" FontSize="18" >
+                                      <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding FlowDirection}" Value="RightToLeft">
+                                <Setter Property="Text" Value="&#xf053;"></Setter>
+
+                            </DataTrigger>
+
+                        </Label.Triggers>
+
+                                </Label>
 </StackLayout>
                             
 </Frame>
                         <!--#endregion-->
-          
+           <!--#region Pending Requests-->
+                                              <Frame Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand"  BackgroundColor="{StaticResource PrimaryColor}" BorderColor="White" CornerRadius="23" Padding="7"  HorizontalOptions="Fill">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPendingRequestsCommand}"></TapGestureRecognizer>
+
+                            </Frame.GestureRecognizers>
+             <StackLayout Orientation="Horizontal">
+                                 <Label IsVisible="false" Text="&#xf2f6;" FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" FontSize="18" ></Label>
+                                     <abstractions:SvgImage SvgAssembly="{Binding SvgAssembly}"  VerticalOptions="Center" HeightRequest="32" WidthRequest="32" SvgPath="HrApp.Images.pendingRequests.svg"/>
+
+                                <Image Source="OnlineServices"  IsVisible="false" VerticalOptions="Center" HeightRequest="32"></Image>
+                                <Label Margin="9,5,9,5" Text="{x:Static ResourceManager:LangaugeResource.PendingRequests}" TextColor="White"></Label>
+                                 <Label Text="&#xf054;"  FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" HorizontalOptions="EndAndExpand" FontSize="18" >
+                                      <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding FlowDirection}" Value="RightToLeft">
+                                <Setter Property="Text" Value="&#xf053;"></Setter>
+
+                            </DataTrigger>
+
+                        </Label.Triggers>
+
+                                </Label>
+</StackLayout>
+                            
+</Frame>
+                        <!--#endregion-->
+</Grid>
+                        <!--#endregion-->
                   </StackLayout>
                     </ScrollView>
                 </StackLayout>
@@ -78,17 +114,33 @@
             <!--#region Header-->
 
           
-            <Grid ColumnDefinitions="auto,*" ColumnSpacing="10" Grid.Row="0" Margin="29,29,29,40" VerticalOptions="StartAndExpand">
-                <StackLayout Orientation="Horizontal" Grid.Row="0">
-                <custom:CircleImage Grid.Column="0" BorderColor="{StaticResource TitleColor}"  HorizontalOptions="End" Margin="0,0,0,0" VerticalOptions="StartAndExpand" Source="Profile"  WidthRequest="50" HeightRequest="50" Aspect="AspectFill"  >
+            <Grid ColumnDefinitions="50,*,auto" FlowDirection="LeftToRight" ColumnSpacing="10" Grid.Row="0" Margin="29,29,29,40" VerticalOptions="StartAndExpand">
+                  <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="29,50,29,40"></On>
+                        <On Platform="Android" Value="29,29,29,40"/>
+
+                    </OnPlatform>
+                </Grid.Margin>
+               
+                <custom:CircleImage Grid.Column="0" BorderColor="{StaticResource TitleColor}"  HorizontalOptions="StartAndExpand" Margin="0,0,0,0" VerticalOptions="StartAndExpand" Source="{Binding UserImage}"  WidthRequest="50" HeightRequest="50" Aspect="AspectFill"  >
                 <custom:CircleImage.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding MyProfileCommand}"></TapGestureRecognizer>
                 </custom:CircleImage.GestureRecognizers>
                                              </custom:CircleImage>
-                <StackLayout Grid.Column="1" HorizontalOptions="StartAndExpand">
-              <Label FontSize="17" Text="Hello Menna "  TextColor="{StaticResource TitleColor}" FontFamily="Bubblegum.ttf" ></Label>
-               <Label TextColor="#FFFFFF" FontSize="14" Text="`Employee"></Label>
-           </StackLayout></StackLayout>
+                <StackLayout Grid.Column="1" HorizontalOptions="Start">
+              <Label FontSize="17" TextColor="{StaticResource TitleColor}" FontFamily="Bubblegum.ttf" >
+                          <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Hello  "></Span>
+                                     <Span Text="{Binding Name}"></Span>
+                                </FormattedString>
+                                </Label.FormattedText>
+
+                        </Label>
+               <Label TextColor="#FFFFFF" IsVisible="false" FontSize="14" Text="{Binding Role}"></Label>
+           </StackLayout>
+                
                 <Image Grid.Column="2" Source="HeaderLogo" HeightRequest="54" HorizontalOptions="End"></Image>
                 <!--#region Date Header-->
                 <controls:DateHeader IsVisible="false" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" />
@@ -100,13 +152,17 @@
             <!--#region Footer-->
             <StackLayout Grid.Row="2" VerticalOptions="EndAndExpand">
                     <!--#region CheckIn-->
-                        <Frame BackgroundColor="White"  BorderColor="#ED007B" Margin="51,10,51,15"  CornerRadius="20" Padding="15"  HorizontalOptions="FillAndExpand"  VerticalOptions="End">
-                <Label  Text="CheckIn" HorizontalOptions="CenterAndExpand"  ></Label>
+                        <Frame BackgroundColor="White" IsVisible="{Binding IsCkeckInOrOutVisible}"  BorderColor="#ED007B" Margin="51,10,51,15"  CornerRadius="20" Padding="15"  HorizontalOptions="FillAndExpand"  VerticalOptions="End">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CheckInOutCommand}"></TapGestureRecognizer>
+
+                    </Frame.GestureRecognizers>
+                <Label  Text="{Binding CheckInOuttxt}"  HorizontalOptions="CenterAndExpand"  ></Label>
 </Frame>
             <!--#endregion-->
                          <!--#region Bottom Menu-->
-            <Frame BackgroundColor="{StaticResource TitleColor}" BorderColor="Transparent" CornerRadius="30" Padding="15"  Margin="7,10,7,7"  VerticalOptions="EndAndExpand">
-                <Grid ColumnDefinitions="*,*,*,*" >
+            <Frame BackgroundColor="{StaticResource PrimaryColor}"  BorderColor="{StaticResource TitleColor}" CornerRadius="15" Padding="15"  Margin="7,10,7,7"  VerticalOptions="EndAndExpand">
+                <Grid ColumnDefinitions="*,*,*" >
                     <Grid.Resources>
                         <ResourceDictionary>
                             <Style TargetType="Image">
@@ -122,12 +178,22 @@
                             <TapGestureRecognizer Command="{Binding GoHome}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Image Source="logoutIcon.png" Grid.Column="3">
+                   
+                         <Label Text="&#xf0ac;" Grid.Column="1"  FontFamily="FontAwesome" VerticalOptions="Center"  TextColor="#FFFFFF" HorizontalOptions="CenterAndExpand" FontSize="30" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ChangeLangaugeCommand}"></TapGestureRecognizer>
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+
+                      
+                    <Image Source="logoutIcon.png" Grid.Column="2">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SignOutCommand}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Grid Grid.Column="1" Grid.Row="0" RowDefinitions="20,*" >
+                    <Grid Grid.Column="1" IsVisible="false" Grid.Row="0" RowDefinitions="20,*" >
                         <Image Source="notIcon.png" Grid.RowSpan="2" BackgroundColor="Transparent"   >
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding NotifiCationCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}"></TapGestureRecognizer>
@@ -157,7 +223,7 @@ VerticalTextAlignment="Center"      >   <Label.Margin>
                             </Label>
 
                     </Grid>
-                    <Image Source="bottomnavhelpicon.png" Grid.Column="2">
+                    <Image Source="bottomnavhelpicon.png" IsVisible="false" Grid.Column="2">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ShowFaqCommand}" CommandParameter="{Binding  Source={x:Reference Pancake}}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
@@ -172,7 +238,7 @@ VerticalTextAlignment="Center"      >   <Label.Margin>
 
             <!--#region NotificationLst-->
 
-            <Grid IsVisible="{Binding NotiISopend}" VerticalOptions="FillAndExpand"
+            <Grid IsVisible="false" VerticalOptions="FillAndExpand"
                                 HorizontalOptions="FillAndExpand"         >
                 <BoxView x:Name="NotiGrid" BackgroundColor="White" Opacity="0.1">
                     <BoxView.GestureRecognizers>
@@ -213,6 +279,7 @@ VerticalTextAlignment="Center"      >   <Label.Margin>
                 </pancakeview:PancakeView>
             </Grid>
             <!--#endregion-->
+<controls:Loader Grid.Row="0" Grid.RowSpan="3" IsVisible="{Binding IsLoading}"></controls:Loader>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

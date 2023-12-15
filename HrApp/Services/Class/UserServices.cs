@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using HrApp.Helpers;
 using HrApp.Model;
+using HrApp.Model.OdooModels;
 using HrApp.Services.Interface;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,9 +19,14 @@ namespace HrApp.Services.Class
             var response = await HttpManager.PostAsync(App.BaseAuth + $"Register/RegisterApi", model).ConfigureAwait(false);
             return response;
         }
-        public async Task<HttpResponseMessage> Login(NewUserModel model)
+        public async Task<HttpResponseMessage> Login(BaseOdoModel<NewUserModel> model)
         {
-            var response = await HttpManager.PostAsync(App.BaseAuth+$"Account/LoginApi", model).ConfigureAwait(false);
+            var response = await HttpManager.PostAsync(App.BaseAuth+$"mobile_login", model).ConfigureAwait(false);
+            return response;
+        }
+        public async Task<HttpResponseMessage> ResetPassword(BaseOdoModel<RessetUserPasswordModel> model)
+        {
+            var response = await HttpManager.PostAsync(App.BaseAuth + $"reset_password", model).ConfigureAwait(false);
             return response;
         }
         public async Task<HttpResponseMessage> Authonticate(AuthonticateModel model)
@@ -45,6 +51,13 @@ namespace HrApp.Services.Class
         public async Task<Tuple<ObservableCollection<HREmpModel>, bool, string>> GetEmployeesByDepartment(string department)
         {
             var response = await HttpManager.GetAsync<ObservableCollection<HREmpModel>>(App.BaseUrl + $"api/CommonServices/GetEmployeesByDepartment/{department}").ConfigureAwait(false);
+
+            return response;
+        }
+
+        public async Task<Tuple<OdooResponse<ObservableCollection<userData>>, bool, string>> GetAllEmployees()
+        {
+            var response = await HttpManager.GetAsyncWithBody<OdooResponse<ObservableCollection<userData>>>(App.BaseUrl + $"employees",new BaseOdoModel<LookUpModel>() { @params = new LookUpModel() { Id = 1, Name = "ESS" } }).ConfigureAwait(false);
 
             return response;
         }
@@ -95,6 +108,13 @@ namespace HrApp.Services.Class
 
             return response;
         }
+
+        public async Task<HttpResponseMessage> CheckinCheckOut(BaseOdoModel<CheckInOutModel> model)
+        {
+            var response = await HttpManager.PostAsync(App.BaseUrl + $"check_in_out_attendance", model);
+
+            return response;
+        }
         /* public async Task<Tuple<DaysModel, bool, string>> GetDays( DaysModel model)
          {
              var response = await HttpManager.PostAsync<DaysModel>(App.BaseUrl + $"api/CommonServices/GetTotalDays",model);
@@ -135,22 +155,40 @@ namespace HrApp.Services.Class
 
         }
 
+
+
         public async Task<Tuple<StuffRecord, bool, string>> Getuserinfo(long? userId=null)
         {
-            if (userId==null)
+            try
             {
-                userId = Preferences.Get("userId", 0);
-            }
-            var response = await HttpManager.GetAsync<StuffRecord>(App.BaseUrl + $"api/OEmployeeProfile/GetEmployeeById/{userId}").ConfigureAwait(false);
+                if (userId == null)
+                {
+                    userId = Preferences.Get("userId", 0);
+                }
+                var response = await HttpManager.GetAsync<StuffRecord>(App.BaseUrl + $"api/OEmployeeProfile/GetEmployeeById/{userId}").ConfigureAwait(false);
 
-            return response;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+          
         }
 
         public async Task<Tuple<ObservableCollection<string>, bool, string>> GetDepartments()
         {
-            var response = await HttpManager.GetAsync<ObservableCollection<string>>(App.BaseUrl + $"api/CommonServices/GetAllDepartments").ConfigureAwait(false);
+            try
+            {
+  var response = await HttpManager.GetAsync<ObservableCollection<string>>(App.BaseUrl + $"api/CommonServices/GetAllDepartments").ConfigureAwait(false);
 
             return response;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+          
            
         }
     }

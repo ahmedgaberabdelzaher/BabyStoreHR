@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.TerminationRequestDetailControl">
+    <ContentView.Content>
+                    <StackLayout>
+
+                                                                                          <requestdetailscontrols:EmployeeDDlControl></requestdetailscontrols:EmployeeDDlControl>
+
+
+            <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.TerminationReason}" SelectedValueTxt="{Binding Reason}">
+                            <controls:DDlControl.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectReasonCommand}"></TapGestureRecognizer>
+
+                            </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                        
+                                                                                             <Frame  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.TheLastWorkingDay}"  Margin="10,3,10,0" VerticalOptions="EndAndExpand"  Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"    HorizontalOptions="FillAndExpand"   Date="{Binding LaymenlastWorkingDaytDate}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+
+                    </StackLayout>
+
+
+    </ContentView.Content>
+</ContentView>
+

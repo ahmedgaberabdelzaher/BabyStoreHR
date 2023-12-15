@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls" xmlns:controls="clr-namespace:HrApp.Controls"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="HrApp.View.Requests.DetailsView.AttentionRequestDetail">
+    <ContentPage.Content>
+         <Grid>
+            <StackLayout>
+                <controls:Header TitelTxt="Attention Request" ></controls:Header>
+                  <requestdetailscontrols:EmployeeDDlControl IsEnabled="False"></requestdetailscontrols:EmployeeDDlControl>
+                  <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.Message}" IsEnabled="False" ValueTxt="{Binding Message}"></controls:EntryWithLabel>
+
+                  <requestdetailscontrols:ApproveandRejectControl VerticalOptions="EndAndExpand"></requestdetailscontrols:ApproveandRejectControl>
+                </StackLayout>
+                <requestdetailscontrols:Reason_Control  IsVisible="{Binding IsShowRejectionReason}"></requestdetailscontrols:Reason_Control>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

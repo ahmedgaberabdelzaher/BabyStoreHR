@@ -3,7 +3,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using HrApp.Model;
+using HrApp.Model.OdooModels;
 using HrApp.Services.Interface;
+using HrApp.ViewModel.OnlineServicesViewModels;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -11,13 +13,13 @@ using Xamarin.Essentials;
 
 namespace HrApp.ViewModel
 {
-    public class LeavesListViewModel : ViewModelBase
+    public class LeavesListViewModel : DetailsandActionsViewModel<LeaveRequestsModel>
     {
-        ObservableCollection<LeavesModel> leaves = new ObservableCollection<LeavesModel>();
-        public ObservableCollection<LeavesModel> Leaves { get { return leaves; } set { leaves = value; RaisePropertyChanged(); } }
+        ObservableCollection<LeaveRequestsModel> leaves = new ObservableCollection<LeaveRequestsModel>();
+        public ObservableCollection<LeaveRequestsModel> Leaves { get { return leaves; } set { leaves = value; RaisePropertyChanged(); } }
 
-        LeavesModel _SelectedLeave;
-        public LeavesModel SelectedLeave { get { return _SelectedLeave; } set { _SelectedLeave = value; RaisePropertyChanged(); } }
+        LeaveRequestsModel _SelectedLeave;
+        public LeaveRequestsModel SelectedLeave { get { return _SelectedLeave; } set { _SelectedLeave = value; RaisePropertyChanged(); } }
         private string _leaveTypeName;
 
         public string leaveTypeName
@@ -30,7 +32,8 @@ namespace HrApp.ViewModel
 
         IUserServices _userServices;
         ILeaveServices _leaveServices;
-        public LeavesListViewModel(ILeaveServices leaveServices,IUserServices userServices, INavigationService navigationServices, IPageDialogService pageDialogService) : base(navigationServices, pageDialogService)
+        IOnlineServices _onlineServices;
+        public LeavesListViewModel(ILeaveServices leaveServices,IUserServices userServices, INavigationService navigationServices, IPageDialogService pageDialogService,IOnlineServices onlineServices) : base(onlineServices,navigationServices, pageDialogService,userServices)
         {
             _userServices = userServices;
             _leaveServices = leaveServices;
@@ -48,30 +51,34 @@ namespace HrApp.ViewModel
         }
          string isManager = "0";
         bool _IsShowNewRequest;
+        int requestTypeId;
         public bool IsShowNewRequest { get { return _IsShowNewRequest; } set { _IsShowNewRequest = value; RaisePropertyChanged(); } }
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
+            if (parameters!=null&&parameters.Count>0)
             {
-                // var LeaaveTypeCode =int.Parse( parameters["LeaveCode"].ToString());
-                //LeaaveTypeName = parameters["LeaaveTypeName"].ToString();
+                 requestTypeId =int.Parse( parameters["RequesttypeId"].ToString());
+                leaveTypeName = parameters["RequesttypeName"].ToString();
                 var LeaaveTypeCode = Preferences.Get("LeaveCode", 0);
                 if (parameters["IsFromManager"]!=null)
                 {
                     isManager = parameters["IsFromManager"].ToString();
                   
                 }
-                IsShowNewRequest = isManager == "0" ? true : false;
+                IsShowNewRequest = true;
+                var isManagerView = isManager == "0" ? true : false;
                 if (IsShowNewRequest)
                 {
-                    await GetLeavesLst(LeaaveTypeCode);
+                   // await GetLeavesLst(requestTypeId);
                 }
                 else
                 {
-                  await  GetPendingManagerLeavesLst(LeaaveTypeCode);
+                  await  GetPendingManagerLeavesLst(requestTypeId);
                 }
-
             }
-            leaveTypeName = App.LeaveTypes.Where(c => c.Id == Preferences.Get("LeaveCode", 0)).First().Name;
+            await GetLeavesLst(requestTypeId);
+
+            // leaveTypeName = App.LeaveTypes.Where(c => c.Id == Preferences.Get("LeaveCode", 0)).First().Name;
             base.OnNavigatedTo(parameters);
         }
 
@@ -96,6 +103,40 @@ namespace HrApp.ViewModel
             }
         }
 
+ public DelegateCommand<LeaveRequestsModel> CancelRequestCommand
+        {
+            get
+            {
+                return new DelegateCommand<LeaveRequestsModel>(async (e) =>
+                {
+                    try
+                    {
+                        IsLoading = true;
+                        if (e != null)
+                        {
+                            var body = new GetRequestDetailsBody()
+                            {
+                                res_id = e.id,
+                                res_model = "ess.leave.request"
+                            };
+                            await Cancelrequest(body);
+                            await GetLeavesLst();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    finally
+                    {
+                        IsLoading = false;
+                    }
+                
+
+                });
+
+            }
+        }
 
         public DelegateCommand LeaveRequestCommand
         {
@@ -114,11 +155,27 @@ namespace HrApp.ViewModel
             }
         }
 
+        public DelegateCommand NewRequestCommand
+        {
+            get
+            {
+                return new DelegateCommand(async () =>
+                {
+                    var parameters = new NavigationParameters();
+                    parameters.Add("RequestTypeName", leaveTypeName);
+                    parameters.Add("RequesttypeId", requestTypeId);
+
+                    await NavigationService.NavigateAsync("LeaveRequest", parameters);
+                });
+
+            }
+        }
+
         async Task GetPendingManagerLeavesLst(int leaveCode)
         {
             try
             {
-                Leaves = new ObservableCollection<LeavesModel>();
+                Leaves = new ObservableCollection<LeaveRequestsModel>();
                 IsLoading = true;
 
                 string endPoint = "";
@@ -138,8 +195,8 @@ namespace HrApp.ViewModel
                 var resp = await _leaveServices.GetLeaveRequests(endPoint);
                 if (resp.Item2)
                 {
-                    var list = resp.Item1.OrderByDescending(i => i.reQ_DATE).ToList();
-                    list.ForEach(i => Leaves.Add(i));
+                   /* var list = resp.Item1.OrderByDescending(i => i.reQ_DATE).ToList();
+                    list.ForEach(i => Leaves.Add(i));*/
                   
                 }
             }
@@ -156,16 +213,27 @@ namespace HrApp.ViewModel
 
      
 
-        async Task GetLeavesLst(int leaveCode)
+        async Task GetLeavesLst(int leaveCode=0)
         {
             try
             {
-                Leaves = new ObservableCollection<LeavesModel>();
+                Leaves = new ObservableCollection<LeaveRequestsModel>();
                 IsLoading = true;
-                var resp = await _userServices.GetLeavesLst(leaveCode);
+                var resp = await _leaveServices.GeEmptLeaveRequests(new BaseOdoModel<GetLeavesBody>()
+                {
+                    @params = new GetLeavesBody()
+                    {
+                        employee_id = Preferences.Get("userId", 0)
+                    }
+                });
+
                 if (resp.Item2)
-                { var list = resp.Item1.OrderByDescending(i => i.reQ_DATE).ToList();
-                    list.ForEach(i => Leaves.Add(i)); 
+                {
+
+                    /*var list = resp.Item1.OrderByDescending(i => i.reQ_DATE).ToList();
+                    list.ForEach(i => Leaves.Add(i)); */
+
+                    Leaves = resp.Item1.result.data;
                 }
                 IsLoading = false;
             }

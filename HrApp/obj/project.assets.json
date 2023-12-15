@@ -18,6 +18,19 @@
           }
         }
       },
+      "FirebaseNet/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net46/FirebaseNet.dll": {}
+        },
+        "runtime": {
+          "lib/net46/FirebaseNet.dll": {}
+        }
+      },
       "JV.XamForms.Controls.Calendar/1.2.0": {
         "type": "package",
         "dependencies": {
@@ -955,6 +968,18 @@
           }
         }
       },
+      "Xam.Plugins.Forms.Svg/1.0.0.27": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490"
+        },
+        "compile": {
+          "lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {}
+        }
+      },
       "Xamarin.CommunityToolkit/2.0.4": {
         "type": "package",
         "dependencies": {
@@ -1099,6 +1124,20 @@
         "lib/netstandard2.0/AiForms.Effects.xml",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/AiForms.Effects.dll",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/AiForms.Effects.xml"
+      ]
+    },
+    "FirebaseNet/1.0.1": {
+      "sha512": "NTNlNB+3icJsgNgFULGP/OqAdN41BCFGyiOhyX5Nqjq+KZor3ZrEvgPM87N1j222QOhebgZuqKpkcqmD66LpFg==",
+      "type": "package",
+      "path": "firebasenet/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebasenet.1.0.1.nupkg.sha512",
+        "firebasenet.nuspec",
+        "lib/net45/FirebaseNet.dll",
+        "lib/net46/FirebaseNet.dll",
+        "lib/netcoreapp1.0/FirebaseNet.dll"
       ]
     },
     "JV.XamForms.Controls.Calendar/1.2.0": {
@@ -3004,6 +3043,28 @@
         "xam.plugins.forms.imagecircle.nuspec"
       ]
     },
+    "Xam.Plugins.Forms.Svg/1.0.0.27": {
+      "sha512": "oE1uuT0EksjVYpfcoV3l1HP68bUN9fRez8uUVLMw1GBON0GMwmyTnNdsroXStYeYI1UYIrt22VHTD3nBGMzovg==",
+      "type": "package",
+      "path": "xam.plugins.forms.svg/1.0.0.27",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/NGraphics.Android.Custom.dll",
+        "lib/MonoAndroid10/NGraphics.Custom.dll",
+        "lib/MonoAndroid10/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/MonoAndroid10/SVG.Forms.Plugin.Android.dll",
+        "lib/Xamarin.iOS10/NGraphics.Custom.dll",
+        "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll",
+        "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll",
+        "lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/wp8/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/wp8/SVG.Forms.Plugin.WindowsPhone.dll",
+        "xam.plugins.forms.svg.1.0.0.27.nupkg.sha512",
+        "xam.plugins.forms.svg.nuspec"
+      ]
+    },
     "Xamarin.CommunityToolkit/2.0.4": {
       "sha512": "ZpBCT3cl0UTpKQZefokcohRQB4YewZPWqoMoBIVJfmjatYb6pj4i1/WVRMmIGdZTNiT6WtZ+Nv4w6HypaBHrTg==",
       "type": "package",
@@ -3402,6 +3463,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "AiForms.Effects >= 1.6.11",
+      "FirebaseNet >= 1.0.1",
       "JV.XamForms.Controls.Calendar >= 1.2.0",
       "Microsoft.AspNetCore.SignalR.Client >= 5.0.6",
       "Microsoft.AspNetCore.SignalR.Client.Core >= 5.0.6",
@@ -3415,6 +3477,7 @@
       "Syncfusion.Xamarin.SfPdfViewer >= 19.4.0.48",
       "Vapolia.Xamarin.Svg.Forms >= 4.1.0",
       "Xam.Plugins.Forms.ImageCircle >= 3.0.0.5",
+      "Xam.Plugins.Forms.Svg >= 1.0.0.27",
       "XamForms.Controls.Calendar >= 1.1.1",
       "Xamarin.CommunityToolkit >= 2.0.4",
       "Xamarin.Essentials >= 1.7.3",
@@ -3464,6 +3527,10 @@
           "AiForms.Effects": {
             "target": "Package",
             "version": "[1.6.11, )"
+          },
+          "FirebaseNet": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           },
           "JV.XamForms.Controls.Calendar": {
             "target": "Package",
@@ -3519,6 +3586,10 @@
             "target": "Package",
             "version": "[3.0.0.5, )"
           },
+          "Xam.Plugins.Forms.Svg": {
+            "target": "Package",
+            "version": "[1.0.0.27, )"
+          },
           "XamForms.Controls.Calendar": {
             "target": "Package",
             "version": "[1.1.1, )"
@@ -3567,8 +3638,28 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Package 'FirebaseNet 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Package 'JV.XamForms.Controls.Calendar 1.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "JV.XamForms.Controls.Calendar",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Xam.Plugins.Forms.Svg 1.0.0.27' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Xam.Plugins.Forms.Svg",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
       ]

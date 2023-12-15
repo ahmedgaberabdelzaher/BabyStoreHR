@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.FinancialrequestDetailControl">
+    <ContentView.Content>
+        <StackLayout>
+         <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.Address}" ValueTxt="{Binding Address}"></controls:EntryWithLabel>
+                        <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.FinancialAmount}" ValueTxt="{Binding FinancialAmount}"></controls:EntryWithLabel>
+</StackLayout>
+    </ContentView.Content>
+</ContentView>
+

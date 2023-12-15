@@ -1,29 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:svg="clr-namespace:XamSvg.XamForms;assembly=XamSvg.XamForms"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    xmlns:svg="clr-namespace:XamSvg.XamForms;assembly=XamSvg.XamForms"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
     x:Class="HrApp.View.OnlineServicesView" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
      <Grid RowDefinitions="100,*">
-           <!--#region Header-->
-            <Grid ColumnDefinitions="auto,auto,*" Grid.Row="0" Padding="25,0,25,0" BackgroundColor="{StaticResource PrimaryColor}" HeightRequest="100">
-                    <StackLayout Grid.Column="0">
-                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" FontFamily="FontAwesome">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                    <Label Grid.Column="1" FontFamily="Bubblegum.ttf" VerticalOptions="Center" TextColor="{StaticResource TitleColor}" FontSize="20"  Text="Online Services" ></Label>
-                                <Image  Grid.Column="2" Source="HeaderLogo" HeightRequest="54" HorizontalOptions="End"></Image>
 
-            </Grid>                  
+           <!--#region Header-->
+            <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.OnlineServices}" Grid.Row="0"></controls:Header>
             <!--#endregion-->
             <!--#region Body-->
-            <CollectionView Margin="20" Grid.Row="1" ItemsSource="{Binding OnlineServicesMenuItems}" SelectionMode="Single" SelectedItem="{Binding SelectedRequestType}">
+            <CollectionView Margin="20" Grid.Row="1" ItemsSource="{Binding OnlineServicesMenuItems}" SelectionMode="Single" SelectedItem="{Binding SelectedRequestType}" SelectionChangedCommand="{Binding SelectedRequestTypeChangedCommand}">
     <CollectionView.ItemsLayout>
        <GridItemsLayout Orientation="Vertical" HorizontalItemSpacing="10" VerticalItemSpacing="10"
                         Span="2" />
@@ -33,8 +24,10 @@
                         <Grid Margin="10">
                            <Frame BorderColor="{StaticResource PrimaryColor}" Padding="10" CornerRadius="10">
                                 <StackLayout>
-                                  <svg:SvgImage FillMode="Fill" Source="{Binding icon}"  HorizontalOptions="Center" VerticalOptions="Center"/>
-                                    <Label FontSize="16" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontAttributes="Bold" Text="{Binding Name}"></Label>
+                                            <abstractions:SvgImage SvgAssembly="{Binding SvgAssembly}" HeightRequest="40" Aspect="AspectFit" WidthRequest="50" HorizontalOptions="Center" SvgPath="{Binding icon}"/>
+
+                                   <!-- <svg:SvgImage FillMode="Fit" Source="{Binding icon}"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                                  !-->  <Label FontSize="16" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontFamily="Montserrat700" Text="{Binding Name}"></Label>
                                 </StackLayout>
                             </Frame>
 
@@ -43,6 +36,7 @@
                     </DataTemplate>
 </CollectionView.ItemTemplate>
 </CollectionView>
+
             <!--#endregion-->
         </Grid>
     </ContentPage.Content>

@@ -33,6 +33,8 @@
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
     <PackageReference Include="Vapolia.Xamarin.Svg.Forms" Version="4.1.0" />
+    <PackageReference Include="Xam.Plugins.Forms.Svg" Version="1.0.0.27" />
+    <PackageReference Include="FirebaseNet" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Helpers\" />
@@ -111,8 +113,48 @@
     <None Remove="Fonts\GreatVibes-Regular.ttf" />
     <None Remove="Vapolia.Xamarin.Svg.Forms" />
     <None Remove="Images\" />
+    <None Remove="Images\Profile.svg" />
+    <None Remove="Images\userprofile.svg" />
+    <None Remove="Images\porofile.svg" />
     <None Remove="Images\loginbg.svg" />
     <None Remove="Images\leaverequest.svg" />
+    <None Remove="Images\profilebg.svg" />
+    <None Remove="Images\empProfileBg.svg" />
+    <None Remove="Images\Salary-Transfer.svg" />
+    <None Remove="Images\Permission.svg" />
+    <None Remove="Images\Modify-Leaves.svg" />
+    <None Remove="Images\Attention.svg" />
+    <None Remove="Images\Legal-Advice.svg" />
+    <None Remove="Images\Financial.svg" />
+    <None Remove="Images\Back-From-Vacation.svg" />
+    <None Remove="Images\Employee-Relative.svg" />
+    <None Remove="Images\Business-Travel.svg" />
+    <None Remove="Images\Termination.svg" />
+    <None Remove="Images\Employee-Transfer.svg" />
+    <None Remove="Images\Medical-Insurance.svg" />
+    <None Remove="Images\Transfer-Sponsorship.svg" />
+    <None Remove="Images\Ticket.svg" />
+    <None Remove="Images\Renewal-Passport.svg" />
+    <None Remove="Images\Disclaimer.svg" />
+    <None Remove="Images\Renewal-Residence.svg" />
+    <None Remove="Images\Exit-Re-Entry-VISA.svg" />
+    <None Remove="Images\Email.svg" />
+    <None Remove="Images\Custody.svg" />
+    <None Remove="Images\Access-Card.svg" />
+    <None Remove="Images\Business-Card.svg" />
+    <None Remove="Images\Loan.svg" />
+    <None Remove="Images\Salary-Increase.svg" />
+    <None Remove="Images\Salary-Advance.svg" />
+    <None Remove="Images\Resignation.svg" />
+    <None Remove="Images\Papers.svg" />
+    <None Remove="Images\Over-Time.svg" />
+    <None Remove="Images\Leave.svg" />
+    <None Remove="Model\OdooModels\" />
+    <None Remove="View\Requests\" />
+    <None Remove="View\Requests\DetailsView\" />
+    <None Remove="View\Requests\RequestDetailsControls\" />
+    <None Remove="Images\home.svg" />
+    <None Remove="Images\pendingRequests.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -120,6 +162,10 @@
     <Folder Include="ViewModel\OnlineServicesViewModels\" />
     <Folder Include="Model\OnlineServicesModels\" />
     <Folder Include="Images\" />
+    <Folder Include="Model\OdooModels\" />
+    <Folder Include="View\Requests\" />
+    <Folder Include="View\Requests\DetailsView\" />
+    <Folder Include="View\Requests\RequestDetailsControls\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="View\LogIn.xaml.cs">
@@ -136,6 +182,9 @@
     </Compile>
     <Compile Update="Controls\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\LangaugeResource.Designer.cs">
+      <DependentUpon>LangaugeResource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -187,12 +236,51 @@
     <EmbeddedResource Include="Fonts\Montserrat-SemiBoldItalic.ttf" />
     <EmbeddedResource Include="Fonts\Montserrat-ExtraBoldItalic.ttf" />
     <EmbeddedResource Include="Fonts\GreatVibes-Regular.ttf" />
+    <EmbeddedResource Include="Images\userprofile.svg" />
+    <EmbeddedResource Include="Images\porofile.svg" />
     <EmbeddedResource Include="Images\loginbg.svg" />
     <EmbeddedResource Include="Images\leaverequest.svg" />
+    <EmbeddedResource Include="Images\profilebg.svg" />
+    <EmbeddedResource Include="Images\empProfileBg.svg" />
+    <EmbeddedResource Include="Images\Salary-Transfer.svg" />
+    <EmbeddedResource Include="Images\Permission.svg" />
+    <EmbeddedResource Include="Images\Modify-Leaves.svg" />
+    <EmbeddedResource Include="Images\Attention.svg" />
+    <EmbeddedResource Include="Images\Legal-Advice.svg" />
+    <EmbeddedResource Include="Images\Financial.svg" />
+    <EmbeddedResource Include="Images\Back-From-Vacation.svg" />
+    <EmbeddedResource Include="Images\Employee-Relative.svg" />
+    <EmbeddedResource Include="Images\Business-Travel.svg" />
+    <EmbeddedResource Include="Images\Termination.svg" />
+    <EmbeddedResource Include="Images\EmployeeTransfer.svg" />
+    <EmbeddedResource Include="Images\Medical-Insurance.svg" />
+    <EmbeddedResource Include="Images\Transfer-Sponsorship.svg" />
+    <EmbeddedResource Include="Images\Ticket.svg" />
+    <EmbeddedResource Include="Images\Renewal-Passport.svg" />
+    <EmbeddedResource Include="Images\Disclaimer.svg" />
+    <EmbeddedResource Include="Images\Renewal-Residence.svg" />
+    <EmbeddedResource Include="Images\Exit-Re-Entry-VISA.svg" />
+    <EmbeddedResource Include="Images\Email.svg" />
+    <EmbeddedResource Include="Images\Custody.svg" />
+    <EmbeddedResource Include="Images\Access-Card.svg" />
+    <EmbeddedResource Include="Images\Business-Card.svg" />
+    <EmbeddedResource Include="Images\Loan.svg" />
+    <EmbeddedResource Include="Images\Salary-Increase.svg" />
+    <EmbeddedResource Include="Images\Salary-Advance.svg" />
+    <EmbeddedResource Include="Images\Resignation.svg" />
+    <EmbeddedResource Include="Images\Papers.svg" />
+    <EmbeddedResource Include="Images\Over-Time.svg" />
+    <EmbeddedResource Include="Images\Leave.svg" />
+    <EmbeddedResource Include="Images\home.svg" />
+    <EmbeddedResource Include="Images\pendingRequests.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\ChatInputBarView.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\LangaugeResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangaugeResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

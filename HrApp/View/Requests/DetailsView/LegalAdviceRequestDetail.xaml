@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+        FlowDirection="{Binding FlowDirection}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    x:Class="HrApp.View.Requests.DetailsView.LegalAdviceRequestDetail">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                                            <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.LegalAdviceRequest}" ></controls:Header>
+
+               <requestdetailscontrols:EmployeeDDlControl></requestdetailscontrols:EmployeeDDlControl>
+                                        <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.leaveType}"  SelectedValueTxt="{Binding Legal_type}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLegalTypeCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+
+                     <requestdetailscontrols:ApproveandRejectControl></requestdetailscontrols:ApproveandRejectControl>
+               </StackLayout>
+            <requestdetailscontrols:Reason_Control></requestdetailscontrols:Reason_Control>
+        <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

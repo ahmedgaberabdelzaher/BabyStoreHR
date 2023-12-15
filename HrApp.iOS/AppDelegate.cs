@@ -7,7 +7,7 @@ using Plugin.FirebasePushNotification;
 using Foundation;
 using UIKit;
 using UserNotifications;
-
+using SVG.Forms.Plugin.iOS;
 namespace HrApp.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -26,7 +26,7 @@ namespace HrApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-       
+            SvgImageRenderer.Init();
             Syncfusion.SfPdfViewer.XForms.iOS.SfPdfDocumentViewRenderer.Init();
             Syncfusion.SfRangeSlider.XForms.iOS.SfRangeSliderRenderer.Init();
         

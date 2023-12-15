@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HrApp.Model;
+using HrApp.Model.OdooModels;
 
 namespace HrApp.Services.Interface
 {
@@ -17,7 +18,8 @@ namespace HrApp.Services.Interface
         Task<HttpResponseMessage> GetDays(DaysModel Model);
         Task<Tuple<ObservableCollection<string>, bool, string>> GetDepartments();
 
-        Task<HttpResponseMessage> Login(NewUserModel model);
+        Task<HttpResponseMessage> Login(BaseOdoModel<NewUserModel> model);
+        Task<HttpResponseMessage> ResetPassword(BaseOdoModel<RessetUserPasswordModel> model);
         Task<HttpResponseMessage> LeaveRequest(LeaveRequestBody model);
         Task<Tuple<ObservableCollection<HREmpModel>, bool, string>> GetDepartmentStuff();
         Task<Tuple<ObservableCollection<HREmpModel>, bool, string>> GetEmployeesByDepartment(string Department);
@@ -26,5 +28,7 @@ namespace HrApp.Services.Interface
         Task<Tuple<ObservableCollection<CategoryLink>, bool, string>> GetCategoryLinks();
         Task<Tuple<ObservableCollection<DigitalValidModel>, bool, string>> GetDigitalValet();
         Task<HttpResponseMessage> Authonticate(AuthonticateModel model);
+        Task<Tuple<OdooResponse<ObservableCollection<userData>>, bool, string>> GetAllEmployees();
+        Task<HttpResponseMessage> CheckinCheckOut(BaseOdoModel<CheckInOutModel> model);
     }
 }

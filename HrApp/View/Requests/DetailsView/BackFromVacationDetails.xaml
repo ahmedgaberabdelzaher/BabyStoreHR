@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
+     xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    x:Class="HrApp.View.Requests.DetailsView.BackFromVacationDetails">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.BackFromVacationRequest}"></controls:Header>
+                <requestdetailscontrols:EmployeeDDlControl IsEnabled="False"></requestdetailscontrols:EmployeeDDlControl>
+                       <Frame BackgroundColor="White" IsEnabled="False" Padding="10" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.ReturnDate}"  VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"  HorizontalOptions="FillAndExpand"    Date="{Binding LastWorkingDay}" TextColor="#214455" FontSize="12"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+                   <requestdetailscontrols:ApproveandRejectControl></requestdetailscontrols:ApproveandRejectControl>
+            </StackLayout>
+            <requestdetailscontrols:Reason_Control></requestdetailscontrols:Reason_Control>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

@@ -76,9 +76,17 @@
               "target": "Package",
               "version": "[3.0.0.5, )"
             },
+            "Xam.Plugins.Forms.Svg": {
+              "target": "Package",
+              "version": "[1.0.0.27, )"
+            },
             "XamForms.Controls.Calendar": {
               "target": "Package",
               "version": "[1.1.1, )"
+            },
+            "Xamarin.Build.Download": {
+              "target": "Package",
+              "version": "[0.11.4, )"
             },
             "Xamarin.CommunityToolkit": {
               "target": "Package",
@@ -161,6 +169,10 @@
               "target": "Package",
               "version": "[1.6.11, )"
             },
+            "FirebaseNet": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
             "JV.XamForms.Controls.Calendar": {
               "target": "Package",
               "version": "[1.2.0, )"
@@ -214,6 +226,10 @@
             "Xam.Plugins.Forms.ImageCircle": {
               "target": "Package",
               "version": "[3.0.0.5, )"
+            },
+            "Xam.Plugins.Forms.Svg": {
+              "target": "Package",
+              "version": "[1.0.0.27, )"
             },
             "XamForms.Controls.Calendar": {
               "target": "Package",

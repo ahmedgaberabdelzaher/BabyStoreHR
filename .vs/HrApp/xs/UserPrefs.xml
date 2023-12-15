@@ -1,52 +1,67 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{6CB59393-1149-490A-8997-DD39F43DFEBA}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{6CB59393-1149-490A-8997-DD39F43DFEBA}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.ItemProperties.HrApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.040195D4-426F-485E-828F-EFEDAFD56E49" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.HrApp.Android PreferredExecutionTarget="Android.Pixel_4_API_30" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="391" column="1" />
-      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="374" column="1" />
-      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/Helpers/HttpManager.cs" relfile="HrApp/Helpers/HttpManager.cs" line="466" column="1" />
-      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="400" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/View/OnlineServices.xaml.cs" relfile="HrApp/View/OnlineServices.xaml.cs" line="11" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="470" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/View/LeaveRequest.xaml.cs" relfile="HrApp/View/LeaveRequest.xaml.cs" line="11" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/View/LeaveRequest.xaml.cs" relfile="HrApp/View/LeaveRequest.xaml.cs" line="13" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/ExitReEntryVISARequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/ExitReEntryVISARequestViewModel.cs" line="255" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/ExitReEntryVISARequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/ExitReEntryVISARequestViewModel.cs" line="256" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/SalaryIncreaserRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/SalaryIncreaserRequestViewModel.cs" line="182" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/SalaryAdvanceRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/SalaryAdvanceRequestViewModel.cs" line="192" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/SalaryAdvanceRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/SalaryAdvanceRequestViewModel.cs" line="193" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/RenewalResidenceRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/RenewalResidenceRequestViewModel.cs" line="197" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/RenewalResidenceRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/RenewalResidenceRequestViewModel.cs" line="198" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/UserViewModel.cs" relfile="HrApp/ViewModel/UserViewModel.cs" line="228" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/HomeViewModel.cs" relfile="HrApp/ViewModel/HomeViewModel.cs" line="273" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/Helpers/TranslateExtension.cs" relfile="HrApp/Helpers/TranslateExtension.cs" line="35" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/LeaveRequestViewModel.cs" relfile="HrApp/ViewModel/LeaveRequestViewModel.cs" line="325" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/LeaveRequestViewModel.cs" relfile="HrApp/ViewModel/LeaveRequestViewModel.cs" line="326" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/LeaveRequestViewModel.cs" relfile="HrApp/ViewModel/LeaveRequestViewModel.cs" line="301" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/LoanRequestsViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/LoanRequestsViewModel.cs" line="158" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/OverTimeRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/OverTimeRequestViewModel.cs" line="279" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/RenewalPassportRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/RenewalPassportRequestViewModel.cs" line="207" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/RenewalPassportRequestViewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/RenewalPassportRequestViewModel.cs" line="244" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/LeavesListViewModel.cs" relfile="HrApp/ViewModel/LeavesListViewModel.cs" line="122" column="1" />
+      <Breakpoint file="/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp/ViewModel/OnlineServicesViewModels/SalleryTransferRequestVIewModel.cs" relfile="HrApp/ViewModel/OnlineServicesViewModels/SalleryTransferRequestVIewModel.cs" line="101" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.HrApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.040195D4-426F-485E-828F-EFEDAFD56E49" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HrApp/Model/OdooAutonticate/AuthonticateResponse.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HrApp.Android/obj/Release/AndroidManifest.xml">
     <Files>
-      <File FileName="HrApp/View/LogIn.xaml" Line="1" Column="1" />
-      <File FileName="HrApp/View/Home.xaml" Line="16" Column="1" />
-      <File FileName="HrApp.iOS/Info.plist" />
-      <File FileName="HrApp/Services/Class/UserServices.cs" />
-      <File FileName="HrApp/Model/NewUserModel.cs" Line="1" Column="1" />
-      <File FileName="HrApp/Model/AuthonticateModel.cs" Line="14" Column="32" />
-      <File FileName="HrApp/ViewModel/UserViewModel.cs" />
-      <File FileName="HrApp/Resources/LangaugeResource.resx" />
-      <File FileName="HrApp/Resources/LangaugeResource.ar.resx" />
+      <File FileName="HrApp/Controls/requeststates.xaml" Line="37" Column="18" />
+      <File FileName="HrApp/Model/OdooModels/ExitReEntryRequest.cs" />
+      <File FileName="HrApp/Model/OdooModels/BaseRequestModel.cs" />
+      <File FileName="HrApp/Model/OdooModels/SlleryTransferLst.cs" />
       <File FileName="HrApp/Resources/LangaugeResource.Designer.cs" />
-      <File FileName="HrApp/Helpers/HttpManager.cs" />
-      <File FileName="HrApp/App.xaml.cs" />
-      <File FileName="HrApp/View/OnlineServicesView.xaml" Line="1" Column="1" />
-      <File FileName="HrApp/View/OnlineServicesView.xaml.cs" />
-      <File FileName="HrApp/View/OnlineServices.xaml" />
-      <File FileName="HrApp/View/OnlineServices.xaml.cs" Line="1" Column="1" />
-      <File FileName="HrApp/Services/Class/OnlineServices.cs" Line="13" Column="43" />
-      <File FileName="HrApp/ViewModel/OnlineServicesViewModels/OnlineServicesViewModel.cs" Line="54" Column="1" />
-      <File FileName="HrApp/ViewModel/BreatFestListViewModel.cs" Line="1" Column="1" />
-      <File FileName="HrApp/Model/OnlineServicesModels/OnlineServiceMenuModel.cs" Line="1" Column="1" />
-      <File FileName="HrApp/Services/Interface/IOnlineServices.cs" Line="35" Column="96" />
-      <File FileName="HrApp/ViewModel/HomeViewModel.cs" />
-      <File FileName="HrApp/Model/OdooAutonticate/AuthonticateResponse.cs" Line="171" Column="1" />
+      <File FileName="HrApp/View/Home.xaml" Line="80" Column="65" />
+      <File FileName="HrApp/Controls/requeststates.xaml.cs" />
+      <File FileName="HrApp/obj/Debug/netstandard2.0/Controls/requeststates.xaml.g.cs" />
+      <File FileName="HrApp/ViewModel/UserViewModel.cs" />
+      <File FileName="HrApp/Model/NewUserModel.cs" />
+      <File FileName="HrApp/Model/OdooModels/GetRequestDetailsBody.cs" />
+      <File FileName="HrApp/Model/OdooModels/AccessCardRequestBody.cs" />
+      <File FileName="HrApp/Model/OdooModels/AccessCardRequests.cs" />
+      <File FileName="HrApp.Android/obj/Release/AndroidManifest.xml" Line="65" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HrApp" expanded="True">
-            <Node name="HrApp.iOS" expanded="True" />
+            <Node name="HrApp.Android" expanded="True" selected="True" />
+            <Node name="HrApp.iOS" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.nexus_10_-_api_31" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.HrApp.Android PreferredExecutionTarget="Android.Pixel_3_API_30" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.0.0" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_4_API_30" />
 </Properties>

@@ -24,6 +24,9 @@
           }
         }
       },
+      "FirebaseNet/1.0.1": {
+        "type": "package"
+      },
       "JV.XamForms.Controls.Calendar/1.2.0": {
         "type": "package",
         "dependencies": {
@@ -893,7 +896,25 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.10.0": {
+      "Xam.Plugins.Forms.Svg/1.0.0.27": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -1221,6 +1242,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AiForms.Effects": "1.6.11",
+          "FirebaseNet": "1.0.1",
           "JV.XamForms.Controls.Calendar": "1.2.0",
           "Microsoft.AspNetCore.SignalR.Client": "5.0.6",
           "Microsoft.AspNetCore.SignalR.Client.Core": "5.0.6",
@@ -1233,6 +1255,7 @@
           "Syncfusion.Xamarin.SfPdfViewer": "19.4.0.48",
           "Vapolia.Xamarin.Svg.Forms": "4.1.0",
           "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Forms.Svg": "1.0.0.27",
           "XamForms.Controls.Calendar": "1.1.1",
           "Xamarin.CommunityToolkit": "2.0.4",
           "Xamarin.Essentials": "1.7.3",
@@ -1271,6 +1294,9 @@
             "related": ".xml"
           }
         }
+      },
+      "FirebaseNet/1.0.1": {
+        "type": "package"
       },
       "JV.XamForms.Controls.Calendar/1.2.0": {
         "type": "package",
@@ -2135,7 +2161,25 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.10.0": {
+      "Xam.Plugins.Forms.Svg/1.0.0.27": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -2463,6 +2507,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AiForms.Effects": "1.6.11",
+          "FirebaseNet": "1.0.1",
           "JV.XamForms.Controls.Calendar": "1.2.0",
           "Microsoft.AspNetCore.SignalR.Client": "5.0.6",
           "Microsoft.AspNetCore.SignalR.Client.Core": "5.0.6",
@@ -2475,6 +2520,7 @@
           "Syncfusion.Xamarin.SfPdfViewer": "19.4.0.48",
           "Vapolia.Xamarin.Svg.Forms": "4.1.0",
           "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Forms.Svg": "1.0.0.27",
           "XamForms.Controls.Calendar": "1.1.1",
           "Xamarin.CommunityToolkit": "2.0.4",
           "Xamarin.Essentials": "1.7.3",
@@ -2514,6 +2560,9 @@
           }
         }
       },
+      "FirebaseNet/1.0.1": {
+        "type": "package"
+      },
       "JV.XamForms.Controls.Calendar/1.2.0": {
         "type": "package",
         "dependencies": {
@@ -3377,7 +3426,25 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.10.0": {
+      "Xam.Plugins.Forms.Svg/1.0.0.27": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -3705,6 +3772,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AiForms.Effects": "1.6.11",
+          "FirebaseNet": "1.0.1",
           "JV.XamForms.Controls.Calendar": "1.2.0",
           "Microsoft.AspNetCore.SignalR.Client": "5.0.6",
           "Microsoft.AspNetCore.SignalR.Client.Core": "5.0.6",
@@ -3717,6 +3785,7 @@
           "Syncfusion.Xamarin.SfPdfViewer": "19.4.0.48",
           "Vapolia.Xamarin.Svg.Forms": "4.1.0",
           "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Forms.Svg": "1.0.0.27",
           "XamForms.Controls.Calendar": "1.1.1",
           "Xamarin.CommunityToolkit": "2.0.4",
           "Xamarin.Essentials": "1.7.3",
@@ -3756,6 +3825,9 @@
           }
         }
       },
+      "FirebaseNet/1.0.1": {
+        "type": "package"
+      },
       "JV.XamForms.Controls.Calendar/1.2.0": {
         "type": "package",
         "dependencies": {
@@ -4619,7 +4691,25 @@
           }
         }
       },
-      "Xamarin.Build.Download/0.10.0": {
+      "Xam.Plugins.Forms.Svg/1.0.0.27": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/NGraphics.Custom.dll": {},
+          "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll": {}
+        }
+      },
+      "Xamarin.Build.Download/0.11.4": {
         "type": "package",
         "build": {
           "buildTransitive/Xamarin.Build.Download.props": {},
@@ -4947,6 +5037,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AiForms.Effects": "1.6.11",
+          "FirebaseNet": "1.0.1",
           "JV.XamForms.Controls.Calendar": "1.2.0",
           "Microsoft.AspNetCore.SignalR.Client": "5.0.6",
           "Microsoft.AspNetCore.SignalR.Client.Core": "5.0.6",
@@ -4959,6 +5050,7 @@
           "Syncfusion.Xamarin.SfPdfViewer": "19.4.0.48",
           "Vapolia.Xamarin.Svg.Forms": "4.1.0",
           "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xam.Plugins.Forms.Svg": "1.0.0.27",
           "XamForms.Controls.Calendar": "1.1.1",
           "Xamarin.CommunityToolkit": "2.0.4",
           "Xamarin.Essentials": "1.7.3",
@@ -5002,6 +5094,20 @@
         "lib/netstandard2.0/AiForms.Effects.xml",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/AiForms.Effects.dll",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/AiForms.Effects.xml"
+      ]
+    },
+    "FirebaseNet/1.0.1": {
+      "sha512": "NTNlNB+3icJsgNgFULGP/OqAdN41BCFGyiOhyX5Nqjq+KZor3ZrEvgPM87N1j222QOhebgZuqKpkcqmD66LpFg==",
+      "type": "package",
+      "path": "firebasenet/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebasenet.1.0.1.nupkg.sha512",
+        "firebasenet.nuspec",
+        "lib/net45/FirebaseNet.dll",
+        "lib/net46/FirebaseNet.dll",
+        "lib/netcoreapp1.0/FirebaseNet.dll"
       ]
     },
     "JV.XamForms.Controls.Calendar/1.2.0": {
@@ -6540,10 +6646,32 @@
         "xam.plugins.forms.imagecircle.nuspec"
       ]
     },
-    "Xamarin.Build.Download/0.10.0": {
-      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+    "Xam.Plugins.Forms.Svg/1.0.0.27": {
+      "sha512": "oE1uuT0EksjVYpfcoV3l1HP68bUN9fRez8uUVLMw1GBON0GMwmyTnNdsroXStYeYI1UYIrt22VHTD3nBGMzovg==",
       "type": "package",
-      "path": "xamarin.build.download/0.10.0",
+      "path": "xam.plugins.forms.svg/1.0.0.27",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/NGraphics.Android.Custom.dll",
+        "lib/MonoAndroid10/NGraphics.Custom.dll",
+        "lib/MonoAndroid10/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/MonoAndroid10/SVG.Forms.Plugin.Android.dll",
+        "lib/Xamarin.iOS10/NGraphics.Custom.dll",
+        "lib/Xamarin.iOS10/NGraphics.iOS.Custom.dll",
+        "lib/Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/Xamarin.iOS10/SVG.Forms.Plugin.iOS.dll",
+        "lib/portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/wp8/SVG.Forms.Plugin.Abstractions.dll",
+        "lib/wp8/SVG.Forms.Plugin.WindowsPhone.dll",
+        "xam.plugins.forms.svg.1.0.0.27.nupkg.sha512",
+        "xam.plugins.forms.svg.nuspec"
+      ]
+    },
+    "Xamarin.Build.Download/0.11.4": {
+      "sha512": "u2ROt0h6P7mfs0jbmgvmTrqU/YEpEZcf16xcHa78GSEp7fOZunNtJLCZxooeI1V5p+lrr9kYdg3Pa8FoTbgcXQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.11.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6558,7 +6686,7 @@
         "buildTransitive/Xamarin.Build.Download.dll",
         "buildTransitive/Xamarin.Build.Download.props",
         "buildTransitive/Xamarin.Build.Download.targets",
-        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.0.11.4.nupkg.sha512",
         "xamarin.build.download.nuspec"
       ]
     },
@@ -7049,7 +7177,9 @@
       "Syncfusion.Xamarin.SfPdfViewer >= 19.4.0.48",
       "Vapolia.Xamarin.Svg.Forms >= 4.1.0",
       "Xam.Plugins.Forms.ImageCircle >= 3.0.0.5",
+      "Xam.Plugins.Forms.Svg >= 1.0.0.27",
       "XamForms.Controls.Calendar >= 1.1.1",
+      "Xamarin.Build.Download >= 0.11.4",
       "Xamarin.CommunityToolkit >= 2.0.4",
       "Xamarin.Essentials >= 1.7.3",
       "Xamarin.Forms >= 5.0.0.2515",
@@ -7134,9 +7264,17 @@
             "target": "Package",
             "version": "[3.0.0.5, )"
           },
+          "Xam.Plugins.Forms.Svg": {
+            "target": "Package",
+            "version": "[1.0.0.27, )"
+          },
           "XamForms.Controls.Calendar": {
             "target": "Package",
             "version": "[1.1.1, )"
+          },
+          "Xamarin.Build.Download": {
+            "target": "Package",
+            "version": "[0.11.4, )"
           },
           "Xamarin.CommunityToolkit": {
             "target": "Package",
@@ -7180,5 +7318,43 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x64"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

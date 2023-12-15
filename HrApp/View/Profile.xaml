@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:HrApp.Converters" xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" NavigationPage.HasNavigationBar="False"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:HrApp.Converters" xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions" xmlns:controls="clr-namespace:HrApp.Controls"
+    NavigationPage.HasNavigationBar="False"
     x:Class="HrApp.View.Profile" >
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -11,6 +15,8 @@
     <ContentPage.Content>
         <Grid>
             <Image Source="profilebg.png" Aspect="Fill"></Image>
+         <!-- <abstractions:SvgImage Grid.Row="0" SvgAssembly="{Binding SvgAssembly}" HeightRequest="100" WidthRequest="100" SvgPath="HrApp.Images.empProfileBg.svg"/>
+-->
             <StackLayout>
                   <StackLayout.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
@@ -19,41 +25,30 @@
 
                     </OnPlatform>
                 </StackLayout.Margin>
-                <StackLayout x:Name="Header" Orientation="Horizontal" Margin="25,20,25,50">
-                    <StackLayout Margin="5">
-                <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3"  FontFamily="FontAwesome">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                    <Label Text="&#xf0f3;" IsVisible="false" FontSize="25" FontFamily="FontAwesome" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" TextColor="White"/>
+                    <!--#region Header-->
+                  <controls:Header BackgroundColor="Transparent" TitelTxt="{x:Static ResourceManager:LangaugeResource.MyProfile}" Margin="0,0,0,50"></controls:Header>             
 
-                </StackLayout>
-
-
+            <!--#endregion-->
                 <Grid Margin="19,-35,0,0" ColumnDefinitions="100,auto">
-                  
-            <custom:CircleImage  HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0" BackgroundColor="Transparent"   VerticalOptions="CenterAndExpand"   Source="{Binding UserImage,Converter={StaticResource Base64Image}}"   Aspect="AspectFill"  >
+                  <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Label">
+                                <Setter Property="TextColor" Value="White"></Setter>
+                               <Setter Property="FontFamily" Value="MontserratRegular"></Setter>
+                              <Setter Property="FontSize" Value="16"></Setter>
+                            </Style>
 
-               
-                            <custom:CircleImage.Triggers >
-                                <DataTrigger TargetType="custom:CircleImage" Binding="{Binding UserImage}" Value="">
-                                    <Setter Property="Source" Value="ProfileImgDefault.png"/>
-                                </DataTrigger>
-                            </custom:CircleImage.Triggers>
-                                                
-                                           
+                        </ResourceDictionary>
+
+                    </Grid.Resources>
+            <custom:CircleImage Source="{Binding UserImage}" Grid.Column="0" Grid.Row="0"  HeightRequest="95" WidthRequest="95" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0" BackgroundColor="Transparent"  VerticalOptions="StartAndExpand" Aspect="AspectFill"  >
             </custom:CircleImage>
 
 
                        
                 
-                    <Frame Background="#CEBFB3" Grid.Column="0" VerticalOptions="EndAndExpand" Padding="0"  CornerRadius="15" HeightRequest="29" WidthRequest="50">
-                        <Label Text="{Binding User.stafF_ID,StringFormat='ID: {0}'}" FontAttributes="Bold" Margin="0,3,0,0" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="16"></Label>
+                    <Frame Background="{StaticResource PrimaryColor}" BorderColor="{StaticResource TitleColor}" Grid.Column="0" VerticalOptions="EndAndExpand" Padding="0"  CornerRadius="15" HeightRequest="29" WidthRequest="50">
+                        <Label Text="{Binding User.code,StringFormat='ID: {0}'}"  Margin="0,3,0,0" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
                         <Frame.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS" Value="0,0,0,-23"></On>
@@ -64,31 +59,31 @@
                     </Frame>
                     <StackLayout Grid.Column="1" HorizontalOptions="CenterAndExpand" Margin="5,-20,0,0">
                         <StackLayout Orientation="Horizontal">
-                            <Label Margin="5,0,0,0" Text="Hello" TextColor="#CEBFB3" FontSize="17" FontFamily="GreatVibes-Regular.ttf"/>
+                            <Label Margin="5,0,0,0" Text="{x:Static ResourceManager:LangaugeResource.Hello}" TextColor="#CEBFB3" FontSize="17" FontFamily="GreatVibes-Regular.ttf"/>
 
-                            <Label Text="{Binding User.name}" TextColor="#CEBFB3" FontSize="16"></Label>
+                            <Label Text="{Binding User.name}" FontFamily="Montserrat700" FontSize="18"></Label>
                             
                         </StackLayout>
                         <StackLayout Margin="55,0,0,0" HorizontalOptions="StartAndExpand">
-                            <Label Text="{Binding User.designation}" FontSize="12" TextColor="#CEBFB3"></Label>
-                        <Label Text="{Binding User.department}" FontSize="12" TextColor="#CEBFB3"></Label>
+                            <Label Text="{Binding User.designation}" FontSize="12" IsVisible="false" TextColor="#CEBFB3"></Label>
+                        <Label Text="{Binding User.department}" ></Label>
                         <StackLayout Orientation="Horizontal">
-                       <Label Text="&#xf2b5;" HorizontalOptions="Start" FontSize="14" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="#CEBFB399" />
-                            <Label HorizontalOptions="Start" Text="{Binding User.joininG_DATE,StringFormat='{0:d MMM , yyyy}'}" TextColor="#CEBFB399" FontSize="14" ></Label>
+                       <Label Text="&#xf2b5;" HorizontalOptions="Start" FontSize="16" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
+                            <Label HorizontalOptions="Start" Text="{Binding User.joining_date,StringFormat='{0:d MMM , yyyy}'}" Opacity=".75" TextColor="White" FontSize="16" ></Label>
                         </StackLayout>
                         </StackLayout>
                     </StackLayout>
                    
                 </Grid>
-                <Grid ColumnDefinitions="auto,21,auto,21,50" >
+                <Grid ColumnDefinitions="auto,21,auto,21,50" HorizontalOptions="CenterAndExpand">
                     <StackLayout Grid.Column="0">
-                        <Label Text="{Binding Years}"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Poppins-SemiBold.ttf" FontAttributes="Bold" TextColor="#214455" FontSize="25"></Label>
-                        <Label Text="Year" FontSize="12" TextColor="#B5B5C3"></Label>
+                        <Label Text="{Binding Years}" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="20"></Label>
+                        <Label Text="{x:Static ResourceManager:LangaugeResource.Year}" FontSize="16" Opacity=".75" FontFamily="MontserratRegular" TextColor="White"></Label>
                     </StackLayout>
                 <BoxView Color="#B5B5C3" Margin="10" IsVisible="true" Grid.Column="1"></BoxView>
                    <StackLayout Grid.Column="2">
-                         <Label Text="{Binding Month}"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Poppins-SemiBold.ttf" FontAttributes="Bold" TextColor="#214455" FontSize="25"></Label>
-                        <Label Text="Month" FontSize="12" TextColor="#B5B5C3"></Label>
+                         <Label Text="{Binding Month}" TextColor="White"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="20"></Label>
+                        <Label Text="{x:Static ResourceManager:LangaugeResource.Month}" FontSize="16" FontFamily="MontserratRegular" TextColor="White" Opacity=".75"></Label>
                    </StackLayout>
                                     <BoxView Color="#B5B5C3" IsVisible="{Binding IsMoretenYears}" Margin="10" Grid.Column="1"></BoxView>
                      <Grid.Margin>
@@ -99,7 +94,7 @@
                     </OnPlatform>
                          </Grid.Margin>
                 </Grid>
-                <ScrollView VerticalScrollBarVisibility="Never" Margin="29,0,0,0">
+                <ScrollView VerticalScrollBarVisibility="Never" Margin="29,10,29,0">
 <StackLayout Spacing="-2" >
  <StackLayout.Resources>
      <ResourceDictionary>
@@ -113,6 +108,10 @@
 
 
          </Style>
+                                 <Style TargetType="Label"> 
+             <Setter Property="FontSize" Value="16"></Setter>
+              <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"></Setter>
+         </Style>
      </ResourceDictionary>
  </StackLayout.Resources>
                     <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
@@ -125,8 +124,8 @@
         </pancake:PancakeView.BackgroundGradientStops>
                        <Label Text="&#xf2c2;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
 </pancake:PancakeView>
-                    <Label Text="Civil ID No." Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
-                 <Label Text="{Binding User.civiL_ID}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                    <Label Text="{x:Static ResourceManager:LangaugeResource.IDNo}" Grid.Row="0" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular" ></Label>
+                 <Label Text="{Binding User.identification_id}" Grid.Row="1" Grid.Column="1"></Label>
                 </Grid>
 
                 <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
@@ -139,8 +138,8 @@
         </pancake:PancakeView.BackgroundGradientStops>
                        <Label Text="&#xf1fd;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
 </pancake:PancakeView>
-                    <Label Text="Birth Date" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
-                 <Label Text="{Binding User.birtH_DATE,StringFormat='{0:d MMM , yyyy}'}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                    <Label Text="{x:Static ResourceManager:LangaugeResource.BirthDate}" Opacity=".50" FontFamily="MontserratRegular" Grid.Row="0" Grid.Column="1"></Label>
+                 <Label Text="{Binding User.birtH_DATE,StringFormat='{0:d MMM , yyyy}'}" Grid.Row="1" Grid.Column="1"></Label>
                 </Grid>
                 <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
 <pancake:PancakeView BackgroundGradientEndPoint="0,1" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
@@ -152,8 +151,8 @@
         </pancake:PancakeView.BackgroundGradientStops>
                        <Label Text="&#xf0e0;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
 </pancake:PancakeView>
-                    <Label Text="Email Address" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
-                 <Label Text="{Binding User.email}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                    <Label Text="{x:Static ResourceManager:LangaugeResource.EmailAddress}" Grid.Row="0" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
+                 <Label Text="{Binding User.work_email}" Grid.Row="1" Grid.Column="1"></Label>
                 </Grid>
                 <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
 <pancake:PancakeView BackgroundGradientEndPoint="0,1" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
@@ -165,8 +164,8 @@
         </pancake:PancakeView.BackgroundGradientStops>
                        <Label Text="&#xf879;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
 </pancake:PancakeView>
-                    <Label Text="Contact No" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
-                            <Label Text="{Binding User.mobilE_NO}"  Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                    <Label Text="{x:Static ResourceManager:LangaugeResource.ContactNo}" Grid.Row="0" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
+                            <Label Text="{Binding User.phone}"  Grid.Row="1" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
                 </Grid>
                 <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
 <pancake:PancakeView BackgroundGradientEndPoint="0,1"  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
@@ -178,8 +177,8 @@
         </pancake:PancakeView.BackgroundGradientStops>
                        <Label Text="&#xf19c;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
 </pancake:PancakeView>
-                    <Label Text="Bank Name" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
-                 <Label Text="{Binding User.banK_NAME}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                    <Label Text="{x:Static ResourceManager:LangaugeResource.BankName}" Grid.Row="0" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
+                 <Label Text="{Binding User.bank}" Grid.Row="1" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
                 </Grid>
                 <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*">
 <pancake:PancakeView BackgroundGradientEndPoint="0,1"  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
@@ -191,8 +190,8 @@
         </pancake:PancakeView.BackgroundGradientStops>
                        <Label Text="&#xf09d;" HorizontalOptions="CenterAndExpand" FontSize="26" FontFamily="FontAwesome"  VerticalOptions="CenterAndExpand" TextColor="White" />
 </pancake:PancakeView>
-                    <Label Text="IBAN No." Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="#B5B5C3"></Label>
-                 <Label Text="{Binding User.ibaN_NO}" Grid.Row="1" Grid.Column="1" TextColor="#214455" FontSize="14"></Label>
+                    <Label Text="{x:Static ResourceManager:LangaugeResource.IBANNo}" Grid.Row="0" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
+                 <Label Text="{Binding User.iban}" Grid.Row="1" Grid.Column="1" Opacity=".50" FontFamily="MontserratRegular"></Label>
                 </Grid>
     </StackLayout></ScrollView>
             </StackLayout>

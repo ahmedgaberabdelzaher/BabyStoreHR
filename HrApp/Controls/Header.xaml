@@ -4,6 +4,30 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="HrApp.Controls.Header">
     <ContentView.Content>
-        
+              <!--#region Header-->
+            <Grid ColumnDefinitions="auto,*,auto" Grid.Row="0" Padding="25,0,25,0" BackgroundColor="{StaticResource PrimaryColor}" HeightRequest="100">
+             
+                    <StackLayout Grid.Column="0">
+                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" FontFamily="FontAwesome">
+                    <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding FlowDirection}" Value="RightToLeft">
+                                <Setter Property="Text" Value="&#xf061;"></Setter>
+
+                            </DataTrigger>
+
+                        </Label.Triggers>
+                    <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Label Grid.Column="1" x:Name="TitleTxt" FontFamily="Bubblegum.ttf" VerticalOptions="Center" TextColor="{StaticResource TitleColor}" FontSize="20"  Text="Online Services" ></Label>
+                      <Image  Grid.Column="2" Source="HeaderLogo" HeightRequest="54" HorizontalOptions="End"></Image>
+
+            </Grid>                  
+            <!--#endregion-->
     </ContentView.Content>
 </ContentView>

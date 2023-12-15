@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using HrApp.Helpers;
 using HrApp.Model;
+using HrApp.Model.OdooModels;
 using HrApp.Services.Interface;
 using Xamarin.Essentials;
 
@@ -195,6 +196,25 @@ namespace HrApp.Services.Class
             return response;
         }
 
-       
+        public async Task<Tuple<OdooResponse<ObservableCollection<LeaveTypesModel>>, bool, string>> GetLeaveTypes()
+        {
+            var response = await HttpManager.GetAsyncWithBody<OdooResponse<ObservableCollection<LeaveTypesModel>>>(App.BaseUrl + $"leave_type", new BaseOdoModel<LookUpModel>() { @params=new LookUpModel() { Id = 1, Name = "ESS" } }).ConfigureAwait(false);
+
+            return response;
+        }
+
+  public async Task<HttpResponseMessage> SubmitLeaveRequest(BaseOdoModel<LeaveRequestModel> leaveRequestModel)
+        {
+            var response = await HttpManager.PostAsync(App.BaseUrl + $"leave/create_request",leaveRequestModel).ConfigureAwait(false);
+            return response;
+        }
+
+        public async Task<Tuple<OdooResponse<ObservableCollection<LeaveRequestsModel>>, bool, string>> GeEmptLeaveRequests(BaseOdoModel<GetLeavesBody> body)
+        {
+            var response = await HttpManager.GetAsyncWithBody<OdooResponse<ObservableCollection<LeaveRequestsModel>>>(App.BaseUrl + "leaves", body).ConfigureAwait(false);
+
+            return response;
+        }
+
     }
 }

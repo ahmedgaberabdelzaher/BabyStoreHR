@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    xmlns:controls="clr-namespace:HrApp.Controls"
+    NavigationPage.HasNavigationBar="False"
+          FlowDirection="{Binding FlowDirection}"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    x:Class="HrApp.View.Requests.DetailsView.OverTimeRequestDetails">
+<Grid >
+        <StackLayout>
+ <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.OverTimeRequest}" Grid.Row="0"></controls:Header>
+<requestdetailscontrols:OverTimeRequestDetailsControl IsEnabled="False"></requestdetailscontrols:OverTimeRequestDetailsControl>
+                           <requestdetailscontrols:ApproveandRejectControl ></requestdetailscontrols:ApproveandRejectControl>
+
+        </StackLayout>
+           <requestdetailscontrols:Reason_Control></requestdetailscontrols:Reason_Control>
+
+ <controls:Loader Grid.Row="0" IsVisible="{Binding IsLoading}"></controls:Loader>
+ </Grid>
+</ContentPage>
+

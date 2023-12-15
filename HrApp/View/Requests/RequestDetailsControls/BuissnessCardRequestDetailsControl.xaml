@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.BuissnessCardRequestDetailsControl">
+    <ContentView.Content>
+        <StackLayout>
+            <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.NameAR}" ValueTxt="{Binding Business_name_ar}"></controls:EntryWithLabel>
+                                                <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.NameEN}" ValueTxt="{Binding Business_name_EN}"></controls:EntryWithLabel>
+                                                <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.JobPositionAR}" ValueTxt="{Binding Business_job_ar}"></controls:EntryWithLabel>
+                                                <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.JobPositionEN}" ValueTxt="{Binding Business_job_EN}"></controls:EntryWithLabel>
+                                                <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.WorkMobile}" ValueTxt="{Binding Business_work_mobile}"></controls:EntryWithLabel>
+</StackLayout>    </ContentView.Content>
+</ContentView>
+

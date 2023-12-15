@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    x:Class="HrApp.View.Requests.DetailsView.EmailRequestDetail">
+    <ContentPage.Content>
+           <Grid>
+            <StackLayout>
+                <controls:Header TitelTxt="Email Request" ></controls:Header>
+                  <requestdetailscontrols:EmployeeDDlControl IsEnabled="False"></requestdetailscontrols:EmployeeDDlControl>
+                  <requestdetailscontrols:ApproveandRejectControl VerticalOptions="EndAndExpand"></requestdetailscontrols:ApproveandRejectControl>
+                </StackLayout>
+                <requestdetailscontrols:Reason_Control  IsVisible="{Binding IsShowRejectionReason}"></requestdetailscontrols:Reason_Control>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

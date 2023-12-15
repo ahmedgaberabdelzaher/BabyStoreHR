@@ -239,7 +239,7 @@ namespace HrApp.ViewModel
                         if (ViewModelBase.connection.State == HubConnectionState.Connected)
                         {
                             await _chatService.SendMessage(chatid.ToString(), Message, File, SickFileName,isOfficer);
-                            GetMessage("local0", Message, 0, File, SickFileName, $"{Preferences.Get("userId", 0).ToString()}-{User.name} {DateTime.Now.ToString("dd/MM/yyyy hh:mm tt")}");
+                            GetMessage("local0", Message, 0, File, SickFileName, $"{Preferences.Get("userId", 0).ToString()}-{User.name_en} {DateTime.Now.ToString("dd/MM/yyyy hh:mm tt")}");
 
                             Message = string.Empty;
                             File = null;

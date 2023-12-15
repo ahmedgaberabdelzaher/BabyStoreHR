@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.ResignationRequestControl">
+    <ContentView.Content>
+
+                    <StackLayout>
+                            <Frame BackgroundColor="White" Padding="10" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.TheLastWorkingDay}"  VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"  HorizontalOptions="FillAndExpand"   Date="{Binding LastWorkingDay}" TextColor="#214455" FontSize="12"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+
+                        <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.ResignationReason}"  SelectedValueTxt="{Binding ReasonName}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectReasonCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                    </StackLayout>
+    </ContentView.Content>
+</ContentView>
+

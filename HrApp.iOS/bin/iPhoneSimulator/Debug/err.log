@@ -1,4 +1,0 @@
-objc[30842]: Class NSURLSessionDelegate is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/NetworkServiceProxy.framework/NetworkServiceProxy (0x7ff86437c4f8) and /Users/youxl/Library/Developer/CoreSimulator/Devices/040195D4-426F-485E-828F-EFEDAFD56E49/data/Containers/Bundle/Application/40FEBDC3-0B20-47AF-B5FD-689B1F913B51/HrApp.iOS.app/HrApp.iOS (0x106df5948). One of the two will be used. Which one is undefined.
-2023-02-05 03:00:29.880881+0200 HrApp.iOS[30842:263520] SecTaskLoadEntitlements failed error=22 cs_flags=200, pid=30842
-2023-02-05 03:00:29.881472+0200 HrApp.iOS[30842:263520] SecTaskCopyDebugDescription: HrApp.iOS[30842]/0#-1 LF=0
-MonoTouch: Could not install sigaction override, unexpected sigaction implementation.

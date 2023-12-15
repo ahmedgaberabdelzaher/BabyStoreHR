@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.LetterRequestDetailControl">
+    <ContentView.Content>
+                 
+                    <StackLayout>
+                        <controls:DDlControl  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.LetterType}" SelectedValueTxt="{Binding SelectedletterTypes.name}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLetterTypeCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                                                <controls:DDlControl  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.CertifiedCompany}" SelectedValueTxt="{Binding SelctedletterCompany.name}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLetterCompanyCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+                                    <controls:DDlControl  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.LetterDetail}" SelectedValueTxt="{Binding DetailsName}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLetterDetailsCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+
+                          
+                                                <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.DirectedTo}" ValueTxt="{Binding RedirectedTo}"></controls:EntryWithLabel>
+                          <Frame  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Orientation="Horizontal">
+                                  <CheckBox VerticalOptions="CenterAndExpand" IsChecked="{Binding IsElectronicLetter}"></CheckBox>
+
+                                  <Label Text=""   VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+
+                              </StackLayout>
+                          </Frame>
+                 </StackLayout>
+           
+    </ContentView.Content>
+</ContentView>
+

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
+                 FlowDirection="{Binding FlowDirection}"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    x:Class="HrApp.View.Requests.DetailsView.CustodyRequestDetail">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.CustodyRequest}" ></controls:Header>
+                  <requestdetailscontrols:EmployeeDDlControl IsEnabled="False"></requestdetailscontrols:EmployeeDDlControl>
+                <requestdetailscontrols:CustodyRequestDetailsControl IsEnabled="False"></requestdetailscontrols:CustodyRequestDetailsControl>
+                <requestdetailscontrols:ApproveandRejectControl VerticalOptions="EndAndExpand"></requestdetailscontrols:ApproveandRejectControl>
+            </StackLayout>
+            <requestdetailscontrols:Reason_Control  IsVisible="{Binding IsShowRejectionReason}"></requestdetailscontrols:Reason_Control>
+            <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

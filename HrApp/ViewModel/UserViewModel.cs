@@ -12,6 +12,8 @@ using Xamarin.Essentials;
 using HrApp.Resources;
 using System.Net;
 using System.Linq;
+using HrApp.Helpers;
+using HrApp.Model.OdooModels;
 
 namespace HrApp.ViewModel
 {
@@ -102,7 +104,7 @@ namespace HrApp.ViewModel
             {
                 return new DelegateCommand(async () =>
                 {
-                    await RequstVerificationCode();
+                    await Register();
                 });
             }
         }
@@ -223,28 +225,53 @@ namespace HrApp.ViewModel
             try
             {
                 IsLoading = true;
-                var model = new NewUserModel() { Username =this.EmployeeId, Password = this.Password,ConfirmPassword=this.ConfirmPassword, Reset=int.Parse(isreset), PhoneNumber=this.MobileNo};
-                var resp = await _userServices.Register(model);
+                if (Password!=ConfirmPassword)
+                {
+                    await DialogService.DisplayAlertAsync("", "Password and Confirm password not matched", "OK");
+                    return;
+                }
+                //    var model = new NewUserModel() { Username =this.EmployeeId, Password = this.Password,ConfirmPassword=this.ConfirmPassword, Reset=int.Parse(isreset), PhoneNumber=this.MobileNo};
+                var model = new BaseOdoModel<RessetUserPasswordModel>() { jsonrpc = "2.0", @params = new RessetUserPasswordModel() { name = this.EmployeeId, new_password = this.Password }};
+                #region odoo authonticate
+                var authmodel = new AuthonticateModel() { jsonrpc = "2.0", @params = new Params() { db = App.OdoDBName, login = App.OdoDUserame, password = App.OdoPasssword } };
+                var authresp = await _userServices.Authonticate(authmodel);
+                if (authresp.IsSuccessStatusCode)
+                {
+                    var result = await authresp.Content.ReadAsStringAsync();
+                    var userData = JsonConvert.DeserializeObject<AuthonticateResponse>(result);
+                    if (userData.error == null)
+                    {
+                        var responseHeaders = authresp.Headers.GetValues("Set-Cookie");
+                        if (responseHeaders != null)
+                        {
+                            var headerValues = responseHeaders.ToList();
+                            var SetCookiesHeader = headerValues[0].Split('=');
+                            var sessiondId = SetCookiesHeader[1].Split(';')[0];
+                            Preferences.Set("SesseionId", sessiondId);
+
+                        }
+                    }
+                }
+                        #endregion
+
+                        var resp = await _userServices.ResetPassword(model);
                 if (resp.IsSuccessStatusCode)
                 {
                     var result = await resp.Content.ReadAsStringAsync();
-                    var userData = JsonConvert.DeserializeObject<LoginResponse>(result);
+                  //  var userData = JsonConvert.DeserializeObject<LoginResponse>(result);
                     /* if (calenderData.data != null)
                      {
                          return calenderData.data;
                      }*/
-                    if (userData.statuscode == 1)
+                  //  if (userData.statuscode == 1)
                     {
-                        await DialogService.DisplayAlertAsync("", userData.statusdescription, "OK");
-                        OpenCodePopUp = true;
+                        await DialogService.DisplayAlertAsync("", "Password Changes Succssesfuly", "OK");
+                      /*  OpenCodePopUp = true;
                         await SecureStorage.SetAsync("user", EmployeeId);
-                        await SecureStorage.SetAsync("passwerd", Password);
+                        await SecureStorage.SetAsync("passwerd", Password);*/
                         await NavigationService.GoBackAsync();
                     }
-                    else
-                    {
-                        await DialogService.DisplayAlertAsync("", userData.statusdescription, "OK");
-                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -278,6 +305,7 @@ namespace HrApp.ViewModel
          await  _userServices.Gettoken();
         
         }
+        /*
         async Task Login()
         {
             try
@@ -316,7 +344,7 @@ namespace HrApp.ViewModel
                             {
                                 isWelcome = true;
                             }*/
-                            if (userData.stuffRecord.isThankyou == 1)
+                          /*  if (userData.stuffRecord.isThankyou == 1)
                             {
                                 isWelcome = true;
                             }
@@ -366,6 +394,7 @@ namespace HrApp.ViewModel
             }
 
         }
+*/
         async Task OdooLogin()
         {
             try
@@ -384,10 +413,8 @@ namespace HrApp.ViewModel
                 {
                     deviceType = "1";
                 }
-                var model = new AuthonticateModel() { jsonrpc= "2.0", @params=new Params() { db= "supportatit-babystory-addons-stg-6545816", login= this.EmployeeId, password=this.password }};
+                var model = new AuthonticateModel() { jsonrpc= "2.0", @params=new Params() { db= App.OdoDBName, login= App.OdoDUserame, password=App.OdoPasssword }};
                 var resp = await _userServices.Authonticate(model);
-
-
                 if (resp.IsSuccessStatusCode)
                 {
                     var result = await resp.Content.ReadAsStringAsync();
@@ -401,28 +428,60 @@ namespace HrApp.ViewModel
                             var SetCookiesHeader = headerValues[0].Split('=');
                             var sessiondId = SetCookiesHeader[1].Split(';')[0];
                             Preferences.Set("SesseionId", sessiondId);
+                            
                         } 
                         if (userData.result != null)
                         {
-                           
-                           // Preferences.Set("Department", userData.stuffRecord.department);
-                            Preferences.Set("UserName", userData.result.username);
-                            //Preferences.Set("Ballance", userData.stuffRecord.leavE_BALANCE);
-                            Preferences.Set("userId", userData.result.uid);
-                           // Preferences.Set("role", userData.result.r);
-                           Preferences.Set("IsAdmin", userData.result.is_admin);
+                            var Loginmodel = new BaseOdoModel<NewUserModel>() { jsonrpc = "2.0", @params = new NewUserModel() { name = this.EmployeeId, password = this.password,token=token } };
+                            var Loginresp = await _userServices.Login(Loginmodel);
+                            if (Loginresp.IsSuccessStatusCode)
+                            {
+                                var Loginresult = await Loginresp.Content.ReadAsStringAsync();
+                                var userRecordData = JsonConvert.DeserializeObject<OdooResponse<userData>>(Loginresult);
+                                if (userRecordData.result!=null&&userRecordData.result.success)
+                                {
+                                     string user = JsonConvert.SerializeObject(userRecordData.result.data);
+                                    var data = userRecordData.result.data;
+                                    Preferences.Set("User", user);
+                                     Preferences.Set("Department", data.department);
+                                    Preferences.Set("UserName", data.name_en);
+                                   Preferences.Set("Ballance", data.Leaves_balance);
+                                    Preferences.Set("userId", data.id);
+                                    Preferences.Set("role", data.rule);
+                                    Preferences.Set("IsLogedIn", true);
+                                    if (data.last_check_in != "false")
+                                    {
 
-                           // string user = JsonConvert.SerializeObject(userData.stuffRecord);
-                           // Preferences.Set("User", user);
+                                        var checkinDate = DateTimeHelper.ConvertStringTodate(data.last_check_in);
+                                        if (checkinDate.Date==DateTime.Now.Date)
+                                        {
+                                            Preferences.Set("IsTodayCheckedIn", true);
+                                            Preferences.Set("TodayCheckedInTime", checkinDate);
 
-                        }
+                                        }
+                                    }
+                                    if (data.last_check_out != "false")
+                                    {
 
-                        Preferences.Set("IsLogedIn", true);
-                        //  await SecureStorage.SetAsync("user", EmployeeId);
-                        //await SecureStorage.SetAsync("passwerd", Password);
-                     
-                     
-                            await NavigationService.NavigateAsync("/Home");
+                                        var checkOutDate = DateTimeHelper.ConvertStringTodate(data.last_check_out);
+                                        if (checkOutDate.Date == DateTime.Now.Date)
+                                        {
+                                            Preferences.Set("IsTodayCheckedOut", true);
+                                            Preferences.Set("TodayCheckedOutTime", checkOutDate);
+
+                                        }
+                                    }
+                                    await NavigationService.NavigateAsync("../Home");
+
+                                    return;
+                                }
+                                //  await SecureStorage.SetAsync("user", EmployeeId);
+                                //await SecureStorage.SetAsync("passwerd", Password);
+                        
+                            }
+
+                            }
+                               
                             // await NavigationService.NavigateAsync("../Profile");
                     }
                     else
@@ -430,6 +489,7 @@ namespace HrApp.ViewModel
                         await DialogService.DisplayAlertAsync("", LangaugeResource.InvalidCredentials, LangaugeResource.Ok);
                     }
 
+                    await DialogService.DisplayAlertAsync("", LangaugeResource.InvalidCredentials, LangaugeResource.Ok);
 
                 }
             }

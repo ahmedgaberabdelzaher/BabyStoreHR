@@ -5,7 +5,7 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.kapps.hrapp" android:installLocation="auto" android:versionCode="47" android:versionName="1.5.7">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.BabyStore.hrapp" android:installLocation="auto" android:versionCode="5" android:versionName="1.0.5">
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" tools:overrideLibrary="com.huawei.agconnect.core" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,26 +17,26 @@
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <queries>
     <intent>
+      <action android:name="android.media.browse.MediaBrowserService" />
+    </intent>
+    <intent>
       <action android:name="com.huawei.hms.core.aidlservice" />
     </intent>
     <intent>
       <action android:name="com.huawei.hms.core" />
     </intent>
-    <intent>
-      <action android:name="android.media.browse.MediaBrowserService" />
-    </intent>
   </queries>
   <!-- Required by older versions of Google Play services to create IID tokens -->
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-  <permission android:name="com.kapps.hrapp.permission.PROCESS_PUSH_MSG" android:protectionLevel="signature" />
+  <permission android:name="com.BabyStore.hrapp.permission.PROCESS_PUSH_MSG" android:protectionLevel="signature" />
   <!-- PUSH_PROVIDER and PUSH_WRITE_PROVIDER are both provider registered permissions for the notification switch. -->
   <!-- The SDK's notification bar switch, EMUI 9.x becomes write to the local sp, sharing the file through the provider to the push-rom, which reads the sp file to get the status of the notification bar switch. -->
-  <permission android:name="com.kapps.hrapp.permission.PUSH_PROVIDER" android:protectionLevel="signature" />
-  <permission android:name="com.kapps.hrapp.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signature" />
-  <uses-permission android:name="com.kapps.hrapp.permission.PROCESS_PUSH_MSG" />
-  <uses-permission android:name="com.kapps.hrapp.permission.PUSH_PROVIDER" />
-  <application android:name="crc64552a7e8708233c29.MainApplication" android:allowBackup="true" android:allowClearUserData="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:exported="true" android:extractNativeLibs="true" android:icon="@drawable/homeicon" android:label="HR Al Seef" android:requestLegacyExternalStorage="true" android:theme="@style/MainTheme" android:usesCleartextTraffic="true">
-    <provider android:name="androidx.core.content.FileProvider" android:authorities="com.kapps.hrapp.provider" android:exported="false" android:grantUriPermissions="true">
+  <permission android:name="com.BabyStore.hrapp.permission.PUSH_PROVIDER" android:protectionLevel="signature" />
+  <permission android:name="com.BabyStore.hrapp.permission.PUSH_WRITE_PROVIDER" android:protectionLevel="signature" />
+  <uses-permission android:name="com.BabyStore.hrapp.permission.PROCESS_PUSH_MSG" />
+  <uses-permission android:name="com.BabyStore.hrapp.permission.PUSH_PROVIDER" />
+  <application android:name="crc64552a7e8708233c29.MainApplication" android:allowBackup="true" android:allowClearUserData="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:exported="true" android:extractNativeLibs="true" android:icon="@drawable/homeicon" android:label="HR BabyStore" android:requestLegacyExternalStorage="true" android:theme="@style/MainTheme" android:usesCleartextTraffic="true">
+    <provider android:name="androidx.core.content.FileProvider" android:authorities="com.BabyStore.hrapp.provider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
     </provider>
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
@@ -45,7 +45,7 @@
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
         <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-        <category android:name="com.kapps.hrapp" />
+        <category android:name="com.BabyStore.hrapp" />
       </intent-filter>
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -92,13 +92,23 @@
     <receiver android:name="crc64a0e0a82d0db9a07d.EnergySaverBroadcastReceiver" android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" />
     <receiver android:name="crc64a0e0a82d0db9a07d.ConnectivityBroadcastReceiver" android:enabled="true" android:exported="false" android:label="Essentials Connectivity Broadcast Receiver" />
     <activity android:name="crc64a0e0a82d0db9a07d.IntermediateActivity" android:configChanges="orientation|screenSize" />
-    <provider android:name="xamarin.essentials.fileProvider" android:authorities="com.kapps.hrapp.fileProvider" android:exported="false" android:grantUriPermissions="true">
+    <provider android:name="xamarin.essentials.fileProvider" android:authorities="com.BabyStore.hrapp.fileProvider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xamarin_essentials_fileprovider_file_paths" />
     </provider>
     <activity android:name="crc64a0e0a82d0db9a07d.WebAuthenticatorIntermediateActivity" android:configChanges="orientation|screenSize" />
     <receiver android:name="crc643f46942d9dd1fff9.PowerSaveModeBroadcastReceiver" android:enabled="true" android:exported="false" />
-    <provider android:name="mono.android.MultiDexLoader" android:authorities="com.kapps.hrapp.mono.android.MultiDexLoader.__mono_init__" android:exported="false" android:initOrder="1999999999" />
-    <provider android:name="mono.MonoRuntimeProvider" android:authorities="com.kapps.hrapp.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="1999999998" />
+    <provider android:name="mono.android.MultiDexLoader" android:authorities="com.BabyStore.hrapp.mono.android.MultiDexLoader.__mono_init__" android:exported="false" android:initOrder="1999999999" />
+    <provider android:name="mono.MonoRuntimeProvider" android:authorities="com.BabyStore.hrapp.mono.MonoRuntimeProvider.__mono_init__" android:exported="false" android:initOrder="1999999998" />
+    <!--
+             FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <!-- 用于判断是否集成了本lib -->
     <meta-data android:name="availableLoaded" android:value="yes" />
     <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
@@ -121,19 +131,9 @@
     <meta-data android:name="com.huawei.hms.client.service.name:base" android:value="base:6.4.0.302" />
     <!-- SDK依赖的HMSCore的最低api level元数据 -->
     <meta-data android:name="com.huawei.hms.min_api_level:base:hmscore" android:value="1" />
-    <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:authorities="com.kapps.hrapp.firebaseinitprovider" android:exported="false" android:initOrder="100" />
-    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:authorities="com.BabyStore.hrapp.firebaseinitprovider" android:exported="false" android:initOrder="100" />
     <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-    <!--
-             FirebaseMessagingService performs security checks at runtime,
-             no need for explicit permissions despite exported="true"
-        -->
-    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
-      <intent-filter android:priority="-500">
-        <action android:name="com.google.firebase.MESSAGING_EVENT" />
-      </intent-filter>
-    </service>
-    <receiver android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:directBootAware="true" android:exported="true" android:permission="com.kapps.hrapp.permission.PROCESS_PUSH_MSG">
+    <receiver android:name="com.huawei.hms.support.api.push.PushMsgReceiver" android:directBootAware="true" android:exported="true" android:permission="com.BabyStore.hrapp.permission.PROCESS_PUSH_MSG">
       <intent-filter>
         <!-- Mandatory, be used to receive notification bar message click event. -->
         <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
@@ -141,7 +141,7 @@
         <action android:name="com.huawei.intent.action.PUSH" />
       </intent-filter>
     </receiver>
-    <receiver android:name="com.huawei.hms.support.api.push.PushReceiver" android:directBootAware="true" android:exported="true" android:permission="com.kapps.hrapp.permission.PROCESS_PUSH_MSG">
+    <receiver android:name="com.huawei.hms.support.api.push.PushReceiver" android:directBootAware="true" android:exported="true" android:permission="com.BabyStore.hrapp.permission.PROCESS_PUSH_MSG">
       <intent-filter>
         <!-- Mandatory, be used to receive tokens. -->
         <action android:name="com.huawei.android.push.intent.REGISTRATION" />
@@ -156,13 +156,13 @@
         <action android:name="com.huawei.push.msg.PASSBY_MSG" />
       </intent-filter>
     </service>
-    <provider android:name="com.huawei.hms.support.api.push.PushProvider" android:authorities="com.kapps.hrapp.huawei.push.provider" android:exported="true" android:readPermission="com.kapps.hrapp.permission.PUSH_PROVIDER" android:writePermission="com.kapps.hrapp.permission.PUSH_WRITE_PROVIDER" />
+    <provider android:name="com.huawei.hms.support.api.push.PushProvider" android:authorities="com.BabyStore.hrapp.huawei.push.provider" android:exported="true" android:readPermission="com.BabyStore.hrapp.permission.PUSH_PROVIDER" android:writePermission="com.BabyStore.hrapp.permission.PUSH_WRITE_PROVIDER" />
     <meta-data android:name="com.huawei.hms.client.service.name:push" android:value="push:6.3.0.304" />
     <meta-data android:name="com.huawei.hms.min_api_level:push:push" android:value="1" />
     <activity android:name="com.huawei.hms.support.api.push.TransActivity" android:exported="false" />
-    <provider android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider" android:authorities="com.kapps.hrapp.AGCInitializeProvider" android:exported="false" />
+    <provider android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider" android:authorities="com.BabyStore.hrapp.AGCInitializeProvider" android:exported="false" />
     <service android:name="com.huawei.agconnect.core.ServiceDiscovery" android:exported="false" />
-    <provider android:name="com.huawei.hms.aaid.InitProvider" android:authorities="com.kapps.hrapp.aaidinitprovider" android:exported="false" android:initOrder="500" />
+    <provider android:name="com.huawei.hms.aaid.InitProvider" android:authorities="com.BabyStore.hrapp.aaidinitprovider" android:exported="false" android:initOrder="500" />
     <meta-data android:name="com.huawei.hms.client.service.name:opendevice" android:value="opendevice:6.3.0.304" />
     <meta-data android:name="com.huawei.hms.min_api_level:opendevice:push" android:value="1" />
   </application>

@@ -13,5 +13,11 @@ namespace HrApp.Model
         public string jsonrpc { get; set; }
         public Params @params { get; set; }
     }
+
+    public class BaseOdoModel<T>
+    {
+        public string jsonrpc { get; set; } = "2.0";
+        public T @params { get; set; }
+    }
 }
 

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8h4+eHFa++IO2A9sehcLAftuOyNYh5XfIv+s1bIkHGpFOGRkgM2YJ7VCUur3Au2q/I4znVxUmWw4oxf6jazTqA==",
-  "success": true,
+  "dgSpecHash": "ZjWDu+A90vuu5w9y4faw4n8aO5ybs1co55oOtyhyPJXms/zG5k+lEY3SpKYXfXPyXT8i40iyZuJO7s7XHWsGkw==",
+  "success": false,
   "projectFilePath": "/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp.iOS/HrApp.iOS.csproj",
   "expectedPackageFiles": [
     "/Users/youxl/.nuget/packages/aiforms.effects/1.6.11/aiforms.effects.1.6.11.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/firebasenet/1.0.1/firebasenet.1.0.1.nupkg.sha512",
     "/Users/youxl/.nuget/packages/jv.xamforms.controls.calendar/1.2.0/jv.xamforms.controls.calendar.1.2.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/microsoft.aspnetcore.connections.abstractions/5.0.6/microsoft.aspnetcore.connections.abstractions.5.0.6.nupkg.sha512",
     "/Users/youxl/.nuget/packages/microsoft.aspnetcore.http.connections.client/5.0.6/microsoft.aspnetcore.http.connections.client.5.0.6.nupkg.sha512",
@@ -58,7 +59,8 @@
     "/Users/youxl/.nuget/packages/unity.container/5.11.11/unity.container.5.11.11.nupkg.sha512",
     "/Users/youxl/.nuget/packages/vapolia.xamarin.svg.forms/4.1.0/vapolia.xamarin.svg.forms.4.1.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xam.plugins.forms.imagecircle/3.0.0.5/xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
-    "/Users/youxl/.nuget/packages/xamarin.build.download/0.10.0/xamarin.build.download.0.10.0.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/xam.plugins.forms.svg.1.0.0.27.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/xamarin.build.download/0.11.4/xamarin.build.download.0.11.4.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.communitytoolkit/2.0.4/xamarin.communitytoolkit.2.0.4.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.essentials/1.7.3/xamarin.essentials.1.7.3.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.firebase.ios.cloudmessaging/4.3.0/xamarin.firebase.ios.cloudmessaging.4.3.0.nupkg.sha512",
@@ -72,5 +74,42 @@
     "/Users/youxl/.nuget/packages/xamarin.plugin.sharedtransitions/2.4.0/xamarin.plugin.sharedtransitions.2.4.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamforms.controls.calendar/1.1.1/xamforms.controls.calendar.1.1.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x64"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

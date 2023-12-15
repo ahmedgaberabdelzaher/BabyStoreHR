@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.CustodyRequestDetailsControl">
+    <ContentView.Content>
+           <controls:DDlControl TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.PropertyAsset}" SelectedValueTxt="{Binding ProperityName}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectAssetCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+    </ContentView.Content>
+</ContentView>
+

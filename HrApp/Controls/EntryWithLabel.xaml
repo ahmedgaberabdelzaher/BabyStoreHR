@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HrApp.Controls.EntryWithLabel">
+    <ContentView.Content>
+          <Frame BackgroundColor="White" CornerRadius="5" >
+                              <StackLayout Padding="0" Margin="0">
+                                  <Label x:Name="TitleLabelTxt" FontSize="12" Style="{StaticResource TitleLabel}"></Label>
+                                  <Entry TextColor="{StaticResource PrimaryColor}" x:Name="EntryValueTxt"  FontSize="15"></Entry>
+                              </StackLayout>
+                                           <Frame.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="5"></On>
+            <On Platform="Android" Value="5,2,4,-5"/>
+
+                    </OnPlatform>
+                                        </Frame.Padding>
+                          </Frame>
+    </ContentView.Content>
+</ContentView>
+

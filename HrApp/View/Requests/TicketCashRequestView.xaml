@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
+                   FlowDirection="{Binding FlowDirection}"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.TicketCashRequestView">
+     <ContentPage.Content>
+        <Grid BackgroundColor="#F7F6F3">
+            <StackLayout>
+               <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.TicketCashRequest}" Grid.Row="0"></controls:Header>
+               <StackLayout Orientation="Horizontal" Margin="25">
+               
+                   
+                       <Frame BackgroundColor="#55CE63"  Padding="10" HeightRequest="40" IsVisible="{Binding IsShowNewRequest}" HorizontalOptions="EndAndExpand" CornerRadius="10" WidthRequest="120" >
+                           <Frame.GestureRecognizers>
+                               <TapGestureRecognizer Command="{Binding AddNewRequestCommand}"></TapGestureRecognizer>
+                           </Frame.GestureRecognizers>
+                           <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                           <Label Text="&#xf055;" FontSize="25" VerticalOptions="CenterAndExpand"  FontFamily="FontAwesome"/>
+                                <Label Text="{x:Static ResourceManager:LangaugeResource.AddNew}" FontSize="17" TextColor="White"></Label>
+                       </StackLayout>
+                   
+                   </Frame>
+               </StackLayout>
+                <CollectionView x:Name="requestLst" ItemsSource="{Binding Requests}" SelectionMode="Single" SelectionChangedCommand="{Binding GoToDetailsCommand}" SelectedItem="{Binding SelectedLeave}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <Grid Margin="20,10,20,5">
+                                    <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
+                                        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto" ColumnDefinitions="*,auto" >
+                                               <Label Text="{Binding display_name}" TextColor="{StaticResource TitleColor}" FontSize="22" Grid.Row="1" Grid.Column="0"></Label>
+                                               <controls:requeststates Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+       <StackLayout Grid.Row="2" Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2">
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.Amount}" Style="{StaticResource TitleLabel}" ></Label>
+                                            <Label  Padding="10,0,10,0"  Text="{Binding amount}" Grid.Row="3" Grid.Column="1"></Label>
+                                            </StackLayout>
+
+       <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+
+<Label Text="{x:Static ResourceManager:LangaugeResource.EmployeeName}" Style="{StaticResource TitleLabel}" ></Label>
+                                            <Label  Padding="10,0,10,0" Margin="0,-10,0,0"  Text="{Binding employee_id[1]}" Grid.Row="3" Grid.Column="1"></Label>
+                                            </StackLayout>
+                                            <StackLayout Padding="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+ <Label Text="{x:Static ResourceManager:LangaugeResource.ManagerName}" Style="{StaticResource TitleLabel}" Margin="0" ></Label>
+                                            <Label Padding="10,0,10,0" Margin="0,-10,0,0" Text="{Binding employee_manager_id[1]}" Grid.Row="4" Grid.Column="1"></Label>
+                                            </StackLayout>
+                                           
+                                            <Label Text="{Binding create_date,StringFormat='Requested on: {0:d MMM , yyyy}'}" Grid.Row="5" Grid.ColumnSpan="2"></Label>
+                                                                                                                                                                                                                                            <controls:CancelReqquestControl Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                                              
+                                                  <controls:CancelReqquestControl.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference requestLst}, Path=BindingContext.CancelRequestCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                                </controls:CancelReqquestControl.GestureRecognizers>
+                                            </controls:CancelReqquestControl>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                          <Grid Margin="20,10,20,5">
+                                    <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
+                                  <Label FontSize="21" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="No Requests Found" Grid.Row="0" Grid.Column="0"></Label>
+                                    </Frame>
+                              </Grid>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </StackLayout>
+             <Grid BackgroundColor="Gray" Opacity=".5" IsVisible="{Binding IsNewRequest}"></Grid>
+            <!-- Ticket Cash -->
+                       <Grid BackgroundColor="Transparent" IsVisible="{Binding IsNewRequest}">
+                <Frame VerticalOptions="EndAndExpand" CornerRadius="5"  Margin="0,10,0,0" Padding="10">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontFamily="Bubblegum.ttf" VerticalOptions="Center" TextColor="{StaticResource TitleColor}" FontSize="20" Text="{x:Static ResourceManager:LangaugeResource.CreateNewRequest}"></Label>
+                            <Label FontSize="25"  Text="X" HorizontalOptions="EndAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CloseNewRequestCommand}"></TapGestureRecognizer>
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+                        </StackLayout>
+                        <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.Amount}" ValueTxt="{Binding TicketAmount}"></controls:EntryWithLabel>
+
+                        <Button VerticalOptions="End" Margin="0,20,0,0" Command="{Binding SendRequestCommand}" Text="{x:Static ResourceManager:LangaugeResource.SendRequest}" Style="{StaticResource SendButton}"></Button>
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
+
+            <controls:Loader Grid.Row="0" IsVisible="{Binding IsLoading}"></controls:Loader>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
+

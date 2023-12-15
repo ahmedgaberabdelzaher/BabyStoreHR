@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YKHxblD2Va8YdE9xgAQ4O18ZtO9X3+RbaWNgor/HSep5lmjLX7uoQ8YFTssMDyAh0GMSMf8PHLHX7q5pjv8h2w==",
-  "success": true,
+  "dgSpecHash": "Zwy6EkcgqxwWt36aW3mCVDKZiUouZ/3vgaGWvuOGJBlDbGesb1IRDC+tsBj2Pb6ueNF30eHZ8fpXXiW9eb3lUQ==",
+  "success": false,
   "projectFilePath": "/Users/youxl/Public/Gaber/Gaber work/BabyStoreHRApp/HrApp.Android/HrApp.Android.csproj",
   "expectedPackageFiles": [
     "/Users/youxl/.nuget/packages/aiforms.effects/1.6.11/aiforms.effects.1.6.11.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/firebasenet/1.0.1/firebasenet.1.0.1.nupkg.sha512",
     "/Users/youxl/.nuget/packages/huawei.agconnect.agconnectcore/1.5.0.300/huawei.agconnect.agconnectcore.1.5.0.300.nupkg.sha512",
     "/Users/youxl/.nuget/packages/huawei.android.hms.securitybase/1.1.5.310/huawei.android.hms.securitybase.1.1.5.310.nupkg.sha512",
     "/Users/youxl/.nuget/packages/huawei.android.hms.securityencrypt/1.1.5.310/huawei.android.hms.securityencrypt.1.1.5.310.nupkg.sha512",
@@ -74,6 +75,7 @@
     "/Users/youxl/.nuget/packages/unity.container/5.11.11/unity.container.5.11.11.nupkg.sha512",
     "/Users/youxl/.nuget/packages/vapolia.xamarin.svg.forms/4.1.0/vapolia.xamarin.svg.forms.4.1.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xam.plugins.forms.imagecircle/3.0.0.5/xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
+    "/Users/youxl/.nuget/packages/xam.plugins.forms.svg/1.0.0.27/xam.plugins.forms.svg.1.0.0.27.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.android.arch.core.common/1.1.1.3/xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.android.arch.core.runtime/1.1.1.3/xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamarin.android.arch.lifecycle.common/1.1.1.3/xamarin.android.arch.lifecycle.common.1.1.1.3.nupkg.sha512",
@@ -181,5 +183,15 @@
     "/Users/youxl/.nuget/packages/xamarin.plugin.sharedtransitions/2.4.0/xamarin.plugin.sharedtransitions.2.4.0.nupkg.sha512",
     "/Users/youxl/.nuget/packages/xamforms.controls.calendar/1.1.1/xamforms.controls.calendar.1.1.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package FirebaseNet 1.0.1 is not compatible with monoandroid12.1 (MonoAndroid,Version=v12.1). Package FirebaseNet 1.0.1 supports:\n  - net45 (.NETFramework,Version=v4.5)\n  - net46 (.NETFramework,Version=v4.6)\n  - netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "FirebaseNet",
+      "targetGraphs": [
+        "MonoAndroid,Version=v12.1"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+        FlowDirection="{Binding FlowDirection}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False"
+    xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
+    xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.DetailsView.FinancialrequestDetail">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                            <controls:Header TitelTxt="{x:Static ResourceManager:LangaugeResource.FinancialRequest}" ></controls:Header>
+
+                <requestdetailscontrols:EmployeeDDlControl IsEnabled="False"></requestdetailscontrols:EmployeeDDlControl>
+        <requestdetailscontrols:FinancialrequestDetailControl IsEnabled="False"></requestdetailscontrols:FinancialrequestDetailControl>
+            <requestdetailscontrols:ApproveandRejectControl></requestdetailscontrols:ApproveandRejectControl>
+               </StackLayout>
+            <requestdetailscontrols:Reason_Control></requestdetailscontrols:Reason_Control>
+        <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
+    </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
+

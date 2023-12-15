@@ -1,70 +1,75 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+
     xmlns="http://xamarin.com/schemas/2014/forms" xmlns:controls="clr-namespace:HrApp.Controls"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    FlowDirection="{Binding FlowDirection}"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False"
     
     x:Class="HrApp.View.LeavesList">
     <ContentPage.Content>
         <Grid BackgroundColor="#F7F6F3">
             <StackLayout>
-                <StackLayout  Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
-                      <StackLayout.Margin>
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS" Value="0,0,0,20"></On>
-            <On Platform="Android" Value="0"/>
-
-                    </OnPlatform>
-                </StackLayout.Margin>
-                    <StackLayout Margin="5">
-                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                    <Label FontSize="20" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="{Binding leaveTypeName ,StringFormat='{0} Leave Request'}"></Label>
-                </StackLayout>
+               <controls:Header TitelTxt="{Binding leaveTypeName}" Grid.Row="0"></controls:Header>
                <StackLayout Orientation="Horizontal" Margin="25">
                
                    
-                       <Frame BackgroundColor="#00A7A3"  Padding="10" HeightRequest="40" IsVisible="{Binding IsShowNewRequest}" HorizontalOptions="EndAndExpand" CornerRadius="10" WidthRequest="120" >
+                       <Frame BackgroundColor="#55CE63"  Padding="10" HeightRequest="40" IsVisible="{Binding IsShowNewRequest}" HorizontalOptions="EndAndExpand" CornerRadius="10" WidthRequest="120" >
                            <Frame.GestureRecognizers>
-                               <TapGestureRecognizer Command="{Binding LeaveRequestCommand}"></TapGestureRecognizer>
+                               <TapGestureRecognizer Command="{Binding NewRequestCommand}"></TapGestureRecognizer>
                            </Frame.GestureRecognizers>
                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
                            <Label Text="&#xf055;" FontSize="25" VerticalOptions="CenterAndExpand"  FontFamily="FontAwesome"/>
-                                <Label Text="Add New" FontSize="17" TextColor="White"></Label>
+                                <Label Text="{x:Static ResourceManager:LangaugeResource.AddNew}" FontSize="17" TextColor="White"></Label>
                        </StackLayout>
                    
                    </Frame>
                </StackLayout>
-                <CollectionView ItemsSource="{Binding Leaves}" SelectionMode="Single" SelectionChangedCommand="{Binding GoToDetailsCommand}" SelectedItem="{Binding SelectedLeave}">
+                <CollectionView x:Name="leaves" ItemsSource="{Binding Leaves}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <ContentView>
                                 <Grid Margin="20,10,20,5">
                                     <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
-                                        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto" ColumnDefinitions="*,*" >
-                                            <Label FontSize="14" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="{Binding refNO}" Grid.Row="1" Grid.Column="0"></Label>
-                                            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalOptions="Start">
-                                                <controls:requeststates/>
-
-                                            </StackLayout>
-                                            <Label Text="{Binding leaveName}" TextColor="#63788A" FontSize="18" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"></Label>
-                                            <Grid ColumnDefinitions="auto,auto,auto,auto" Grid.Row="4" Grid.ColumnSpan="2" ColumnSpacing="3">
-                                                <Label Text="From:" TextColor="#63788A" FontSize="14" Grid.Row="0" Grid.Column="0"></Label>
-                                                <Label Text="{Binding datE_FROM,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"></Label>
-                                                <Label Text="To: " TextColor="#63788A" FontSize="14"  Grid.Row="0" Grid.Column="2"></Label>
-                                                <Label Text="{Binding datE_TO,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="3"></Label>
+                                   
+                                        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto" ColumnDefinitions="*,auto" >
+                                            <Label Text="{Binding leave_type_name}" TextColor="{StaticResource PrimaryColor}" FontSize="22" Grid.Row="1" Grid.Column="0"></Label>
+                                               <controls:requeststates Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                                            <Grid ColumnDefinitions="auto,auto,auto,auto" Grid.Row="2" Grid.ColumnSpan="2" ColumnSpacing="3">
+                                                 <Label Text="{x:Static ResourceManager:LangaugeResource.From}" TextColor="#63788A" FontSize="14"  Grid.Row="0" Grid.Column="0"></Label>
+                                                <Label Text="{Binding start_date,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="1"></Label>
+                                                <Label Text="{x:Static ResourceManager:LangaugeResource.To}" TextColor="#63788A" FontSize="14"  Grid.Row="0" Grid.Column="2"></Label>
+                                                <Label Text="{Binding end_date,StringFormat='{0:d MMM , yyyy}'}" TextColor="#B5B5C3" FontSize="14"  Grid.Row="0" Grid.Column="3"></Label>
                                             </Grid>
-                                            <Label Text="{Binding StuffFirstNameLastName }" Grid.Row="5" Grid.ColumnSpan="2"></Label>
-                                            <Label Text="{Binding department }" Grid.Row="6" Grid.ColumnSpan="2"></Label>
+                                            <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
 
-                                            <Label Text="{Binding reQ_DATE,StringFormat='Requested on: {0:d MMM , yyyy}'}" Grid.Row="7" Grid.ColumnSpan="2"></Label>
+<Label Text="{x:Static ResourceManager:LangaugeResource.EmployeeName}" Style="{StaticResource TitleLabel}" ></Label>
+                                            <Label  Padding="10,0,10,0" Margin="0,-10,0,0"  Text="{Binding employee_name}" Grid.Row="3" Grid.Column="1"></Label>
+                                            </StackLayout>
+                                            <StackLayout Padding="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+ <Label Text="{x:Static ResourceManager:LangaugeResource.ReplecementEmployee}" Style="{StaticResource TitleLabel}" Margin="0" ></Label>
+                                            <Label Padding="10,0,10,0" Margin="0,-10,0,0" Text="{Binding replacement_employee_name}" Grid.Row="4" Grid.Column="1"></Label>
+                                            </StackLayout>
+                                           
+                                            <Label Text="{Binding create_date,StringFormat='Requested on: {0:d MMM , yyyy}'}" Grid.Row="5" Grid.ColumnSpan="2"></Label>
+                                            <controls:CancelReqquestControl Grid.Row="6" Grid.Column="0" IsVisible="true" Grid.ColumnSpan="2">
+                                                <controls:CancelReqquestControl.Triggers>
+                                                    <DataTrigger TargetType="controls:CancelReqquestControl" Binding="{Binding status}" Value="waiting">
+                                                        <Setter Property="IsVisible" Value="true"></Setter>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="controls:CancelReqquestControl" Binding="{Binding status}" Value="in_progress">
+                                                        <Setter Property="IsVisible" Value="true"></Setter>
+                                                    </DataTrigger>
+                                                     <DataTrigger TargetType="controls:CancelReqquestControl" Binding="{Binding status}" Value="draft">
+                                                        <Setter Property="IsVisible" Value="true"></Setter>
+                                                    </DataTrigger>
+                                                </controls:CancelReqquestControl.Triggers>
+                                                  <controls:CancelReqquestControl.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference leaves}, Path=BindingContext.CancelRequestCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                                </controls:CancelReqquestControl.GestureRecognizers>
+                                            </controls:CancelReqquestControl>
                                         </Grid>
+
                                     </Frame>
                                 </Grid>
                             </ContentView>
@@ -73,7 +78,7 @@
                     <CollectionView.EmptyView>
                           <Grid Margin="20,10,20,5">
                                     <Frame BackgroundColor="#FFFFFF" CornerRadius="10" Padding="20">
-                                  <Label FontSize="21" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="No Requests Found" Grid.Row="0" Grid.Column="0"></Label>
+                                  <Label FontSize="21" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" TextColor="#214455" FontFamily="Poppins-Medium.ttf" Text="{x:Static ResourceManager:LangaugeResource.NoRequestsFound}"  Grid.Row="0" Grid.Column="0"></Label>
                                     </Frame>
                               </Grid>
                     </CollectionView.EmptyView>

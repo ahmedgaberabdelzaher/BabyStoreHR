@@ -1,5 +1,6 @@
 ﻿using HrApp.Model;
 using HrApp.Resources;
+using HrApp.Services.Class;
 using HrApp.Services.Interface;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
@@ -11,9 +12,12 @@ using Prism.Navigation;
 using Prism.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -26,6 +30,10 @@ namespace HrApp.ViewModel
         public string stringrequstapproved = "Request Approved";
         public string stringrequstrejected = "Request Rejected";
 
+        public Assembly SvgAssembly
+        {
+            get { Debug.WriteLine("Assembly= " + typeof(App).GetTypeInfo().Assembly); return typeof(App).GetTypeInfo().Assembly; }
+        }
         private string _newmessage = "livechaticon.png";
 
         public string newmessage
@@ -84,9 +92,9 @@ namespace HrApp.ViewModel
         bool _DaysIenbled = false;
         public bool DaysIenbled { get { return _DaysIenbled; } set { _DaysIenbled = value; RaisePropertyChanged(); } }
 
-        static StuffRecord _user;
+        static userData _user;
 
-        public StuffRecord User { get { return _user; } set { _user = value; RaisePropertyChanged(); } }
+        public userData User { get { return _user; } set { _user = value; RaisePropertyChanged(); } }
         bool isEmployee;
         public bool IsEmployee { get { return isEmployee; } set { isEmployee = value; Isreadeonly = !value; DaysIenbled = value; RaisePropertyChanged(); } }
         private bool _Isreadeonly = true;
@@ -235,9 +243,9 @@ namespace HrApp.ViewModel
             }
         }
 
-        private int _Ballance;
+        private double _Ballance;
 
-        public int Ballance
+        public double Ballance
         {
             get { return _Ballance; }
             set { _Ballance = value; RaisePropertyChanged(); }
@@ -383,7 +391,7 @@ namespace HrApp.ViewModel
                     Preferences.Clear();
                     SecureStorage.Remove("user");
                     SecureStorage.Remove("User");
-                    User = new StuffRecord { };
+                    User = new userData { };
                     Preferences.Set("FCMToken",token);
                     Preferences.Set("HCM", deviceType);
                     SecureStorage.Remove("passwerd");
@@ -428,6 +436,14 @@ namespace HrApp.ViewModel
             Console.WriteLine("ViewModel......................................" + this.GetType().Name);
         }
 
+        IUserServices _userServices;
+
+        public ViewModelBase(INavigationService navigationService, IPageDialogService dialogService,IUserServices userServices)
+        {
+            Intilize(navigationService, dialogService);
+            _userServices = userServices;
+        }
+
          public void ShowMessage(int newMessage)
         {
           //  if (newMessage == 1)
@@ -439,7 +455,7 @@ namespace HrApp.ViewModel
         {
             newmessage = "livechaticon.png";
 
-            Culture = new CultureInfo(Preferences.Get("LanguageId", "en"));
+            Culture = new CultureInfo(Preferences.Get("LanguageId", App.defaultLang));
             if (Culture.Name.Contains("ar"))
             {
                 LanguageId = "2";
@@ -462,13 +478,12 @@ namespace HrApp.ViewModel
             NavigateToOutboxCommand = new DelegateCommand(async () => { await NavigateToOutbox(); });
             NavigateToCalenderCommand = new DelegateCommand(async () => { await NavigateToCalender(); });
 
-            User = JsonConvert.DeserializeObject<StuffRecord>(Preferences.Get("User", ""));
-            Ballance = Preferences.Get("Ballance", 0);
-
-            if (User != null && !String.IsNullOrEmpty(User.photograph))
+            User = JsonConvert.DeserializeObject<userData>(Preferences.Get("User", ""));
+            if (User!=null)
             {
-                UserImage = User.photograph;
+            UserImage =!string.IsNullOrEmpty(User.image) && User.image!="false" ? User.image: "Profile";
             }
+            Ballance = Preferences.Get("Ballance", 0.0);
 
         }
 
@@ -507,6 +522,69 @@ namespace HrApp.ViewModel
         public virtual void Destroy()
         {
 
+        }
+
+
+        userData selectedEmployee;
+        public userData SelectedEmployee { get { return selectedEmployee; } set { selectedEmployee = value; RaisePropertyChanged(); } }
+        string employeeName;
+        public string EmployeeName { get { return employeeName; } set { employeeName = value; RaisePropertyChanged(); } }
+        ObservableCollection<userData> emloyeeLst = new ObservableCollection<userData>();
+        public ObservableCollection<userData> EmployeeLst { get { return emloyeeLst; } set { emloyeeLst = value; RaisePropertyChanged(); } }
+
+        public DelegateCommand SelectEmployeeCommand
+        {
+            get
+            {
+                return new DelegateCommand(async () =>
+                {
+                    IsLoading = true;
+                    if (EmployeeLst == null || EmployeeLst.Count <= 0)
+                    {
+                        EmployeeLst = await GetAllEmployee();
+                    }
+
+                    var rs = await DialogService.DisplayActionSheetAsync("Select Employee", "Cancel", "", EmployeeLst.Select(c => c.name_en).ToArray());
+                    if (rs != null && rs != "Cancel")
+                    {
+                        EmployeeName = rs;
+                        SelectedEmployee = EmployeeLst.First(c => c.name_en == rs);
+
+                    }
+                    IsLoading = false;
+                });
+            }
+        }
+        public  async Task<ObservableCollection<userData>> GetAllEmployee()
+        {
+            try
+            {
+                IsLoading = true;
+                var resp = await _userServices.GetAllEmployees();
+                if (resp.Item2)
+                {
+                    var data = resp.Item1.result.data;
+                    if (data!=null)
+                    {
+                        
+                            var emp = data.Where(c => c.employee_manager_id == User.id.ToString());
+                            EmployeeLst = new ObservableCollection<userData>(emp);
+                        
+                    }
+                    return EmployeeLst;
+                }
+                return new ObservableCollection<userData>();
+            }
+            catch (Exception ex)
+            {
+                IsLoading = false;
+                return new ObservableCollection<userData>();
+
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
     }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "586956283703",
+    "project_id": "babystorehr-42778",
+    "storage_bucket": "babystorehr-42778.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586956283703:android:c16c46b4f11464c56d84b2",
+        "android_client_info": {
+          "package_name": "com.BabyStore.hrapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586956283703-9lgv19eligd9bata01ea8pvuvb299arc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnOXFaVfR21H8gIhz3NLU5uTWyTbXQIl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586956283703-9lgv19eligd9bata01ea8pvuvb299arc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

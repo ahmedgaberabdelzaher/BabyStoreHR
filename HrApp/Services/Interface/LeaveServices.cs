@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HrApp.Model;
+using HrApp.Model.OdooModels;
 
 namespace HrApp.Services.Interface
 {
@@ -48,7 +49,9 @@ namespace HrApp.Services.Interface
 
         Task<HttpResponseMessage> ApproveStc(int LeaveId, string endpoint);
         Task<Tuple<ObservableCollection<ResumptionTypeModel>, bool, string>> GetResumptionTypes();
-
+        Task<Tuple<OdooResponse<ObservableCollection<LeaveTypesModel>>, bool, string>> GetLeaveTypes();
+        Task<HttpResponseMessage> SubmitLeaveRequest(BaseOdoModel<LeaveRequestModel> leaveRequestModel);
+        Task<Tuple<OdooResponse<ObservableCollection<LeaveRequestsModel>>, bool, string>> GeEmptLeaveRequests(BaseOdoModel<GetLeavesBody> body);
     }
 
 }

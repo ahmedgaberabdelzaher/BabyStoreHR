@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    x:Class="HrApp.View.Requests.RequestDetailsControls.ExitReEntryVisaRequestControl">
+    <ContentView.Content>
+            <StackLayout>
+                                        <Grid ColumnDefinitions="*,*">
+                                                        <Frame Grid.Row="1" Grid.Column="0"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.DateFrom}"  Margin="10,3,10,0" VerticalOptions="EndAndExpand"  Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"    HorizontalOptions="FillAndExpand"   Date="{Binding FromDate}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+                              <Frame Grid.Row="1" Grid.Column="1"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                                <StackLayout Spacing="0"   HorizontalOptions="FillAndExpand">
+                                    <Label Text="{x:Static ResourceManager:LangaugeResource.DateTo}" Margin="10,3,10,0"  VerticalOptions="EndAndExpand"  Style="{StaticResource TitleLabel}"  FontSize="12" ></Label>
+                                    <StackLayout  HorizontalOptions="FillAndExpand" >
+                                        <DatePicker HorizontalOptions="FillAndExpand"   Format="dd/MM/yyyy" IsEnabled="{Binding todatereadeonly}"  MinimumDate="{Binding MiniDateNow}" Date="{Binding TomDate}"  TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf">
+                                        <DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin>
+                                        </DatePicker>
+                                    </StackLayout>
+
+                                    <Label Text="27" IsVisible="false" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
+                              </StackLayout>
+                          </Frame>
+
+                        </Grid>
+                                      <controls:DDlControl  TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.DurationType}"  SelectedValueTxt="{Binding DurationType}">
+                                 <controls:DDlControl.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectDurationTypeCommand}"></TapGestureRecognizer>
+
+                                </controls:DDlControl.GestureRecognizers>
+
+                        </controls:DDlControl>
+               
+          <controls:EntryWithLabel TitleTxtlTxt="{x:Static ResourceManager:LangaugeResource.DurationType}"  ValueTxt="{Binding Duration}"></controls:EntryWithLabel>
+
+            </StackLayout>
+
+    </ContentView.Content>
+</ContentView>
+

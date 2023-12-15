@@ -7,42 +7,47 @@
           
                 <Ellipse    HeightRequest="10" WidthRequest="10" VerticalOptions="CenterAndExpand" Fill="#08b4fc">
                     <Ellipse.Triggers>
-                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Approved By Dept. Manager">
-                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding state}" Value="draft">
+                            <Setter Property="Fill" Value="#08b4fc"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Approved By HR Manager">
-                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding state}" Value="waiting">
+                            <Setter Property="Fill" Value="#08b4fc"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Processed By HR Officer">
-                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding state}" Value="in_progress">
+                            <Setter Property="Fill" Value="#F3C111"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Rejected By Dept. Manager">
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding state}" Value="rejected">
                             <Setter Property="Fill" Value="#f35958"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Ellipse" Binding="{Binding statusName}" Value="Rejected By HR Manager">
-                            <Setter Property="Fill" Value="#f35958"></Setter>
+                        <DataTrigger TargetType="Ellipse" Binding="{Binding state}" Value="approved">
+                            <Setter Property="Fill" Value="#55CE63"></Setter>
+                        </DataTrigger>
+                      <DataTrigger TargetType="Ellipse" Binding="{Binding state}" Value="canceled">
+                            <Setter Property="Fill" Value="#F62D51"></Setter>
                         </DataTrigger>
 
                     </Ellipse.Triggers>
                 </Ellipse>
-                <Label Text="{Binding statusName}" FontSize="14" VerticalOptions="CenterAndExpand" TextColor="#08b4fc" FontFamily="Poppins-Medium.ttf"  >
+                <Label Text="{Binding status}" FontSize="14" VerticalOptions="CenterAndExpand" TextColor="#08b4fc">
                     <Label.Triggers>
-                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Approved By Dept. Manager">
-                            <Setter Property="TextColor" Value="#55CE63"></Setter>
+                        <DataTrigger TargetType="Label" Binding="{Binding state}" Value="draft">
+                            <Setter Property="TextColor" Value="#08b4fc"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Approved By HR Manager">
-                            <Setter Property="TextColor" Value="#55CE63"></Setter>
+                        <DataTrigger TargetType="Label" Binding="{Binding state}" Value="waiting">
+                            <Setter Property="TextColor" Value="#08b4fc"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Processed By HR Officer">
-                            <Setter Property="TextColor" Value="#55CE63"></Setter>
+                        <DataTrigger TargetType="Label" Binding="{Binding state}" Value="in_progress">
+                            <Setter Property="TextColor" Value="#F3C111"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Rejected By Dept. Manager">
+                        <DataTrigger TargetType="Label" Binding="{Binding state}" Value="rejected">
                             <Setter Property="TextColor" Value="#f35958"></Setter>
                         </DataTrigger>
-                        <DataTrigger TargetType="Label" Binding="{Binding statusName}" Value="Rejected By HR Manager">
-                            <Setter Property="TextColor" Value="#f35958"></Setter>
+                        <DataTrigger TargetType="Label" Binding="{Binding state}" Value="approved">
+                            <Setter Property="TextColor" Value="#55CE63"></Setter>
                         </DataTrigger>
-
+                      <DataTrigger TargetType="Label" Binding="{Binding state}" Value="canceled">
+                            <Setter Property="TextColor" Value="#F62D51"></Setter>
+                        </DataTrigger>
 
                     </Label.Triggers>
                 </Label>

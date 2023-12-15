@@ -17,11 +17,13 @@ Huawei.Hms.Push.dll
 Huawei.Hms.Stats.dll
 Huawei.Hms.Ui.dll
 ImageCircle.Forms.Plugin.dll
+NGraphics.Android.Custom.dll
 Plugin.FirebasePushNotification.dll
 Plugin.Multilingual.dll
 Plugin.SharedTransitions.dll
 Plugin.XamarinFormsSaveOpenPDFPackage.dll
 Prism.Forms.dll
+SVG.Forms.Plugin.Android.dll
 Syncfusion.Core.XForms.Android.dll
 Syncfusion.SfBusyIndicator.Android.dll
 Syncfusion.SfBusyIndicator.XForms.Android.dll

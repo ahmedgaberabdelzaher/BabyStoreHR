@@ -1,56 +1,47 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:ResourceManager="clr-namespace:HrApp.Resources"
+    FlowDirection="{Binding FlowDirection}"
       xmlns:ef="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:HrApp.Controls" xmlns:requestdetailscontrols="clr-namespace:HrApp.View.Requests.RequestDetailsControls"
     x:Class="HrApp.View.LeaveRequest"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid BackgroundColor="#FFFFFF">
               <Grid RowDefinitions="auto,*">
-                <StackLayout Grid.Row="0" Orientation="Horizontal" BackgroundColor="#214455" HeightRequest="100">
-                    <StackLayout Margin="5">
-                        <Label Text="&#xf060;" FontSize="25" VerticalOptions="CenterAndExpand"  TextColor="#CEBFB3" Margin="25,30,11,30" FontFamily="FontAwesome">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                    <Label FontSize="16" VerticalOptions="CenterAndExpand" TextColor="#CEBFB3" FontFamily="Poppins-Bold.ttf"  Text="{Binding LeaaveTypeName,StringFormat='{0} Leave Request'}" ></Label>
-                </StackLayout>
-                  <ScrollView VerticalScrollBarVisibility="Never"  Grid.Row="1" >
-                  <StackLayout Margin="30,30,20,10">
-                        <Label  Text="Please fill in the form"  TextColor="#214455" FontSize="18" FontFamily="Poppins-SemiBold.ttf"></Label>
-                      <Grid RowDefinitions="auto,auto,auto,auto,auto" RowSpacing="15" ColumnDefinitions="*,*,auto" Margin="0,5,0,10" Padding="0">
-                      <Frame IsVisible="False" BackgroundColor="#F0F4F9" Grid.Row="0" IsEnabled="False" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,4,5,5">
-                             <Frame.Triggers>
-         <DataTrigger TargetType="Frame" Binding="{Binding LeaaveTypeCode}" Value="1">
-             <Setter Property="Grid.ColumnSpan" Value="2"></Setter>
-         </DataTrigger>
-     </Frame.Triggers>
+                <controls:Header Grid.Row="0" TitelTxt="{x:Static ResourceManager:LangaugeResource.LeaveRequests}"></controls:Header>
+                <ScrollView VerticalScrollBarVisibility="Never"  Grid.Row="1" >
+                  <StackLayout Margin="30,30,20,10" >
+                        <Label  Text="Please fill in the form"  TextColor="{StaticResource PrimaryColor}" FontSize="18" FontAttributes="Bold" FontFamily="Montserrat700"></Label>
+                      <Grid RowDefinitions="auto,auto,auto,auto,auto" IsEnabled="{Binding IsAddNew}" RowSpacing="15" ColumnDefinitions="*,*,auto" Margin="0,5,0,10" Padding="0">
+                      <Frame BackgroundColor="White" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="{StaticResource PrimaryColor}"  CornerRadius="10" Padding="10,4,10,5">
                           <Frame.GestureRecognizers>
                               <TapGestureRecognizer Command="{Binding SelectLeaveTypeCommand}"></TapGestureRecognizer>
                           </Frame.GestureRecognizers>
                           <Grid ColumnDefinitions="*,20" VerticalOptions="CenterAndExpand">
                               <StackLayout Grid.Column="0" Padding="0" Margin="0">
-                              <Label Text="Leave Type" TextColor="#B5B5C3" FontSize="12" ></Label>
-                              <Label Text="{Binding LeaaveTypeName}"  TextColor="#214455" FontFamily="Poppins-Medium.ttf" FontSize="17"></Label>
+                              <Label Text="{x:Static ResourceManager:LangaugeResource.leaveType}" TextColor="{StaticResource PrimaryColor}" Opacity=".5" FontSize="12" ></Label>
+                              <Label Text="{Binding LeaaveTypeName}"  TextColor="{StaticResource PrimaryColor}" FontSize="15"></Label>
                                   </StackLayout>
                               
-                                  <Label IsVisible="false" FontSize="15" Text="&#xf0dc;" TextColor="#214455" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontFamily="FontAwesome" Grid.Column="1"></Label>
+                                  <Label FontSize="15" Text="&#xf107;" TextColor="{StaticResource PrimaryColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontFamily="FontAwesome" Grid.Column="1"></Label>
                                   
                              
                               </Grid>
                       </Frame>
-                        
+                                                    <Frame  Grid.Row="0"  Grid.Column="2" BorderColor="Transparent" BackgroundColor="#16B562" Padding="5,10,5,5" Margin="0" HeightRequest="60" WidthRequest="90" CornerRadius="5"  HorizontalOptions="End">
+                                <StackLayout>
+                                    <Label Text="{x:Static ResourceManager:LangaugeResource.Ballence}" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="White" FontSize="13" ></Label>
+                                    <Label Text="{Binding Ballance}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="White" FontSize="22"></Label>
+                                </StackLayout>
+                            </Frame>
 
-                            <Frame Grid.Row="0" Grid.Column="0"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+
+                            <Frame Grid.Row="1" Grid.Column="0"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
                               <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
                                  
-                                  <Label Text="Date From"  VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.From}"  VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Style="{StaticResource TitleLabel}"  FontSize="12"  > </Label>
                                     <StackLayout HorizontalOptions="FillAndExpand" > 
                                         <DatePicker Format="dd/MM/yyyy"  ef:Border.On="True"  MinimumDate="{Binding MiniDateNow}"  HorizontalOptions="FillAndExpand"   Date="{Binding FromDate}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"><DatePicker.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
@@ -62,9 +53,9 @@
                                     </StackLayout>
                                 </StackLayout>
                           </Frame>
-                              <Frame Grid.Row="0" Grid.Column="1"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <Frame Grid.Row="1" Grid.Column="1"  BackgroundColor="White" Padding="0,3,0,0" CornerRadius="10" BorderColor="#E4E6EF">
                                 <StackLayout Spacing="0"   HorizontalOptions="FillAndExpand">
-                                    <Label Text="Date To"  VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                    <Label Text="{x:Static ResourceManager:LangaugeResource.To}"  VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Style="{StaticResource TitleLabel}"  FontSize="12" ></Label>
                                     <StackLayout  HorizontalOptions="FillAndExpand" >
                                         <DatePicker ef:Border.On="True" HorizontalOptions="FillAndExpand"   Format="dd/MM/yyyy" IsEnabled="{Binding todatereadeonly}"  MinimumDate="{Binding MiniDateNow}" Date="{Binding TomDate}"  TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf">
                                         <DatePicker.Margin>
@@ -80,18 +71,35 @@
                                     <Label Text="27" IsVisible="false" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="23" FontFamily="Poppins-Bold.ttf"></Label>
                               </StackLayout>
                           </Frame>
-                            <Frame Grid.Row="0" Grid.Column="2"  BackgroundColor="#F0F4F9" Padding="5,10,5,5" Margin="0" HeightRequest="40" WidthRequest="80" CornerRadius="10" BorderColor="#E4E6EF" HorizontalOptions="End">
+                            <Frame Grid.Row="1" IsVisible="false" Grid.Column="2"  BackgroundColor="#F0F4F9" Padding="5,10,5,5" Margin="0" HeightRequest="40" WidthRequest="80" CornerRadius="10" BorderColor="#E4E6EF" HorizontalOptions="End">
                                 <StackLayout HorizontalOptions="FillAndExpand">
                                   <Label Text=" Days"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="10" FontFamily="Poppins-SemiBold.ttf"></Label>
                                   <Label Text="{Binding Days}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#214455" FontSize="14" FontFamily="Poppins-Bold.ttf"></Label>
                               </StackLayout>
                             </Frame>
-                            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                                          <Frame Grid.Row="1" Grid.Column="2"  BackgroundColor="White" Padding="5,3,5,0" CornerRadius="10" BorderColor="#E4E6EF">
+                              <StackLayout Spacing="0"  HorizontalOptions="FillAndExpand">
+                                 
+                                  <Label Text="Expected Return Date"  VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Style="{StaticResource TitleLabel}" FontSize="12" ></Label>
+                                    <StackLayout HorizontalOptions="FillAndExpand" > 
+                                        <DatePicker Format="dd/MM/yyyy"  ef:Border.On="True"  MinimumDate="{Binding MiniDateNow}"  HorizontalOptions="FillAndExpand"   Date="{Binding ExpectedReturnDate}" TextColor="#214455" FontSize="12" FontFamily="Poppins-SemiBold.ttf"><DatePicker.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="30,5,0,10"></On>
+            <On Platform="Android" Value="18,0,0,0"/>
+
+                    </OnPlatform>
+                                        </DatePicker.Margin></DatePicker>
+                                    </StackLayout>
+                                </StackLayout>
+                          </Frame>
+                            
+
+                            <StackLayout Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal">
                            
-                              <Frame Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"  BackgroundColor="White"  CornerRadius="10" BorderColor="#00A7A3">
+                              <Frame Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"  BackgroundColor="White"  CornerRadius="10" >
                               <StackLayout Padding="0" Margin="0">
-                                  <Label Text="Contact No while on leave" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
-                                  <Entry TextColor="#214455" Text="{Binding PhoneNo}" Placeholder="+965 0000 0000" FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Entry>
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.ReplacementMobileNo}" FontSize="12" Style="{StaticResource TitleLabel}"></Label>
+                                  <Entry TextColor="{StaticResource PrimaryColor}" Text="{Binding PhoneNo}" Placeholder="05xxxxxxxx" FontSize="15"></Entry>
                               </StackLayout>
                                            <Frame.Padding>
                     <OnPlatform x:TypeArguments="Thickness">
@@ -101,7 +109,7 @@
                     </OnPlatform>
                                         </Frame.Padding>
                           </Frame>
-                            <Frame  IsVisible="false"   BackgroundColor="#C2E3D3" Padding="5,10,5,5" Margin="0" HeightRequest="50" WidthRequest="90" CornerRadius="10" BorderColor="#00A7A3" HorizontalOptions="End">
+                            <Frame  IsVisible="false"   BackgroundColor="#C2E3D3" Padding="5,10,5,5" Margin="0" HeightRequest="50" WidthRequest="90" CornerRadius="10"  HorizontalOptions="End">
                                 <Frame.Triggers>
                                     <DataTrigger TargetType="Frame" Binding="{Binding LeaaveTypeCode}" Value="1">
                                         <Setter Property="IsVisible" Value="true"></Setter>
@@ -114,26 +122,26 @@
                             </Frame>
                     </StackLayout>
                          
-                            <Frame Grid.Row="3" HeightRequest="60" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="10,5,4,0" CornerRadius="10" BorderColor="#00A7A3">
+                            <Frame Grid.Row="4" HeightRequest="60" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="10,5,4,0" CornerRadius="10" >
                               <StackLayout>
-                                    <Label Text="Address while on leave" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                    <Label Text="{x:Static ResourceManager:LangaugeResource.Addresswhileonleave}" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
                                   <Editor HeightRequest="90" Text="{Binding Address}" TextColor="#214455" FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Editor>
                               </StackLayout>
                           </Frame>
-                              <Frame Grid.Row="4" HeightRequest="60" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="10,5,4,0" CornerRadius="10" BorderColor="#00A7A3">
+                              <Frame Grid.Row="5" HeightRequest="60" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="White" Padding="10,5,4,0" CornerRadius="10" >
                               <StackLayout>
-                                  <Label Text="Notes" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.Note}" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
                                   <Editor Text="{Binding Note}" HeightRequest="90" TextColor="#214455" FontSize="15" FontFamily="Poppins-Mediaum.ttf"></Editor>
                               </StackLayout>
 
                           </Frame>
-                             <Frame  BackgroundColor="#F0F4F9" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,3,5,7">
+                             <Frame  BackgroundColor="#F0F4F9" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" Margin="0" BorderColor="#E4E6EF" CornerRadius="10" Padding="10,3,5,7">
                                  <Frame.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding SelectDeoitizerCommand}"></TapGestureRecognizer>
+                                     <TapGestureRecognizer Command="{Binding SelectEmployeeCommand}"></TapGestureRecognizer>
                                  </Frame.GestureRecognizers>
                                  <Grid ColumnDefinitions="*,20" VerticalOptions="CenterAndExpand">
                               <StackLayout Grid.Column="0" Padding="0" Margin="0">
-                              <Label Text="Deputized" TextColor="#B5B5C3" FontSize="12" ></Label>
+                              <Label Text="{x:Static ResourceManager:LangaugeResource.ReplecementEmployee}" TextColor="#B5B5C3" FontSize="12" ></Label>
                               <Label Text="{Binding DepitizedName}" TextColor="#214455" FontFamily="Poppins-Medium.ttf" FontSize="15"></Label>
                                   </StackLayout>
                               
@@ -143,11 +151,11 @@
                               </Grid>
                       </Frame>
  
-                          <Frame Grid.Row="5" Grid.Column="2" IsVisible="false"  BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
+                          <Frame Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" Padding="5,10,5,5" CornerRadius="10" BorderColor="#E4E6EF">
                               <StackLayout Orientation="Horizontal">
-                                  <CheckBox VerticalOptions="CenterAndExpand" IsChecked="{Binding InCashment}"></CheckBox>
+                                  <CheckBox VerticalOptions="CenterAndExpand" IsChecked="{Binding Exit_re_entry_visa}"></CheckBox>
 
-                                  <Label Text="Is Incashment"   VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
+                                  <Label Text="{x:Static ResourceManager:LangaugeResource.IsExitRentry}"   VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="#B5B5C3" FontSize="12" FontFamily="Poppins-SemiBold.ttf"></Label>
 
                               </StackLayout>
                           </Frame>
@@ -199,13 +207,19 @@
 
                                 </StackLayout>
                             </Frame>
+                             
+                            <Button Style="{StaticResource SendButton}" IsVisible="{Binding IsAddNew}" Margin="0,5,0,0" Command="{Binding SendLeaveRequestCommand}" Text="{Binding SendRequestText}">
+                             
 
-                            <Button BackgroundColor="#00A7A3" CornerRadius="8" Margin="0,5,0,0" Command="{Binding SendLeaveRequestCommand}" Text="{Binding SendRequestText}"></Button>
-                </StackLayout>
+                            </Button>
+                  <requestdetailscontrols:ApproveandRejectControl IsVisible="{Binding IsReadOnly}"> </requestdetailscontrols:ApproveandRejectControl>
+
+                        </StackLayout>
                  <Label Text="{Binding ServiceRequestNote}" HorizontalTextAlignment="Center" FontSize="12" TextColor="#B5B5C3"></Label>
                   </StackLayout>
                       </ScrollView>
                   </Grid>
+            <requestdetailscontrols:Reason_Control IsVisible="{Binding IsShowRejectionReason}"></requestdetailscontrols:Reason_Control>
           <controls:Loader IsVisible="{Binding IsLoading}"></controls:Loader>
         </Grid>
     </ContentPage.Content>
